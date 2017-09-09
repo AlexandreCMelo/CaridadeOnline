@@ -33,13 +33,8 @@ class Entity extends Eloquent
     const EMAIL = 'email';
     const PHONE = 'phone';
     const WEBSITE = 'website';
-    const TIMEZONE = 'fk_timezone';
-    const ID_COUNTRY = 'fk_country';
-    const ADDRESS = 'address';
-    const STATE = 'state';
-    const DISTRICT = 'district';
-    const CITY = 'city';
-    const ZIP_CODE = 'zip_code';
+    const ID_TIMEZONE = 'fk_timezone';
+
     const ID_LOCALE = 'fk_locale';
     const ENABLED = 'enabled';
     const ATTRIBUTES = 'attributes';

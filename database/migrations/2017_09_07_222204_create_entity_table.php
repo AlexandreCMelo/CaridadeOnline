@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Entity;
+use Charis\Country;
+use Charis\Locale;
+use Charis\Timezone;
 
 class CreateEntityTable extends Migration
 {
@@ -14,25 +17,37 @@ class CreateEntityTable extends Migration
      */
     public function up()
     {
-        Schema::create(Entity::TABLE_FULL_NAME, function (Blueprint $table) {
+        Schema::create(Entity::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Entity::ID);
+            $table->integer(Entity::ID_COUNTRY);
+            $table->string(Entity::ID_TIMEZONE, 255);
+            $table->string(Entity::ID_LOCALE, 8);
             $table->string(Entity::SRC, 64);
             $table->string(Entity::NAME);
+            $table->string(Entity::EMAIL);
             $table->text(Entity::DESCRIPTION);
             $table->text(Entity::SHORT_DESCRIPTION);
-            $table->string(Entity::EMAIL);
             $table->string(Entity::PHONE, 128);
             $table->string(Entity::WEBSITE, 255);
-            $table->string(Entity::TIMEZONE, 255);
-            $table->integer(Entity::ID_COUNTRY);
             $table->text(Entity::ADDRESS);
             $table->string(Entity::STATE);
             $table->string(Entity::DISTRICT, 128);
             $table->string(Entity::CITY, 128);
             $table->string(Entity::ZIP_CODE, 128);
-            $table->string(Entity::ID_LOCALE, 8);
             $table->softDeletes();
             $table->timestampsTz();
+
+            $table->foreign(Entity::ID_COUNTRY)
+                ->references(Country::ID)
+                ->on(Country::TABLE_NAME);
+
+            $table->foreign(Entity::ID_TIMEZONE)
+                ->references(Timezone::ID)
+                ->on(Timezone::TABLE_NAME);
+
+            $table->foreign(Entity::ID_LOCALE)
+                ->references(Locale::ID)
+                ->on(Locale::TABLE_NAME);
 
             $table->index([Entity::ID]);
         });

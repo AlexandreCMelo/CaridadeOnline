@@ -25,8 +25,8 @@ class User extends Authenticatable
     const ADDRESS = 'address';
     const ZIP_CODE = 'zipcode';
     const PHONE = 'phone';
-    const TIMEZONE_CODE = 'fk_timezone';
-    const LOCALE_CODE = 'locale';
+    const ID_TIMEZONE = 'fk_timezone';
+    const ID_LOCALE = 'fk_locale';
     const ATTRIBUTES = 'attributes';
     const DELETE_AT = 'deleted_at';
     const CREATED_AT = 'created_at';
