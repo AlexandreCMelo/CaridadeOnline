@@ -4,36 +4,27 @@ namespace Charis;
 
 use \Eloquent;
 
-class Activity extends Eloquent
+class AddressType extends Eloquent
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'activity';
+    protected $table = 'address_type';
 
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'activity';
+    const TABLE_NAME = 'address_type';
     const ID = 'id';
     const NAME = 'name';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        self::NAME,
-    ];
-
+    const DESCRIPTION = 'description';
 }

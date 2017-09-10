@@ -2,16 +2,17 @@
 
 namespace Charis;
 
-use Illuminate\Database\Eloquent\Model;
+use \Illuminate\Database\Eloquent\Relations\Pivot;
 
-class UserEntityRole extends Model
+
+class EntityRoleUser extends Pivot
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'user_entity_role';
+    protected $table = 'entity_role_user';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,8 +24,7 @@ class UserEntityRole extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'user_entity_role';
-    const ID = 'id';
+    const TABLE_NAME = 'entity_role_user';
     const ID_USER = 'fk_user';
     const ID_ROLE = 'fk_role';
     const ID_ENTITY = 'fk_entity';

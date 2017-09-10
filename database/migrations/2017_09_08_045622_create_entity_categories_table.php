@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Charis\Entity;
+use Charis\EntityCategory;
+use Charis\Category;
 
 class CreateEntityCategoriesTable extends Migration
 {
@@ -13,9 +16,18 @@ class CreateEntityCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('entity_categories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create(EntityCategory::TABLE_NAME, function (Blueprint $table) {
+            $table->integer(EntityCategory::ID_ENTITY)->unsinable();
+            $table->integer(EntityCategory::ID_CATEGORY)->unsinable();
+
+            $table->foreign(EntityCategory::ID_ENTITY)
+                ->references(Entity::ID)
+                ->on(Entity::TABLE_NAME);
+
+            $table->foreign(EntityCategory::ID_CATEGORY)
+                ->references(Category::ID)
+                ->on(Category::TABLE_NAME);
+
         });
     }
 
@@ -26,6 +38,6 @@ class CreateEntityCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entity_categories');
+        Schema::dropIfExists(EntityCategory::TABLE_NAME);
     }
 }

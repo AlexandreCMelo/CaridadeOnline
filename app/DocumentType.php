@@ -4,14 +4,14 @@ namespace Charis;
 
 use \Eloquent;
 
-class Country extends Eloquent
+class DocumentType extends Eloquent
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'country';
+    protected $table = 'document_type';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,13 +23,13 @@ class Country extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'country';
+    const TABLE_NAME = 'document_type';
     const ID = 'id';
-    const COUNTRY_NAME = 'country_name';
     const NAME = 'name';
-    const ISO_3166_CODE = 'iso3_code';
-    const NUM_CODE = 'num_code';
-    const ISO_CODE = 'iso_code';
-    const PHONE_CODE = 'phone_code';
-    const SEQ = 'seq';
+    const DESCRIPTION = 'description';
+
+    public function users()
+    {
+        return $this->belongsToMany(Document::class, Document::ID_TYPE);
+    }
 }

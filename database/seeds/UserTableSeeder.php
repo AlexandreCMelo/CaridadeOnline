@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Charis\User;
+use Charis\EntityRoleUser;
 
 class UserTableSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
+        DB::table(User::TABLE_NAME)->delete();
         factory(User::class, 100)->create();
     }
 }

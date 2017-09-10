@@ -26,4 +26,16 @@ class Category extends Eloquent
     const TABLE_NAME = 'category';
     const ID = 'id';
     const NAME = 'name';
+
+    /**
+     * Avaliable categories
+     */
+    const SOCIAL_ASSISTANCE = 10;
+    const CITIZENSHIP = 20;
+    const CULTURE_ARTS_AND_SPORT = 30;
+    const EDUCATION = 40;
+    const ENVIRONMENTAL_HEALTH = 50;
+    const HEALTH = 70;
+    const ANIMAL_HEALTH = 80;
 }
+

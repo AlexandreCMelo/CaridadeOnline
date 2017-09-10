@@ -28,4 +28,16 @@ class Target extends Eloquent
     const ID = 'id';
     const NAME = 'name';
 
+    /**
+     * Default targets
+     */
+    const ADULTS = 10;
+    const COMMUNITY = 20;
+    const CHILDREN = 30;
+    const ENVIRONMENT = 40;
+    const ELDERLY = 50;
+    const TEENAGER = 60;
+    const SPECIAL_CONDITIONS = 70;
+    const GENERAL = 80;
+
 }

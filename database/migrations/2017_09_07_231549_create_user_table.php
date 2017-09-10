@@ -7,6 +7,8 @@ use Charis\User;
 use Charis\Country;
 use Charis\Locale;
 use Charis\Timezone;
+use Charis\OwnerType;
+
 
 class CreateUserTable extends Migration
 {
@@ -20,19 +22,14 @@ class CreateUserTable extends Migration
         Schema::create(User::TABLE_NAME, function (Blueprint $table) {
 
             $table->bigIncrements(User::ID);
-            $table->bigInteger(User::SRC);
+            $table->integer(User::ID_COUNTRY)->unsigned()->nullable();;
+            $table->string(User::ID_TIMEZONE)->unsigned()->nullable();;
+            $table->string(User::ID_LOCALE, 8)->unsigned()->nullable();;
+            $table->bigInteger(User::SRC)->nullable();
             $table->string(User::NAME);
             $table->string(User::EMAIL)->unique();
             $table->string(User::PASSWORD);
-            $table->integer(User::ID_COUNTRY)->unsigned()->nullable();
-            $table->string(User::STATE)->nullable();
-            $table->string(User::CITY)->nullable();
-            $table->string(User::DISTRICT)->nullable();
-            $table->string(User::ADDRESS)->nullable();
-            $table->string(User::ZIP_CODE)->nullable();
             $table->string(User::PHONE)->nullable();
-            $table->string(User::TIMEZONE_CODE)->unsigned()->nullable();
-            $table->string(User::LOCALE_CODE, 8)->unsigned()->nullable();
             $table->jsonb(User::ATTRIBUTES)->nullable();
             $table->softDeletes();
             $table->timestampsTz();
@@ -42,13 +39,14 @@ class CreateUserTable extends Migration
                 ->references(Country::ID)
                 ->on(Country::TABLE_NAME);
 
-            $table->foreign(User::TIMEZONE_CODE)
+            $table->foreign(User::ID_TIMEZONE)
                 ->references(Timezone::ID)
                 ->on(Timezone::TABLE_NAME);
 
-            $table->foreign(User::LOCALE_CODE)
+            $table->foreign(User::ID_LOCALE)
                 ->references(Locale::ID)
                 ->on(Locale::TABLE_NAME);
+
         });
     }
 

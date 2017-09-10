@@ -26,5 +26,12 @@ class Permission extends Model
     const TABLE_NAME = 'permission';
     const ID = 'id';
     const NAME = 'name';
-    const LABEL = 'label';
+    const DESCRIPTION = 'description';
+
+    /**
+     * Permission table parameters
+     */
+    const CAN_REPLY_ENTITY_MESSAGES = 10;
+    const CAN_MANAGE_ENTITY = 20;
+    const CAN_MANAGE_SYSTEM = 210210;
 }
