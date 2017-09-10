@@ -2,30 +2,30 @@
 
 namespace Charis;
 
-use Illuminate\Database\Eloquent\Model;
+use \Eloquent;
 
-class OwnerType extends Model
+class OwnerType extends Eloquent
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'address_owner_type';
+    protected $table = 'owner_type';
 
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'address';
+    const TABLE_NAME = 'owner_type';
     const ID = 'id';
-    const name = 'name';
+    const NAME = 'name';
 
     /**
      * Owner Types

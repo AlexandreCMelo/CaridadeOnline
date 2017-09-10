@@ -16,9 +16,8 @@ class CreateEntityActivityTable extends Migration
     {
         Schema::create(EntityActivity::TABLE_NAME, function (Blueprint $table) {
             $table->increments(EntityActivity::ID);
-            $table->integer(EntityActivity::ID_ENTITY);
-            $table->integer(EntityActivity::ID_ACTIVITY);
-            $table->timestampsTz();
+            $table->integer(EntityActivity::ID_ENTITY)->unsignable();
+            $table->integer(EntityActivity::ID_ACTIVITY)->unsignable();
         });
     }
 

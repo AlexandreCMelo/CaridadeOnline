@@ -25,9 +25,9 @@ class Document extends Eloquent
      */
     const TABLE_NAME = 'document';
     const ID = 'id';
-    const VALUE = 'id_entity';
     const ID_OWNER_TYPE = 'fk_owner_type';
     const ID_OWNER = 'fk_owner';
+    const VALUE = 'value';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 

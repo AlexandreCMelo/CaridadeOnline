@@ -14,19 +14,19 @@ class User extends Authenticatable
      */
     const TABLE_NAME = 'user';
     const ID = 'id';
+    const ID_COUNTRY = 'fk_country';
+    const ID_TIMEZONE = 'fk_timezone';
+    const ID_LOCALE = 'fk_locale';
     const SRC = 'src';
     const NAME = 'name';
     const EMAIL = 'email';
     const PASSWORD = 'password';
-    const ID_COUNTRY = 'fk_country';
     const STATE = 'state';
     const CITY = 'city';
     const DISTRICT = 'district';
     const ADDRESS = 'address';
     const ZIP_CODE = 'zipcode';
     const PHONE = 'phone';
-    const ID_TIMEZONE = 'fk_timezone';
-    const ID_LOCALE = 'fk_locale';
     const ATTRIBUTES = 'attributes';
     const DELETE_AT = 'deleted_at';
     const CREATED_AT = 'created_at';

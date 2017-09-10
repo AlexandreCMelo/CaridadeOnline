@@ -2,9 +2,9 @@
 
 namespace Charis;
 
-use Illuminate\Database\Eloquent\Model;
+use \Eloquent;
 
-class UserEntityRole extends Model
+class UserEntityRole extends Eloquent
 {
     /**
      * The table associated with the model.

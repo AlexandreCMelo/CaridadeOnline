@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\UserEntityRole;
 
-class CreateUserEntityRolesTable extends Migration
+class CreateUserEntityRoleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,9 +16,9 @@ class CreateUserEntityRolesTable extends Migration
     {
         Schema::create(UserEntityRole::TABLE_NAME, function (Blueprint $table) {
             $table->increments(UserEntityRole::ID);
-            $table->integer(UserEntityRole::ID_USER);
-            $table->integer(UserEntityRole::ID_ROLE);
-            $table->integer(UserEntityRole::ID_ENTITY);
+            $table->integer(UserEntityRole::ID_USER)->unsignable();
+            $table->integer(UserEntityRole::ID_ROLE)->unsignable();
+            $table->integer(UserEntityRole::ID_ENTITY)->unsignable();
             $table->timestampsTz();
         });
     }

@@ -18,7 +18,6 @@ class CreateAddressTypeTable extends Migration
             $table->increments(AddressType::ID);
             $table->string(AddressType::NAME);
             $table->string(AddressType::DESCRIPTION);
-            $table->timestamps();
         });
     }
 

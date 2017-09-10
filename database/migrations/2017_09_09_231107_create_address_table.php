@@ -18,6 +18,8 @@ class CreateAddressTable extends Migration
         Schema::create(Address::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Address::ID);
             $table->integer(Address::ID_COUNTRY)->unsigned();
+            $table->integer(Address::ID_OWNER_TYPE)->unsigned();
+            $table->integer(Address::ID_OWNER)->unsigned();
             $table->string(Address::STATE, 128);
             $table->string(Address::CITY,128);
             $table->string(Address::DISTRICT,128);

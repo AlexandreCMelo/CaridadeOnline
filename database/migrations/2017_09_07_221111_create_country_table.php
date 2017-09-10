@@ -16,11 +16,11 @@ class CreateCountryTable extends Migration
     {
         Schema::create(Country::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Country::ID, 4);
-            $table->string(Country::ISO_3166_CODE, 4);
+            $table->string(Country::ISO_CODE, 4);
             $table->string(Country::COUNTRY_NAME, 255);
             $table->string(Country::NAME, 255);
-            $table->integer(Country::ISO_3166_CODE)->nullable();
-            $table->integer(Country::NUM_CODE)->nullable();
+            $table->string(Country::ISO_3166_CODE)->nullable();
+            $table->string(Country::NUM_CODE)->nullable();
             $table->integer(Country::PHONE_CODE)->nullable();
             $table->integer(Country::SEQ)->default('999');
         });

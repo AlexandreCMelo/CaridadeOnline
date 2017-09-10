@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Charis\DocumentType;
 
-class CreateDocumentTypesTable extends Migration
+class CreateDocumentTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +14,9 @@ class CreateDocumentTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('document_types', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create(DocumentType::TABLE_NAME, function (Blueprint $table) {
+            $table->increments(DocumentType::ID);
+            $table->string(DocumentType::NAME, 128);
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateDocumentTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('document_types');
+        Schema::dropIfExists(DocumentType::TABLE_NAME);
     }
 }

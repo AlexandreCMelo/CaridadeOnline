@@ -16,7 +16,8 @@ class CreateEntityCategoriesTable extends Migration
     {
         Schema::create(EntityCategory::TABLE_NAME, function (Blueprint $table) {
             $table->increments(EntityCategory::ID);
-            $table->string(EntityCategory::NAME);
+            $table->integer(EntityCategory::ID_ENTITY)->unsinable();
+            $table->integer(EntityCategory::ID_CATEGORY)->unsinable();
             $table->timestamps();
         });
     }

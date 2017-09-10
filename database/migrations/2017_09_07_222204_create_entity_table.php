@@ -19,9 +19,9 @@ class CreateEntityTable extends Migration
     {
         Schema::create(Entity::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Entity::ID);
-            $table->integer(Entity::ID_COUNTRY);
-            $table->string(Entity::ID_TIMEZONE, 255);
-            $table->string(Entity::ID_LOCALE, 8);
+            $table->integer(Entity::ID_COUNTRY)->unsignable();
+            $table->string(Entity::ID_TIMEZONE, 255)->unsignable();
+            $table->string(Entity::ID_LOCALE, 8)->unsignable();
             $table->string(Entity::SRC, 64);
             $table->string(Entity::NAME);
             $table->string(Entity::EMAIL);
@@ -55,6 +55,6 @@ class CreateEntityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entity');
+        Schema::dropIfExists(Entity::TABLE_NAME);
     }
 }

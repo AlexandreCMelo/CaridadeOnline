@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Permission;
 
-class CreatePermissionsTable extends Migration
+class CreatePermissionTable extends Migration
 {
     /**
      * Run the migrations.
