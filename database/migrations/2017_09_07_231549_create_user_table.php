@@ -22,9 +22,9 @@ class CreateUserTable extends Migration
         Schema::create(User::TABLE_NAME, function (Blueprint $table) {
 
             $table->bigIncrements(User::ID);
-            $table->integer(User::ID_COUNTRY)->unsigned();
-            $table->string(User::ID_TIMEZONE)->unsigned();
-            $table->string(User::ID_LOCALE, 8)->unsigned();
+            $table->integer(User::ID_COUNTRY)->unsigned()->nullable();;
+            $table->string(User::ID_TIMEZONE)->unsigned()->nullable();;
+            $table->string(User::ID_LOCALE, 8)->unsigned()->nullable();;
             $table->bigInteger(User::SRC)->nullable();
             $table->string(User::NAME);
             $table->string(User::EMAIL)->unique();

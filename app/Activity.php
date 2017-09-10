@@ -26,4 +26,14 @@ class Activity extends Eloquent
     const TABLE_NAME = 'activity';
     const ID = 'id';
     const NAME = 'name';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        self::NAME,
+    ];
+
 }

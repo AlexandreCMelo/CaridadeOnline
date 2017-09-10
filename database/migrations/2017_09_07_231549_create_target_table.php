@@ -19,6 +19,43 @@ class CreateTargetTable extends Migration
             $table->increments(Target::ID);
             $table->string(Target::NAME, 128);
         });
+
+        DB::table(Target::TABLE_NAME)->insert(
+            [
+                [
+                    Target::ID   => Target::ADULTS,
+                    Target::NAME => 'Adultos'
+                ],
+                [
+                    Target::ID   => Target::COMMUNITY,
+                    Target::NAME => 'Comunidade'
+                ],
+                [
+                    Target::ID   => Target::CHILDREN,
+                    Target::NAME => 'Crianças'
+                ],
+                [
+                    Target::ID   => Target::ENVIRONMENT,
+                    Target::NAME => 'Fauna e Flora'
+                ],
+                [
+                    Target::ID   => Target::ELDERLY,
+                    Target::NAME => 'Idosos'
+                ],
+                [
+                    Target::ID   => Target::TEENAGER,
+                    Target::NAME => 'Jovens'
+                ],
+                [
+                    Target::ID   => Target::SPECIAL_CONDITIONS,
+                    Target::NAME => 'Pessoas com deficiência'
+                ],
+                [
+                    Target::ID   => Target::GENERAL,
+                    Target::NAME => 'Público em geral'
+                ]
+            ]
+        );
     }
 
     /**

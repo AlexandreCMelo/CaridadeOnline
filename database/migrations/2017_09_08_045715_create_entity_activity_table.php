@@ -29,7 +29,9 @@ class CreateEntityActivityTable extends Migration
                 ->on(Activity::TABLE_NAME);
 
         });
+
     }
+
 
     /**
      * Reverse the migrations.
