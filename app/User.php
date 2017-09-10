@@ -4,13 +4,15 @@ namespace Charis;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
 
     /**
-     * User fields
+     * Table parameters
      */
     const TABLE_NAME = 'user';
     const ID = 'id';
@@ -41,6 +43,13 @@ class User extends Authenticatable
     protected $table = 'user';
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [self::DELETE_AT];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -52,7 +61,7 @@ class User extends Authenticatable
         self::ID_COUNTRY
     ];
 
-    /**
+    /**-
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -60,4 +69,28 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @return mixed
+     */
+    public function address(){
+        return $this->morphMany(
+            Address::class,
+                'addressable',
+            Address::OWNER_TYPE,
+            Address::ID_OWNER
+        );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function documents(){
+        return $this->morphMany(
+            Documents::class,
+                'addressable',
+            Documents::OWNER_TYPE,
+            Documents::ID_OWNER
+        );
+    }
 }

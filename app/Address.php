@@ -26,14 +26,36 @@ class Address extends Eloquent
     const TABLE_NAME = 'address';
     const ID = 'id';
     const ID_TYPE = 'fk_type';
-    const ID_OWNER_TYPE = 'fk_owner_type';
     const ID_OWNER = 'fk_owner';
+    const OWNER_TYPE = 'owner_type';
     const ID_COUNTRY = 'fk_country';
     const ADDRESS = 'address';
     const STATE = 'state';
     const DISTRICT = 'district';
     const CITY = 'city';
     const ZIP_CODE = 'zip_code';
+    const RELATION_SLUG = '1addressable';
 
+
+
+    public function users()
+    {
+        return $this->morphMany(
+            \Charis\User::class,
+            self::RELATION_SLUG,
+            self::ID_OWNER,
+            self::OWNER_TYPE
+        );
+    }
+
+    public function entitys()
+    {
+        return $this->morphMany(
+            \Charis\Entity::class,
+            self::RELATION_SLUG,
+            self::ID_OWNER,
+            self::OWNER_TYPE
+        );
+    }
 
 }

@@ -2,23 +2,12 @@
 
 namespace Charis;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use \Eloquent;
 
 class Entity extends Eloquent
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'entity';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = true;
+    use SoftDeletes;
 
     /**
      * Table parameters
@@ -40,4 +29,34 @@ class Entity extends Eloquent
     const DELETED_AT = 'deleted_at';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity';
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = true;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [self::DELETE_AT];
+
+    /**
+     * @return mixed
+     */
+    public function address(){
+        return $this->morphMany('Address', 'addressable');
+    }
+
+
 }

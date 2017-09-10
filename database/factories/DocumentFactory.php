@@ -1,9 +1,10 @@
 <?php
 
-use Charis\User;
 use Faker\Generator as Faker;
-use Faker\Provider\pt_BR\Address as BrazilAddress;
 use Faker\Provider\pt_BR\Person as BrazilPerson;
+use Charis\Document;
+
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -15,19 +16,26 @@ use Faker\Provider\pt_BR\Person as BrazilPerson;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Document::class, function (Faker $faker) {
     static $password;
 
-    $faker->addProvider(new BrazilAddress($faker));
     $faker->addProvider(new BrazilPerson($faker));
 
+    $documentTypeRg = 10;
+    $documentTypeCpf = 20;
+
+    if (rand(0, 1)) {
+        $documentType = $documentTypeRg;
+        $documentValue = $faker->rg();
+    } else {
+        $documentType = $documentTypeCpf;
+        $documentValue = $faker->cpf();
+    }
+
     return [
-        User::NAME => $faker->name,
-        User::EMAIL => $faker->unique()->email,
-        User::PASSWORD => $password ?: $password = bcrypt('secret'),
-        User::ID_COUNTRY => 30,
-        User::ID_LOCALE => 'br',
-        User::ID_TIMEZONE => 'America/Sao_Paulo',
-        User::REMEMBER_TOKEN => str_random(10),
+        Document::ID_TYPE => $documentType,
+        Document::OWNER_TYPE => 'Charis\User',
+        Document::ID_OWNER => $faker->unique()->numberBetween(1, Charis\User::count()),
+        Document::VALUE => $documentValue,
     ];
 });

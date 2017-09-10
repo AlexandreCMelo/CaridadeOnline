@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Document;
+use Charis\DocumentType;
 
 class CreateDocumentTable extends Migration
 {
@@ -16,10 +17,15 @@ class CreateDocumentTable extends Migration
     {
         Schema::create(Document::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Document::ID);
-            $table->integer(Document::ID_OWNER_TYPE)->unsigned();
+            $table->integer(Document::ID_TYPE)->unsigned();
             $table->integer(Document::ID_OWNER)->unsigned();
+            $table->string(Document::OWNER_TYPE);
             $table->string(Document::VALUE);
             $table->timestampsTz();
+
+            $table->foreign(Document::ID_TYPE)
+                ->references(DocumentType::ID)
+                ->on(DocumentType::TABLE_NAME);
         });
     }
 

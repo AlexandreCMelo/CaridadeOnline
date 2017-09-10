@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Address;
+use Charis\AddressType;
 
 class CreateAddressTable extends Migration
 {
@@ -17,15 +18,20 @@ class CreateAddressTable extends Migration
     {
         Schema::create(Address::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Address::ID);
+            $table->integer(Address::ID_TYPE)->unsigned();
             $table->integer(Address::ID_COUNTRY)->unsigned();
-            $table->integer(Address::ID_OWNER_TYPE)->unsigned();
+            $table->string(Address::OWNER_TYPE)->unsigned();
             $table->integer(Address::ID_OWNER)->unsigned();
-            $table->string(Address::STATE, 128);
-            $table->string(Address::CITY,128);
-            $table->string(Address::DISTRICT,128);
-            $table->string(Address::ZIP_CODE);
-            $table->string(Address::ADDRESS);
-            $table->timestamps();
+            $table->string(Address::STATE, 128)->nullable();
+            $table->string(Address::CITY,128)->nullable();
+            $table->string(Address::DISTRICT,128)->nullable();
+            $table->string(Address::ZIP_CODE)->nullable();
+            $table->string(Address::ADDRESS)->nullable();
+            $table->timestampsTz();
+
+            $table->foreign(Address::ID_TYPE)
+                ->references(AddressType::ID)
+                ->on(AddressType::TABLE_NAME);
         });
     }
 

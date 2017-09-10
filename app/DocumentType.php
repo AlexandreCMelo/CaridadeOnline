@@ -26,5 +26,6 @@ class DocumentType extends Eloquent
     const TABLE_NAME = 'document_type';
     const ID = 'id';
     const NAME = 'name';
+    const DESCRIPTION = 'description';
 
 }

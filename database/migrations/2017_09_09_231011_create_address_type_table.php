@@ -19,6 +19,21 @@ class CreateAddressTypeTable extends Migration
             $table->string(AddressType::NAME);
             $table->string(AddressType::DESCRIPTION);
         });
+
+        DB::table(AddressType::TABLE_NAME)->insert(
+            [
+                [
+                    AddressType::ID          => 10,
+                    AddressType::NAME        => "Home",
+                    AddressType::DESCRIPTION => "Home"
+                ],
+                [
+                    AddressType::ID          => 20,
+                    AddressType::NAME        => "Building",
+                    AddressType::DESCRIPTION => "Building"
+                ],
+            ]
+        );
     }
 
     /**

@@ -17,8 +17,24 @@ class CreateDocumentTypeTable extends Migration
         Schema::create(DocumentType::TABLE_NAME, function (Blueprint $table) {
             $table->increments(DocumentType::ID);
             $table->string(DocumentType::NAME, 128);
+            $table->string(DocumentType::DESCRIPTION);
             $table->timestamps();
         });
+
+        DB::table(DocumentType::TABLE_NAME)->insert(
+            [
+                [
+                    DocumentType::ID          => 10,
+                    DocumentType::NAME        => "RG",
+                    DocumentType::DESCRIPTION => "Brazilian main document"
+                ],
+                [
+                    DocumentType::ID          => 20,
+                    DocumentType::NAME        => "CPF",
+                    DocumentType::DESCRIPTION => "Brazilian secondary document"
+                ],
+            ]
+        );
     }
 
     /**

@@ -7,6 +7,8 @@ use Charis\User;
 use Charis\Country;
 use Charis\Locale;
 use Charis\Timezone;
+use Charis\OwnerType;
+use Charis\Address;
 
 class CreateUserTable extends Migration
 {
@@ -23,7 +25,7 @@ class CreateUserTable extends Migration
             $table->integer(User::ID_COUNTRY)->unsigned();
             $table->string(User::ID_TIMEZONE)->unsigned();
             $table->string(User::ID_LOCALE, 8)->unsigned();
-            $table->bigInteger(User::SRC);
+            $table->bigInteger(User::SRC)->nullable();
             $table->string(User::NAME);
             $table->string(User::EMAIL)->unique();
             $table->string(User::PASSWORD);
@@ -44,6 +46,7 @@ class CreateUserTable extends Migration
             $table->foreign(User::ID_LOCALE)
                 ->references(Locale::ID)
                 ->on(Locale::TABLE_NAME);
+
         });
     }
 
