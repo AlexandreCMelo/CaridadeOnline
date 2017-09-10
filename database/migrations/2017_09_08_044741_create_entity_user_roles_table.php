@@ -19,6 +19,7 @@ class CreateEntityUserRolesTable extends Migration
     public function up()
     {
         Schema::create(EntityRoleUser::TABLE_NAME, function (Blueprint $table) {
+            $table->increments(EntityRoleUser::ID);
             $table->integer(EntityRoleUser::ID_USER)->unsignable();
             $table->integer(EntityRoleUser::ID_ROLE)->unsignable();
             $table->integer(EntityRoleUser::ID_ENTITY)->unsignable();

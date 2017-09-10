@@ -25,6 +25,7 @@ class EntityRoleUser extends Pivot
      * Table parameters
      */
     const TABLE_NAME = 'entity_role_users';
+    const ID = 'id';
     const ID_USER = 'fk_user';
     const ID_ROLE = 'fk_role';
     const ID_ENTITY = 'fk_entity';
