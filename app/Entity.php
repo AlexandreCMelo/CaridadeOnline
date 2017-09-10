@@ -67,13 +67,6 @@ class Entity extends Eloquent
         return $this->hasMany(Target::class);
     }
 
-    /**
-     * Get entity activities collection
-     */
-    public function activities()
-    {
-        return $this->hasMany(Activity::class);
-    }
 
     /**
      * Get entity category collection

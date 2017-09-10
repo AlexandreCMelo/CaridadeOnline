@@ -17,6 +17,7 @@ class CreateEntityTargetsTable extends Migration
     public function up()
     {
         Schema::create(EntityTarget::TABLE_NAME, function (Blueprint $table) {
+            $table->increments(EntityTarget::ID);
             $table->integer(EntityTarget::ID_ENTITY);
             $table->integer(EntityTarget::ID_TARGET);
 

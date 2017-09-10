@@ -1,11 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\Entity;
 use Charis\EntityTarget;
-use Charis\EntityActivity;
 
-class EntityTableSeeder extends Seeder
+class EntityTargetsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +12,7 @@ class EntityTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table(Entity::TABLE_NAME)->delete();
-        factory(Entity::class, 100)->create();
+        EntityTarget::truncate();
+        factory(EntityTarget::class, 100)->create();
     }
 }

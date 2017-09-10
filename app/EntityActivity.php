@@ -24,6 +24,7 @@ class EntityActivity extends Pivot
      * Table parameters
      */
     const TABLE_NAME = 'entity_activities';
+    const ID = 'id';
     const ID_ENTITY = 'fk_entity';
     const ID_ACTIVITY = 'fk_activity';
 

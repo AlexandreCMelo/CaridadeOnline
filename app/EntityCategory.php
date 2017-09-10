@@ -24,6 +24,7 @@ class EntityCategory extends Pivot
      * Table parameters
      */
     const TABLE_NAME = 'entity_categories';
+    const ID = 'id';
     const ID_ENTITY = 'fk_entity';
     const ID_CATEGORY = 'fk_category';
 

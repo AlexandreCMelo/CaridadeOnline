@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
         $this->call(AddressTableSeeder::class);
         $this->call(DocumentTableSeeder::class);
         $this->call(EntityTableSeeder::class);
+        $this->call(EntityActivitiesTableSeeder::class);
+        $this->call(EntityCategoriesTableSeeder::class);
+        $this->call(EntityTargetsTableSeeder::class);
 
     }
 }
