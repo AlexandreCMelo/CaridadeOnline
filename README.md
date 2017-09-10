@@ -5,6 +5,9 @@
 
 CaridadeOnline is a laravel-LTS-powered, cloud-enabled, mobile-ready, API compliant, PHP 7 project made to help charitable entitys in Brazil
 
+# Installation
+> composer require alexandre-cmelo/caridade-online
+
 # Features!
 
   - Get information about nearby Entitys
