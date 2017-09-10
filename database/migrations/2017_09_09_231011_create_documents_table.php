@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Charis\Document;
 use Charis\DocumentType;
 
-class CreateDocumentTable extends Migration
+class CreateDocumentsTable extends Migration
 {
     /**
      * Run the migrations.

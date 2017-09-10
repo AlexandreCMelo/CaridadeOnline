@@ -1,8 +1,10 @@
 <?php
 
 use Charis\Entity;
+use Charis\EntityActivity;
 use Faker\Generator as Faker;
 use Faker\Provider\pt_BR\Company as BrazilCompany;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -14,19 +16,18 @@ use Faker\Provider\pt_BR\Company as BrazilCompany;
 |
 */
 
-$factory->define(Entity::class, function (Faker $faker) {
+$entityId = $factory->define(Entity::class, function (Faker $faker) {
 
     $faker->addProvider(new BrazilCompany($faker));
 
     return [
-        Entity::NAME => $faker->company,
-        Entity::EMAIL => $faker->unique()->email,
-        Entity::ID_COUNTRY => 30,
-        Entity::ID_LOCALE => 'br',
+        Entity::NAME        => $faker->company,
+        Entity::EMAIL       => $faker->unique()->email,
+        Entity::ID_COUNTRY  => 30,
+        Entity::ID_LOCALE   => 'br',
         Entity::ID_TIMEZONE => 'America/Sao_Paulo',
-        Entity::WEBSITE => 'www.dfa.com.br',
+        Entity::WEBSITE     => 'www.dfa.com.br',
         Entity::DESCRIPTION => 'Sim claro',
     ];
 });
-
 

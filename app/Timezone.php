@@ -11,7 +11,7 @@ class Timezone extends Eloquent
      *
      * @var string
      */
-    protected $table = 'timezone';
+    protected $table = 'timezones';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class Timezone extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'timezone';
+    const TABLE_NAME = 'timezones';
     const ID = 'id';
     const COUNTRY_CODE = 'country_code';
     const COORDINATES = 'coordinates';

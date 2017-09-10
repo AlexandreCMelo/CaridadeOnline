@@ -11,7 +11,7 @@ class EntityActivity extends Pivot
      *
      * @var string
      */
-    protected $table = 'entity_activity';
+    protected $table = 'entity_activities';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class EntityActivity extends Pivot
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'entity_activity';
+    const TABLE_NAME = 'entity_activities';
     const ID_ENTITY = 'fk_entity';
     const ID_ACTIVITY = 'fk_activity';
 

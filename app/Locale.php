@@ -11,7 +11,7 @@ class Locale extends Eloquent
      *
      * @var string
      */
-    protected $table = 'locale';
+    protected $table = 'locales';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class Locale extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'locale';
+    const TABLE_NAME = 'locales';
     const ID = 'id';
     const CODE = 'code';
     const NAME = 'name';

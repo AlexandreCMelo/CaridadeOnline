@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Charis\Address;
 use Charis\AddressType;
 
-class CreateAddressTable extends Migration
+class CreateAddressesTable extends Migration
 {
 
     /**

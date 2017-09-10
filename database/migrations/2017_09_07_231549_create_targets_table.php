@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Charis\Target;
 use Charis\EntityTarget;
 
-class CreateTargetTable extends Migration
+class CreateTargetsTable extends Migration
 {
     /**
      * Run the migrations.

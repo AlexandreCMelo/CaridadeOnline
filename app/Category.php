@@ -11,7 +11,7 @@ class Category extends Eloquent
      *
      * @var string
      */
-    protected $table = 'category';
+    protected $table = 'categories';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class Category extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'category';
+    const TABLE_NAME = 'categories';
     const ID = 'id';
     const NAME = 'name';
 

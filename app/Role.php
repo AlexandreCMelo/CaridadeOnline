@@ -11,7 +11,7 @@ class Role extends Eloquent
      *
      * @var string
      */
-    protected $table = 'role';
+    protected $table = 'roles';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class Role extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'role';
+    const TABLE_NAME = 'roles';
     const ID = 'id';
     const NAME = 'name';
     const LABEL = 'label';

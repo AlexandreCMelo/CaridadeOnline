@@ -11,7 +11,7 @@ class AddressType extends Eloquent
      *
      * @var string
      */
-    protected $table = 'address_type';
+    protected $table = 'address_types';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class AddressType extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'address_type';
+    const TABLE_NAME = 'address_types';
     const ID = 'id';
     const NAME = 'name';
     const DESCRIPTION = 'description';

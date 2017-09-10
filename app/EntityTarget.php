@@ -11,7 +11,7 @@ class EntityTarget extends Eloquent
      *
      * @var string
      */
-    protected $table = 'entity_target';
+    protected $table = 'entity_targets';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class EntityTarget extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'entity_target';
+    const TABLE_NAME = 'entity_targets';
     const ID_ENTITY = 'fk_entity';
     const ID_TARGET = 'fk_target';
 

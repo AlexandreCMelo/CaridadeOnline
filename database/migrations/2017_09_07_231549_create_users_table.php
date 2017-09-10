@@ -10,7 +10,7 @@ use Charis\Timezone;
 use Charis\OwnerType;
 
 
-class CreateUserTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.

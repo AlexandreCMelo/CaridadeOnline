@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\AddressType;
 
-class CreateAddressTypeTable extends Migration
+class CreateAddressTypesTable extends Migration
 {
     /**
      * Run the migrations.

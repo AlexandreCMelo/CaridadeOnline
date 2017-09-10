@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Activity;
 
-class CreateActivityTable extends Migration
+class CreateActivitiesTable extends Migration
 {
     /**
      * Run the migrations.

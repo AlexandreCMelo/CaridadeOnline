@@ -11,7 +11,7 @@ class Permission extends Model
      *
      * @var string
      */
-    protected $table = 'permission';
+    protected $table = 'permissions';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class Permission extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'permission';
+    const TABLE_NAME = 'permissions';
     const ID = 'id';
     const NAME = 'name';
     const DESCRIPTION = 'description';

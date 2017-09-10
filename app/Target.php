@@ -12,7 +12,7 @@ class Target extends Eloquent
      *
      * @var string
      */
-    protected $table = 'target';
+    protected $table = 'targets';
 
     /**
      * Indicates if the model should be timestamped.
@@ -24,7 +24,7 @@ class Target extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'target';
+    const TABLE_NAME = 'targets';
     const ID = 'id';
     const NAME = 'name';
 

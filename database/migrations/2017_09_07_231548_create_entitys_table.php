@@ -8,7 +8,7 @@ use Charis\Country;
 use Charis\Locale;
 use Charis\Timezone;
 
-class CreateEntityTable extends Migration
+class CreateEntitysTable extends Migration
 {
     /**
      * Run the migrations.

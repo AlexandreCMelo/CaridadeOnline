@@ -13,6 +13,6 @@ class AddressTableSeeder extends Seeder
     public function run()
     {
         Address::truncate();
-        factory(Address::class, 100)->create();
+        factory(Address::class, 200)->create();
     }
 }

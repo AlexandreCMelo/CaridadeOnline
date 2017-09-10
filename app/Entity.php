@@ -12,7 +12,7 @@ class Entity extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'entity';
+    const TABLE_NAME = 'entitys';
     const ID_COUNTRY = 'fk_country';
     const ID_TIMEZONE = 'fk_timezone';
     const ID_LOCALE = 'fk_locale';
@@ -35,7 +35,7 @@ class Entity extends Eloquent
      *
      * @var string
      */
-    protected $table = 'entity';
+    protected $table = 'entitys';
 
     /**
      * Indicates if the model should be timestamped.

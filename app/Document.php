@@ -11,7 +11,7 @@ class Document extends Eloquent
      *
      * @var string
      */
-    protected $table = 'document';
+    protected $table = 'documents';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class Document extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'document';
+    const TABLE_NAME = 'documents';
     const ID = 'id';
     const ID_TYPE = 'fk_type';
     const ID_OWNER = 'fk_owner';

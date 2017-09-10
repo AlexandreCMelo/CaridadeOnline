@@ -11,7 +11,7 @@ class EntityCategory extends Pivot
      *
      * @var string
      */
-    protected $table = 'entity_category';
+    protected $table = 'entity_categories';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class EntityCategory extends Pivot
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'entity_category';
+    const TABLE_NAME = 'entity_categories';
     const ID_ENTITY = 'fk_entity';
     const ID_CATEGORY = 'fk_category';
 

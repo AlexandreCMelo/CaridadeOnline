@@ -12,7 +12,7 @@ class EntityRoleUser extends Pivot
      *
      * @var string
      */
-    protected $table = 'entity_role_user';
+    protected $table = 'entity_role_users';
 
     /**
      * Indicates if the model should be timestamped.
@@ -24,7 +24,7 @@ class EntityRoleUser extends Pivot
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'entity_role_user';
+    const TABLE_NAME = 'entity_role_users';
     const ID_USER = 'fk_user';
     const ID_ROLE = 'fk_role';
     const ID_ENTITY = 'fk_entity';

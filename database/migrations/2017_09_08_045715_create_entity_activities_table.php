@@ -7,7 +7,7 @@ use Charis\Entity;
 use Charis\EntityActivity;
 use Charis\Activity;
 
-class CreateEntityActivityTable extends Migration
+class CreateEntityActivitiesTable extends Migration
 {
     /**
      * Run the migrations.

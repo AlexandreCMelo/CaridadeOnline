@@ -9,7 +9,7 @@ use Charis\EntityRoleUser;
 use Charis\Entity;
 
 
-class CreateEntityUserRoleTable extends Migration
+class CreateEntityUserRolesTable extends Migration
 {
     /**
      * Run the migrations.

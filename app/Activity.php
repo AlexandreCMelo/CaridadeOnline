@@ -11,7 +11,7 @@ class Activity extends Eloquent
      *
      * @var string
      */
-    protected $table = 'activity';
+    protected $table = 'activities';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,7 +23,7 @@ class Activity extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'activity';
+    const TABLE_NAME = 'activities';
     const ID = 'id';
     const NAME = 'name';
 

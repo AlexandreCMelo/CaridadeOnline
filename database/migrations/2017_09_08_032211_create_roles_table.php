@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Role;
 
-class CreateRoleTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * The most powerful flower set in secret

@@ -7,7 +7,7 @@ use Charis\Entity;
 use Charis\EntityTarget;
 use Charis\Target;
 
-class CreateEntityTargetTable extends Migration
+class CreateEntityTargetsTable extends Migration
 {
     /**
      * Run the migrations.
