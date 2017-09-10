@@ -34,23 +34,41 @@ class Document extends Eloquent
     const RELATION_SLUG = 'addressable';
 
 
+    /**
+     * @return mixed
+     */
     public function users()
     {
         return $this->morphMany(
-            \Charis\User::class,
+            User::class,
             self::RELATION_SLUG,
             self::ID_OWNER,
             self::OWNER_TYPE
         );
     }
 
+    /**
+     * @return mixed
+     */
     public function entitys()
     {
         return $this->morphMany(
-            \Charis\Entity::class,
+            Entity::class,
             self::RELATION_SLUG,
             self::ID_OWNER,
             self::OWNER_TYPE
+        );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function type()
+    {
+        return $this->hasOne(
+            DocumentType::class,
+            DocumentType::ID,
+            self::ID_TYPE
         );
     }
 }

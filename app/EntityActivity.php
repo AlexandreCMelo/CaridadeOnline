@@ -24,7 +24,6 @@ class EntityActivity extends Eloquent
      * Table parameters
      */
     const TABLE_NAME = 'entity_activity';
-    const ID = 'id';
     const ID_ENTITY = 'fk_entity';
     const ID_ACTIVITY = 'fk_activity';
 }

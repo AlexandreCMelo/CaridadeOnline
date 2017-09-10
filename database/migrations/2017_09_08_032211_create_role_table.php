@@ -21,7 +21,6 @@ class CreateRoleTable extends Migration
             $table->string(Role::LABEL);
         });
 
-
         DB::table(Role::TABLE_NAME)->insert(
             [
                 [

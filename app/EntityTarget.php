@@ -24,7 +24,6 @@ class EntityTarget extends Eloquent
      * Table parameters
      */
     const TABLE_NAME = 'entity_target';
-    const ID = 'id';
     const ID_ENTITY = 'fk_entity';
     const ID_TARGET = 'fk_target';
 

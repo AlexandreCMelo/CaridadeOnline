@@ -18,6 +18,7 @@ class CreateActivityTable extends Migration
             $table->increments(Activity::ID);
             $table->string(Activity::NAME);
         });
+
     }
 
     /**

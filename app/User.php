@@ -87,10 +87,10 @@ class User extends Authenticatable
      */
     public function documents(){
         return $this->morphMany(
-            Documents::class,
+            Document::class,
                 'addressable',
-            Documents::OWNER_TYPE,
-            Documents::ID_OWNER
+            Document::OWNER_TYPE,
+            Document::ID_OWNER
         );
     }
 }

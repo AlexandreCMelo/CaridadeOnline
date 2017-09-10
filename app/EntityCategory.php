@@ -24,7 +24,6 @@ class EntityCategory extends Eloquent
      * Table parameters
      */
     const TABLE_NAME = 'entity_category';
-    const ID = 'id';
     const ID_ENTITY = 'fk_entity';
     const ID_CATEGORY = 'fk_category';
 

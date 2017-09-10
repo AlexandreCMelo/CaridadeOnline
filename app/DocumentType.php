@@ -28,4 +28,8 @@ class DocumentType extends Eloquent
     const NAME = 'name';
     const DESCRIPTION = 'description';
 
+    public function users()
+    {
+        return $this->belongsToMany(Document::class, Document::ID_TYPE);
+    }
 }

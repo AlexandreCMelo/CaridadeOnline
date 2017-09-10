@@ -15,7 +15,7 @@ class CreateCountryTable extends Migration
     public function up()
     {
         Schema::create(Country::TABLE_NAME, function (Blueprint $table) {
-            $table->increments(Country::ID, 4);
+            $table->increments(Country::ID);
             $table->string(Country::ISO_CODE, 4);
             $table->string(Country::COUNTRY_NAME, 255);
             $table->string(Country::NAME, 255);

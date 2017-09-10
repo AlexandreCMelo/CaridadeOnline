@@ -17,7 +17,6 @@ use Charis\Address;
 */
 
 $factory->define(Address::class, function (Faker $faker) {
-    static $password;
 
     $faker->addProvider(new BrazilAddress($faker));
 

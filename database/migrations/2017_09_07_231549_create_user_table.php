@@ -8,7 +8,7 @@ use Charis\Country;
 use Charis\Locale;
 use Charis\Timezone;
 use Charis\OwnerType;
-use Charis\Address;
+
 
 class CreateUserTable extends Migration
 {

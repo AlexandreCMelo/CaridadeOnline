@@ -34,7 +34,7 @@ class Address extends Eloquent
     const DISTRICT = 'district';
     const CITY = 'city';
     const ZIP_CODE = 'zip_code';
-    const RELATION_SLUG = '1addressable';
+    const RELATION_SLUG = 'addressable';
 
 
 

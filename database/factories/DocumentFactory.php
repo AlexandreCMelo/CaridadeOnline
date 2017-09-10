@@ -35,7 +35,7 @@ $factory->define(Document::class, function (Faker $faker) {
     return [
         Document::ID_TYPE => $documentType,
         Document::OWNER_TYPE => 'Charis\User',
-        Document::ID_OWNER => $faker->unique()->numberBetween(1, Charis\User::count()),
+        Document::ID_OWNER => $faker->numberBetween(1, Charis\User::count()),
         Document::VALUE => $documentValue,
     ];
 });
