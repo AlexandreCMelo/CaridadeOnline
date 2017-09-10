@@ -27,11 +27,6 @@ class CreateUserTable extends Migration
             $table->string(User::NAME);
             $table->string(User::EMAIL)->unique();
             $table->string(User::PASSWORD);
-            $table->string(User::STATE)->nullable();
-            $table->string(User::CITY)->nullable();
-            $table->string(User::DISTRICT)->nullable();
-            $table->string(User::ADDRESS)->nullable();
-            $table->string(User::ZIP_CODE)->nullable();
             $table->string(User::PHONE)->nullable();
             $table->jsonb(User::ATTRIBUTES)->nullable();
             $table->softDeletes();

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEntityAddressesTable extends Migration
+class CreateAddressOwnerTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEntityAddressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('entity_addresses', function (Blueprint $table) {
+        Schema::create('owner_type', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateEntityAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entity_addresses');
+        Schema::dropIfExists('owner_type');
     }
 }

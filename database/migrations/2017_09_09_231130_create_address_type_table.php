@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Charis\AddressType;
 
-class CreateAddressTypesTable extends Migration
+class CreateAddressTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +14,10 @@ class CreateAddressTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('address_types', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create(AddressType::TABLE_NAME, function (Blueprint $table) {
+            $table->increments(AddressType::ID);
+            $table->string(AddressType::NAME);
+            $table->string(AddressType::DESCRIPTION);
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateAddressTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_types');
+        Schema::dropIfExists(AddressType::TABLE_NAME);
     }
 }

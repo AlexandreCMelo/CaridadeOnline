@@ -7,9 +7,6 @@ use Charis\Timezone;
 
 class CreateTimezoneTable extends Migration
 {
-
-
-
     /**
      * Run the migrations.
      *
@@ -29,9 +26,7 @@ class CreateTimezoneTable extends Migration
         });
 
         $this->insertTimezones();
-
     }
-
 
     /**
      * Reverse the migrations.
@@ -42,7 +37,6 @@ class CreateTimezoneTable extends Migration
     {
         Schema::dropIfExists(Timezone::TABLE_NAME);
     }
-
 
     /**
      * @see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones

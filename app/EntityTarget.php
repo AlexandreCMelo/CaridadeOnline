@@ -6,7 +6,6 @@ use \Eloquent;
 
 class EntityTarget extends Eloquent
 {
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +18,7 @@ class EntityTarget extends Eloquent
      *
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /**
      * Table parameters
@@ -27,9 +26,7 @@ class EntityTarget extends Eloquent
     const TABLE_NAME = 'entity_target';
     const ID = 'id';
     const ID_ENTITY = 'id_entity';
-    const ID_ACTIVITY = 'id_target';
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
+    const ID_TARGET = 'id_target';
 
 
 }

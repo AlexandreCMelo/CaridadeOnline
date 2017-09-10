@@ -29,11 +29,6 @@ class CreateEntityTable extends Migration
             $table->text(Entity::SHORT_DESCRIPTION);
             $table->string(Entity::PHONE, 128);
             $table->string(Entity::WEBSITE, 255);
-            $table->text(Entity::ADDRESS);
-            $table->string(Entity::STATE);
-            $table->string(Entity::DISTRICT, 128);
-            $table->string(Entity::CITY, 128);
-            $table->string(Entity::ZIP_CODE, 128);
             $table->softDeletes();
             $table->timestampsTz();
 

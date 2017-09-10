@@ -4,14 +4,14 @@ namespace Charis;
 
 use \Eloquent;
 
-class AddressType extends Eloquent
+class Document extends Eloquent
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'address_type';
+    protected $table = 'document';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,8 +23,12 @@ class AddressType extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'address_type';
+    const TABLE_NAME = 'document';
     const ID = 'id';
-    const NAME = 'name';
-    const DESCRIPTION = 'description';
+    const VALUE = 'id_entity';
+    const ID_OWNER_TYPE = 'fk_owner_type';
+    const ID_OWNER = 'fk_owner';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+
 }

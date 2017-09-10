@@ -6,7 +6,6 @@ use \Eloquent;
 
 class Entity extends Eloquent
 {
-
     /**
      * The table associated with the model.
      *
@@ -19,12 +18,15 @@ class Entity extends Eloquent
      *
      * @var bool
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * Table parameters
      */
     const TABLE_NAME = 'entity';
+    const ID_COUNTRY = 'fk_country';
+    const ID_TIMEZONE = 'fk_timezone';
+    const ID_LOCALE = 'fk_locale';
     const ID = 'id';
     const SRC = 'src';
     const NAME = 'name';
@@ -33,9 +35,6 @@ class Entity extends Eloquent
     const EMAIL = 'email';
     const PHONE = 'phone';
     const WEBSITE = 'website';
-    const ID_TIMEZONE = 'fk_timezone';
-
-    const ID_LOCALE = 'fk_locale';
     const ENABLED = 'enabled';
     const ATTRIBUTES = 'attributes';
     const DELETED_AT = 'deleted_at';

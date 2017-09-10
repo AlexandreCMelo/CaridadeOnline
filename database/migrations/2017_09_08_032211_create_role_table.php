@@ -8,6 +8,7 @@ use Charis\Role;
 class CreateRoleTable extends Migration
 {
     /**
+     * The most powerful flower set in secret
      * Run the migrations.
      *
      * @return void

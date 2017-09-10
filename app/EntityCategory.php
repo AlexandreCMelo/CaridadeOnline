@@ -6,7 +6,6 @@ use \Eloquent;
 
 class EntityCategory extends Eloquent
 {
-
     /**
      * The table associated with the model.
      *
@@ -19,17 +18,14 @@ class EntityCategory extends Eloquent
      *
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'entity_activity';
+    const TABLE_NAME = 'entity_category';
     const ID = 'id';
-    const ID_ENTITY = 'id_entity';
-    const ID_ACTIVITY = 'id_category';
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
+    const NAME = 'id_entity';
 
 
 }

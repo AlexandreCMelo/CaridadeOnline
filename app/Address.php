@@ -6,7 +6,6 @@ use \Eloquent;
 
 class Address extends Eloquent
 {
-
     /**
      * The table associated with the model.
      *
@@ -24,7 +23,11 @@ class Address extends Eloquent
     /**
      * Table parameters
      */
+    const TABLE_NAME = 'address';
     const ID = 'id';
+    const ID_TYPE = 'fk_type';
+    const ID_OWNER_TYPE = 'fk_owner_type';
+    const ID_OWNER = 'fk_owner';
     const ID_COUNTRY = 'fk_country';
     const ADDRESS = 'address';
     const STATE = 'state';

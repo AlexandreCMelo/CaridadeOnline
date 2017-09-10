@@ -18,15 +18,13 @@ class EntityActivity extends Eloquent
      *
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /**
      * Table parameters
      */
     const TABLE_NAME = 'entity_activity';
     const ID = 'id';
-    const ID_ENTITY = 'id_entity';
+    const NAME = 'id_entity';
     const ID_ACTIVITY = 'id_activity';
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
 }
