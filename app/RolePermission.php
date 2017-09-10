@@ -2,9 +2,9 @@
 
 namespace Charis;
 
-use \Eloquent;
+use \Illuminate\Database\Eloquent\Relations\Pivot;
 
-class RolePermission extends Eloquent
+class RolePermission extends Pivot
 {
     /**
      * The table associated with the model.
@@ -24,7 +24,6 @@ class RolePermission extends Eloquent
      * Table parameters
      */
     const TABLE_NAME = 'role_permission';
-    const ID = 'id';
     const ID_ROLE = 'fk_role';
     const ID_PERMISSION = 'fk_permission';
 

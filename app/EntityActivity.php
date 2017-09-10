@@ -2,9 +2,9 @@
 
 namespace Charis;
 
-use \Eloquent;
+use \Illuminate\Database\Eloquent\Relations\Pivot;
 
-class EntityActivity extends Eloquent
+class EntityActivity extends Pivot
 {
     /**
      * The table associated with the model.
@@ -26,4 +26,6 @@ class EntityActivity extends Eloquent
     const TABLE_NAME = 'entity_activity';
     const ID_ENTITY = 'fk_entity';
     const ID_ACTIVITY = 'fk_activity';
+
+
 }

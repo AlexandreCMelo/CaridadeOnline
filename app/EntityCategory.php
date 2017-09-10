@@ -2,9 +2,9 @@
 
 namespace Charis;
 
-use \Eloquent;
+use \Illuminate\Database\Eloquent\Relations\Pivot;
 
-class EntityCategory extends Eloquent
+class EntityCategory extends Pivot
 {
     /**
      * The table associated with the model.

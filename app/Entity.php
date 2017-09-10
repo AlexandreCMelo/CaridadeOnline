@@ -49,14 +49,48 @@ class Entity extends Eloquent
      *
      * @var array
      */
-    protected $dates = [self::DELETE_AT];
+    protected $dates = [self::DELETED_AT];
 
     /**
+     * Get entity address collection
      * @return mixed
      */
     public function address(){
         return $this->morphMany('Address', 'addressable');
     }
+
+    /**
+     * Get entity target collection
+     */
+    public function targets()
+    {
+        return $this->hasMany(Target::class);
+    }
+
+    /**
+     * Get entity activities collection
+     */
+    public function activities()
+    {
+        return $this->hasMany(Activity::class);
+    }
+
+    /**
+     * Get entity category collection
+     */
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    /**
+     * Get entity category collection
+     */
+    public function roles()
+    {
+        return $this->hasMany(Role::class);
+    }
+
 
 
 }

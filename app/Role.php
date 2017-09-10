@@ -37,8 +37,13 @@ class Role extends Eloquent
     const ID_ADMIN = 210210;
 
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->using(EntityRoleUser::class);
+    }
+
     public function permissions()
     {
-        return $this->hasMany(Document::class, Document::ID_TYPE);
+        return $this->belongsToMany(Permission::class);
     }
 }
