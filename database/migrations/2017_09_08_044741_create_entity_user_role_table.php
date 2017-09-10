@@ -27,7 +27,7 @@ class CreateEntityUserRoleTable extends Migration
 
             $table->foreign(EntityRoleUser::ID_USER)
                 ->references(User::ID)
-                ->on(User::TABLE_NAME);
+                ->on(User::TABLE_NAME)->onDelete('cascade');
 
             $table->foreign(EntityRoleUser::ID_ROLE)
                 ->references(Role::ID)

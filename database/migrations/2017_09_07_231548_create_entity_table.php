@@ -19,16 +19,16 @@ class CreateEntityTable extends Migration
     {
         Schema::create(Entity::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Entity::ID);
-            $table->integer(Entity::ID_COUNTRY)->unsignable();
-            $table->string(Entity::ID_TIMEZONE, 255)->unsignable();
-            $table->string(Entity::ID_LOCALE, 8)->unsignable();
-            $table->string(Entity::SRC, 64);
+            $table->integer(Entity::ID_COUNTRY)->unsignable()->nullable();
+            $table->string(Entity::ID_TIMEZONE, 255)->unsignable()->nullable();
+            $table->string(Entity::ID_LOCALE, 8)->unsignable()->nullable();
+            $table->string(Entity::SRC, 64)->nullable();
             $table->string(Entity::NAME);
-            $table->string(Entity::EMAIL);
-            $table->text(Entity::DESCRIPTION);
-            $table->text(Entity::SHORT_DESCRIPTION);
-            $table->string(Entity::PHONE, 128);
-            $table->string(Entity::WEBSITE, 255);
+            $table->string(Entity::EMAIL)->nullable();;
+            $table->text(Entity::DESCRIPTION)->nullable();;
+            $table->text(Entity::SHORT_DESCRIPTION)->nullable();
+            $table->string(Entity::PHONE, 128)->nullable();;
+            $table->string(Entity::WEBSITE, 255)->nullable();;
             $table->softDeletes();
             $table->timestampsTz();
 
