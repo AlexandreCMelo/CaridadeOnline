@@ -14,7 +14,7 @@ class User extends Authenticatable
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'user';
+    const TABLE_NAME = 'users';
     const ID = 'id';
     const ID_COUNTRY = 'fk_country';
     const ID_TIMEZONE = 'fk_timezone';
@@ -40,7 +40,7 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $table = 'user';
+    protected $table = 'users';
 
     /**
      * The attributes that should be mutated to dates.
