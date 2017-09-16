@@ -35,7 +35,8 @@ class Address extends Eloquent
     const CITY = 'city';
     const ZIP_CODE = 'zip_code';
     const RELATION_SLUG = 'addressable';
-
+    const LATITUDE = 'latitude';
+    const LONGITUDE = 'longitude';
 
 
     public function users()

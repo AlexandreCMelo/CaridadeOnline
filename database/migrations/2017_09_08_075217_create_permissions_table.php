@@ -24,18 +24,19 @@ class CreatePermissionsTable extends Migration
         DB::table(Permission::TABLE_NAME)->insert(
             [
                 [
-                    Permission::ID          => Permission::CAN_REPLY_ENTITY_MESSAGES,
-                    Permission::NAME        => "Entity Contact",
-                    Permission::DESCRIPTION => "Entity contact badge enables the user to reply to messages send to a entity"
+                    Permission::ID          => Permission::ENTITY_FOLLOWER,
+                    Permission::NAME        => "Entity Followers",
+                    Permission::DESCRIPTION => "Follows entity"
                 ],
                 [
-                    Permission::ID          => Permission::CAN_MANAGE_ENTITY,
+                    Permission::ID          => Permission::ENTITY_PARTNER,
+                    Permission::NAME        => "Entity Partner",
+                    Permission::DESCRIPTION => "Can reply as entity on several entity actitivies"
+                ],
+                [
+                    Permission::ID          => Permission::ENTITY_MANAGER,
                     Permission::NAME        => "Entity Manager",
-                    Permission::DESCRIPTION => "Entity manager badge allows the user to create, albuns and update entity information"
-                ],            [
-                    Permission::ID          => Permission::CAN_MANAGE_SYSTEM,
-                    Permission::NAME        => "System Manager",
-                    Permission::DESCRIPTION => "System Administrator"
+                    Permission::DESCRIPTION => "Allows the user to create, albuns and update entity information"
                 ]
             ]
         );
