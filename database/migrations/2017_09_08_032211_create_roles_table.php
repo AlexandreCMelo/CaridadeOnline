@@ -24,24 +24,19 @@ class CreateRolesTable extends Migration
         DB::table(Role::TABLE_NAME)->insert(
             [
                 [
-                    Role::ID   => Role::ID_ADMIN,
-                    Role::NAME => "Admin",
-                    Role::LABEL => "Platform administrator"
+                    Role::ID   => Role::ID_ENTITY_FOLLOWER,
+                    Role::NAME => "Entity Follower",
+                    Role::LABEL => "Follows entity"
                 ],
                 [
-                    Role::ID   => Role::ID_ENTITY_CONTACT,
-                    Role::NAME => "Entity Contact",
-                    Role::LABEL => "Can reply entity messages and requests"
+                    Role::ID   => Role::ID_ENTITY_PARTNER,
+                    Role::NAME => "Entity Partner",
+                    Role::LABEL => "Speaks for entity sake"
                 ],
                 [
                     Role::ID   => Role::ID_ENTITY_MANAGER,
                     Role::NAME => "Entity Manager",
-                    Role::LABEL => "Manages an entity and its contacts"
-                ],
-                [
-                    Role::ID   => Role::ID_REGULAR_USER,
-                    Role::NAME => "Normal User",
-                    Role::LABEL => "Normal user"
+                    Role::LABEL => "Manages an entity"
                 ]
             ]);
     }

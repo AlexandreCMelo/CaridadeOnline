@@ -31,7 +31,8 @@ class Permission extends Model
     /**
      * Permission table parameters
      */
-    const CAN_REPLY_ENTITY_MESSAGES = 10;
-    const CAN_MANAGE_ENTITY = 20;
-    const CAN_MANAGE_SYSTEM = 210210;
+    const ENTITY_FOLLOWER = 10;
+    const ENTITY_PARTNER = 20;
+    const ENTITY_MANAGER = 30;
+
 }

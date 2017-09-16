@@ -23,21 +23,17 @@ class CreateRolePermissionsTable extends Migration
         DB::table(RolePermission::TABLE_NAME)->insert(
             [
                 [
-                    RolePermission::ID_ROLE       => \Charis\Role::ID_ENTITY_CONTACT,
-                    RolePermission::ID_PERMISSION => \Charis\Permission::CAN_REPLY_ENTITY_MESSAGES
+                    RolePermission::ID_ROLE       => \Charis\Role::ID_ENTITY_FOLLOWER,
+                    RolePermission::ID_PERMISSION => \Charis\Permission::ENTITY_FOLLOWER
                 ],
                 [
                     RolePermission::ID_ROLE       => \Charis\Role::ID_ENTITY_MANAGER,
-                    RolePermission::ID_PERMISSION => \Charis\Permission::CAN_REPLY_ENTITY_MESSAGES
+                    RolePermission::ID_PERMISSION => \Charis\Permission::ENTITY_MANAGER
                 ],
                 [
-                    RolePermission::ID_ROLE       => \Charis\Role::ID_ENTITY_MANAGER,
-                    RolePermission::ID_PERMISSION => \Charis\Permission::CAN_MANAGE_ENTITY
-                ],
-                [
-                    RolePermission::ID_ROLE       => \Charis\Role::ID_ADMIN,
-                    RolePermission::ID_PERMISSION => \Charis\Permission::CAN_MANAGE_SYSTEM
-                ],
+                    RolePermission::ID_ROLE       => \Charis\Role::ID_ENTITY_PARTNER,
+                    RolePermission::ID_PERMISSION => \Charis\Permission::ENTITY_PARTNER
+                ]
             ]
         );
     }

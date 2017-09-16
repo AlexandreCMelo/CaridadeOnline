@@ -27,6 +27,8 @@ class CreateAddressesTable extends Migration
             $table->string(Address::DISTRICT,128)->nullable();
             $table->string(Address::ZIP_CODE)->nullable();
             $table->string(Address::ADDRESS)->nullable();
+            $table->float(Address::LATITUDE,10, 6)->nullable();
+            $table->float(Address::LONGITUDE, 10 ,6)->nullable();
             $table->timestampsTz();
 
             $table->foreign(Address::ID_TYPE)

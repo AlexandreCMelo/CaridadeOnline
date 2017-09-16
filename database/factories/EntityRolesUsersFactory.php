@@ -12,9 +12,6 @@ $factory->define(EntityRoleUser::class, function (Faker $faker) {
     $users = User::pluck(User::ID)->toArray();
     $roles = Role::pluck(Role::ID)->toArray();
 
-    if($roles == Role::ID_ADMIN){
-        $roles = Role::pluck(Role::ID)->toArray();
-    }
 
     return [
         EntityRoleUser::ID_ENTITY => $faker->randomElement($entitys),

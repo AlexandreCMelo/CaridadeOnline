@@ -31,10 +31,9 @@ class Role extends Eloquent
     /**
      * Default Roles
      */
-    const ID_REGULAR_USER = 10;
-    const ID_ENTITY_CONTACT = 20;
-    const ID_ENTITY_MANAGER = 25;
-    const ID_ADMIN = 210210;
+    const ID_ENTITY_FOLLOWER = 10;
+    const ID_ENTITY_PARTNER = 20;
+    const ID_ENTITY_MANAGER = 30;
 
 
     public function users()
