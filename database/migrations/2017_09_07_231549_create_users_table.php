@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
 
             $table->bigIncrements(User::ID);
             $table->integer(User::ID_COUNTRY)->unsigned()->nullable();;
-            $table->string(User::ID_TIMEZONE)->unsigned()->nullable();;
+            $table->integer(User::ID_TIMEZONE)->unsigned()->nullable();;
             $table->string(User::ID_LOCALE, 8)->unsigned()->nullable();;
             $table->bigInteger(User::SRC)->nullable();
             $table->string(User::NAME);
@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->string(User::PHONE)->nullable();
             $table->jsonb(User::ATTRIBUTES)->nullable();
             $table->softDeletes();
-            $table->timestampsTz();
+            $table->timestamps();
             $table->rememberToken();
 
             $table->foreign(User::ID_COUNTRY)

@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use Charis\User;
-use Charis\EntityRoleUser;
 
 class UserTableSeeder extends Seeder
 {

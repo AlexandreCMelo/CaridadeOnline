@@ -5,8 +5,9 @@ namespace Charis;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use \TCG\Voyager\Models\User as UserModel;
 
-class User extends Authenticatable
+class User extends UserModel
 {
     use Notifiable;
     use SoftDeletes;

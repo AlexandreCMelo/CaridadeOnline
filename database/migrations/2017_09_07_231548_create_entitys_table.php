@@ -20,7 +20,7 @@ class CreateEntitysTable extends Migration
         Schema::create(Entity::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Entity::ID);
             $table->integer(Entity::ID_COUNTRY)->unsignable()->nullable();
-            $table->string(Entity::ID_TIMEZONE, 255)->unsignable()->nullable();
+            $table->integer(Entity::ID_TIMEZONE)->unsignable()->nullable();
             $table->string(Entity::ID_LOCALE, 8)->unsignable()->nullable();
             $table->string(Entity::SRC, 64)->nullable();
             $table->string(Entity::NAME);

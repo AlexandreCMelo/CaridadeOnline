@@ -20,14 +20,13 @@ $factory->define(User::class, function (Faker $faker) {
 
     $faker->addProvider(new BrazilAddress($faker));
     $faker->addProvider(new BrazilPerson($faker));
-
     return [
         User::NAME => $faker->name,
         User::EMAIL => $faker->unique()->email,
         User::PASSWORD => $password ?: $password = bcrypt('secret'),
         User::ID_COUNTRY => 30,
         User::ID_LOCALE => 'br',
-        User::ID_TIMEZONE => 'America/Sao_Paulo',
+        User::ID_TIMEZONE => 178,
         User::REMEMBER_TOKEN => str_random(10),
     ];
 });

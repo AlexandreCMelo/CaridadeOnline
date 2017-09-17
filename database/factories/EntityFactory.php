@@ -25,7 +25,7 @@ $entityId = $factory->define(Entity::class, function (Faker $faker) {
         Entity::EMAIL       => $faker->unique()->email,
         Entity::ID_COUNTRY  => 30,
         Entity::ID_LOCALE   => 'br',
-        Entity::ID_TIMEZONE => 'America/Sao_Paulo',
+        Entity::ID_TIMEZONE => 178,
         Entity::WEBSITE     => 'www.dfa.com.br',
         Entity::DESCRIPTION => 'Sim claro',
     ];

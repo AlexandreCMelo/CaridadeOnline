@@ -1,7 +1,12 @@
 {
     "name": "alexandre-cmelo/caridade-online",
-    "description": "Caridade Online, faça a diferença : )",
-    "keywords": ["charity", "charitable","caridade", "ajudar"],
+    "description": "Caridade Online, fa\u00e7a a diferen\u00e7a : )",
+    "keywords": [
+        "charity",
+        "charitable",
+        "caridade",
+        "ajudar"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -20,9 +25,9 @@
         "laravelcollective/html": "^5.5",
         "pusher/pusher-php-server": "~3.0",
         "symfony/dom-crawler": "^3.3",
-        "symfony/psr-http-message-bridge": "^1.0"
+        "symfony/psr-http-message-bridge": "^1.0",
+        "tcg/voyager": "dev-master"
     },
-    "minimum-stability":"dev",
     "require-dev": {
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
@@ -45,8 +50,11 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "providers": [
+              "TCG\\Voyager\\VoyagerServiceProvider",
+              "Illuminate\\Support\\ServiceProvider\\ImageServiceProviderLaravel5"
+            ],
+          "dont-discover": []
         }
     },
     "scripts": {
@@ -56,14 +64,20 @@
         "post-create-project-cmd": [
             "@php artisan key:generate"
         ],
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
-        ]
+      "post-autoload-dump": [
+        "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+        "@php artisan package:discover"
+      ]
     },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
+    },
+    "repositories": {
+        "hooks": {
+            "type": "composer",
+            "url": "https://larapack.io"
+        }
     }
 }

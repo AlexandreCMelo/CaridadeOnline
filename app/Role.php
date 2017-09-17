@@ -25,8 +25,9 @@ class Role extends Eloquent
      */
     const TABLE_NAME = 'roles';
     const ID = 'id';
+    const DISPLAY_NAME = 'display_name';
     const NAME = 'name';
-    const LABEL = 'label';
+    const DESCRIPTION = 'description';
 
     /**
      * Default Roles
@@ -34,6 +35,10 @@ class Role extends Eloquent
     const ID_ENTITY_FOLLOWER = 10;
     const ID_ENTITY_PARTNER = 20;
     const ID_ENTITY_MANAGER = 30;
+    const ID_SYSADM = 1;
+    const ID_NORMAL = 2;
+
+    protected $guarded = [];
 
 
     public function users()
@@ -45,4 +50,6 @@ class Role extends Eloquent
     {
         return $this->belongsToMany(Permission::class);
     }
+
+
 }
