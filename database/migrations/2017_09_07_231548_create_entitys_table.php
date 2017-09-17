@@ -30,7 +30,7 @@ class CreateEntitysTable extends Migration
             $table->string(Entity::PHONE, 128)->nullable();;
             $table->string(Entity::WEBSITE, 255)->nullable();;
             $table->softDeletes();
-            $table->timestampsTz();
+            $table->timestamps();
 
             $table->foreign(Entity::ID_COUNTRY)
                 ->references(Country::ID)

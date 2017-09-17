@@ -14,7 +14,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Site Title',
-                'value'        => 'Site Title',
+                'value'        => 'Caridade Online',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -26,7 +26,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Site Description',
-                'value'        => 'Site Description',
+                'value'        => 'Faça a diferença',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
@@ -74,7 +74,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Admin Title',
-                'value'        => 'Voyager',
+                'value'        => 'Caridade Online',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -86,7 +86,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Admin Description',
-                'value'        => 'Welcome to Voyager. The Missing Admin for Laravel',
+                'value'        => 'CaridadeOnline. Faça a diferença',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,

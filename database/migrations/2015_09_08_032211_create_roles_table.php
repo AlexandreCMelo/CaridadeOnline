@@ -45,7 +45,7 @@ class CreateRolesTable extends Migration
                 [
                     Role::ID   => Role::ID_NORMAL,
                     Role::DISPLAY_NAME => "Normal",
-                    Role::NAME => "Normal",
+                    Role::NAME => "user",
                     Role::DESCRIPTION => "Regular User"
                 ],
                 [

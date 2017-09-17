@@ -29,7 +29,7 @@ class CreateAddressesTable extends Migration
             $table->string(Address::ADDRESS)->nullable();
             $table->float(Address::LATITUDE,10, 6)->nullable();
             $table->float(Address::LONGITUDE, 10 ,6)->nullable();
-            $table->timestampsTz();
+            $table->timestamps();
 
             $table->foreign(Address::ID_TYPE)
                 ->references(AddressType::ID)

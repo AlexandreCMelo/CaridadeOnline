@@ -23,7 +23,7 @@ class CreateEntityUserRolesTable extends Migration
             $table->integer(EntityRoleUser::ID_USER)->unsignable();
             $table->integer(EntityRoleUser::ID_ROLE)->unsignable();
             $table->integer(EntityRoleUser::ID_ENTITY)->unsignable();
-            $table->timestampsTz();
+            $table->timestamps();
 
 
             $table->foreign(EntityRoleUser::ID_USER)
