@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
         $this->call(EntityCategoriesTableSeeder::class);
         $this->call(EntityTargetsTableSeeder::class);
         $this->call(EntityRoleUsersTableSeeder::class);
+        $this->call(FileTableSeeder::class);
+        $this->call(AlbumTableSeeder::class);
+        $this->call(AlbumFileTableSeeder::class);
         $this->call(VoyagerDatabaseSeeder::class);
 
     }
