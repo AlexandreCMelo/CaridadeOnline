@@ -1,8 +1,8 @@
 <?php
 
 use Faker\Generator as Faker;
-use Charis\Entity;
-use Charis\EntityCategory;
+use Charis\Organization;
+use Charis\OrganizationCategory;
 use Charis\Category;
 
 /*
@@ -16,12 +16,12 @@ use Charis\Category;
 |
 */
 
-$factory->define(EntityCategory::class, function (Faker $faker) {
-    $entitys = Entity::pluck(Entity::ID)->toArray();
-    $categories = Category::pluck(EntityCategory::ID)->toArray();
+$factory->define(OrganizationCategory::class, function (Faker $faker) {
+    $organizations = Organization::pluck(Organization::ID)->toArray();
+    $categories = Category::pluck(OrganizationCategory::ID)->toArray();
 
     return [
-        EntityCategory::ID_ENTITY => $faker->randomElement($entitys),
-        EntityCategory::ID_CATEGORY => $faker->randomElement($categories)
+        OrganizationCategory::ID_ORGANIZATION => $faker->randomElement($organizations),
+        OrganizationCategory::ID_CATEGORY => $faker->randomElement($categories)
     ];
 });

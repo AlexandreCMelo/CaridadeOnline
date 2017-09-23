@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Target;
-use Charis\EntityTarget;
+use Charis\OrganizationTarget;
 
 class CreateTargetsTable extends Migration
 {

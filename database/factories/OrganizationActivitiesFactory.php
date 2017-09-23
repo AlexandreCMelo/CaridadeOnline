@@ -1,8 +1,8 @@
 <?php
 
 use Faker\Generator as Faker;
-use Charis\Entity;
-use Charis\EntityActivity;
+use Charis\Organization;
+use Charis\OrganizationActivity;
 use Charis\Activity;
 
 /*
@@ -16,12 +16,12 @@ use Charis\Activity;
 |
 */
 
-$factory->define(EntityActivity::class, function (Faker $faker) {
-    $entitys = Charis\Entity::pluck(Entity::ID)->toArray();
+$factory->define(OrganizationActivity::class, function (Faker $faker) {
+    $organizations = Charis\Organization::pluck(Organization::ID)->toArray();
     $activities = Charis\Activity::pluck(Activity::ID)->toArray();
 
     return [
-        EntityActivity::ID_ENTITY => $faker->randomElement($entitys),
-        EntityActivity::ID_ACTIVITY => $faker->randomElement($activities)
+        OrganizationActivity::ID_ORGANIZATION => $faker->randomElement($organizations),
+        OrganizationActivity::ID_ACTIVITY => $faker->randomElement($activities)
     ];
 });

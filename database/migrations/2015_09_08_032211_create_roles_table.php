@@ -17,41 +17,31 @@ class CreateRolesTable extends Migration
     {
         Schema::create(Role::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Role::ID);
-            $table->string(Role::DISPLAY_NAME)->unique();
-            $table->string(Role::NAME);
+            $table->string(Role::NAME)->unique();
             $table->string(Role::DESCRIPTION)->nullable();
             $table->timestamps();
         });
 
         DB::table(Role::TABLE_NAME)->insert(
             [
-                /*
                 [
-                    Role::ID   => Role::ID_ENTITY_FOLLOWER,
-                    Role::DISPLAY_NAME => "Entity Follower",
-                    Role::DESCRIPTION => "Follows entity"
+                    Role::ID   => Role::ID_ORGANIZATION_FOLLOWER,
+                    Role::NAME => "Organization Follower",
+                    Role::DESCRIPTION => "Follows Organization"
                 ],
                 [
-                    Role::ID   => Role::ID_ENTITY_PARTNER,
-                    Role::DISPLAY_NAME => "Entity Partner",
-                    Role::DESCRIPTION => "Speaks for entity sake"
+                    Role::ID   => Role::ID_ORGANIZATION_PARTNER,
+                    Role::NAME => "Organization Partner",
+                    Role::DESCRIPTION => "Speaks for Organization sake"
                 ],
                 [
-                    Role::ID   => Role::ID_ENTITY_MANAGER,
-                    Role::DISPLAY_NAME => "Entity Manager",
-                    Role::DESCRIPTION => "Manages an entity"
-                ],
-                */
-                [
-                    Role::ID   => Role::ID_NORMAL,
-                    Role::DISPLAY_NAME => "Normal",
-                    Role::NAME => "user",
-                    Role::DESCRIPTION => "Regular User"
+                    Role::ID   => Role::ID_ORGANIZATION_MANAGER,
+                    Role::NAME => "Organization Manager",
+                    Role::DESCRIPTION => "Manages an Organization"
                 ],
                 [
-                    Role::ID   => Role::ID_SYSADM,
-                    Role::DISPLAY_NAME => "Administrator",
-                    Role::NAME => "admin",
+                    Role::ID   => Role::ID_SYSTEM_ADMIN,
+                    Role::NAME => "Administrator",
                     Role::DESCRIPTION => "Manages system"
                 ]
             ]);

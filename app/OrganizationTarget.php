@@ -2,16 +2,16 @@
 
 namespace Charis;
 
-use \Illuminate\Database\Eloquent\Relations\Pivot;
+use \Eloquent;
 
-class EntityActivity extends Pivot
+class OrganizationTarget extends Eloquent
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'entity_activities';
+    protected $table = 'organization_targets';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,10 +23,10 @@ class EntityActivity extends Pivot
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'entity_activities';
+    const TABLE_NAME = 'organization_targets';
     const ID = 'id';
-    const ID_ENTITY = 'fk_entity';
-    const ID_ACTIVITY = 'fk_activity';
+    const ID_ORGANIZATION = 'fk_organization';
+    const ID_TARGET = 'fk_target';
 
 
 }

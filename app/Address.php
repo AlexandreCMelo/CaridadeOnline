@@ -39,7 +39,7 @@ class Address extends Eloquent
     const LONGITUDE = 'longitude';
 
 
-    public function users()
+    public function user()
     {
         return $this->morphMany(
             \Charis\User::class,
@@ -49,10 +49,10 @@ class Address extends Eloquent
         );
     }
 
-    public function entitys()
+    public function organization()
     {
         return $this->morphMany(
-            \Charis\Entity::class,
+            \Charis\Organization::class,
             self::RELATION_SLUG,
             self::ID_OWNER,
             self::OWNER_TYPE

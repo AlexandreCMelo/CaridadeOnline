@@ -15,15 +15,14 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         $this->call(AddressTableSeeder::class);
         $this->call(DocumentTableSeeder::class);
-        $this->call(EntityTableSeeder::class);
-        $this->call(EntityActivitiesTableSeeder::class);
-        $this->call(EntityCategoriesTableSeeder::class);
-        $this->call(EntityTargetsTableSeeder::class);
-        $this->call(EntityRoleUsersTableSeeder::class);
+        $this->call(OrganizationTableSeeder::class);
+        $this->call(OrganizationActivitiesTableSeeder::class);
+        $this->call(OrganizationCategoriesTableSeeder::class);
+        $this->call(OrganizationTargetsTableSeeder::class);
+        $this->call(OrganizationRoleUsersTableSeeder::class);
         $this->call(FileTableSeeder::class);
         $this->call(AlbumTableSeeder::class);
         $this->call(AlbumFileTableSeeder::class);
-        $this->call(VoyagerDatabaseSeeder::class);
 
     }
 }

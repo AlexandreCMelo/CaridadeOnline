@@ -5,18 +5,18 @@ namespace Charis;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use \Eloquent;
 
-class Entity extends Eloquent
+class Organization extends Eloquent
 {
     use SoftDeletes;
 
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'entitys';
+    const TABLE_NAME = 'organizations';
+    const ID = 'id';
     const ID_COUNTRY = 'fk_country';
     const ID_TIMEZONE = 'fk_timezone';
     const ID_LOCALE = 'fk_locale';
-    const ID = 'id';
     const SRC = 'src';
     const NAME = 'name';
     const DESCRIPTION = 'description';
@@ -35,7 +35,7 @@ class Entity extends Eloquent
      *
      * @var string
      */
-    protected $table = 'entitys';
+    protected $table = 'organizations';
 
     /**
      * Indicates if the model should be timestamped.
@@ -52,7 +52,7 @@ class Entity extends Eloquent
     protected $dates = [self::DELETED_AT];
 
     /**
-     * Get entity address collection
+     * Get organization address collection
      * @return mixed
      */
     public function address(){
@@ -60,7 +60,7 @@ class Entity extends Eloquent
     }
 
     /**
-     * Get entity target collection
+     * Get organization target collection
      */
     public function targets()
     {
@@ -69,7 +69,7 @@ class Entity extends Eloquent
 
 
     /**
-     * Get entity category collection
+     * Get organization category collection
      */
     public function categories()
     {
@@ -77,7 +77,7 @@ class Entity extends Eloquent
     }
 
     /**
-     * Get entity category collection
+     * Get organization category collection
      */
     public function roles()
     {

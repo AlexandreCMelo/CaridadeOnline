@@ -3,13 +3,12 @@
 namespace Charis;
 
 use Illuminate\Database\Eloquent\Model;
-use Charis\Entity;
 
 class Album extends Model
 {
     const ID = 'id';
     const NAME = 'name';
-    const ID_ENTITY = 'fk_entity';
+    const ID_ORGANIZATION = 'fk_organization';
     const CREATED_BY = 'created_by';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -17,9 +16,9 @@ class Album extends Model
 
 
 
-    public function entity()
+    public function organization()
     {
-        $this->hasOne(Entity::class, Entity::ID, self::ID_ENTITY);
+        $this->hasOne(Organization::class, Organization::ID, self::ID_ORGANIZATION);
     }
 
     public function files()

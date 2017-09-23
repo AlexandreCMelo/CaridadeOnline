@@ -25,7 +25,7 @@ $factory->define(Address::class, function (Faker $faker) {
 
     return [
         Address::ID_TYPE => rand(0, 1) ? $addressTypeHome : $addressTypeBuilding,
-        Address::OWNER_TYPE => rand(0, 1) ? 'Charis\User' : 'Charis\Entity',
+        Address::OWNER_TYPE => rand(0, 1) ? 'Charis\User' : 'Charis\Organization',
         Address::ID_OWNER => rand(1, 100),
         Address::ID_COUNTRY => 30,
         Address::DISTRICT => null,

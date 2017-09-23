@@ -4,14 +4,14 @@ namespace Charis;
 
 use \Illuminate\Database\Eloquent\Relations\Pivot;
 
-class EntityCategory extends Pivot
+class OrganizationActivity extends Pivot
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'entity_categories';
+    protected $table = 'organization_activities';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,10 +23,10 @@ class EntityCategory extends Pivot
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'entity_categories';
+    const TABLE_NAME = 'organization_activities';
     const ID = 'id';
-    const ID_ENTITY = 'fk_entity';
-    const ID_CATEGORY = 'fk_category';
+    const ID_ORGANIZATION = 'fk_organization';
+    const ID_ACTIVITY = 'fk_activity';
 
 
 }

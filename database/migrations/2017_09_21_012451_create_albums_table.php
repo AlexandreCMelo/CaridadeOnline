@@ -16,7 +16,7 @@ class CreateAlbumsTable extends Migration
     {
         Schema::create(Album::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Album::ID);
-            $table->integer(Album::ID_ENTITY)->unsigned();
+            $table->integer(Album::ID_ORGANIZATION)->unsigned();
             $table->string(Album::NAME);
             $table->integer(Album::CREATED_BY)->unsigned();
             $table->timestamps();

@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 use Charis\File;
-use Charis\Entity;
+use Charis\Organization;
 use Charis\User;
 use Charis\FileType;
 
@@ -11,8 +11,8 @@ $factory->define(Model::class, function (Faker $faker) {
 
     $faker->addProvider(New\Faker\Provider\File($faker));
 
-    $arrayOwners = ['Charis\User','Charis\Entity'];
-    $entitys = Charis\Entity::pluck(Entity::ID)->toArray();
+    $arrayOwners = ['Charis\User', 'Charis\Organization'];
+    $entitys = Charis\Organization::pluck(Organization::ID)->toArray();
     $users = Charis\User::pluck(User::ID)->toArray();
     $types = Charis\Target::pluck(FileType::ID)->toArray();
 

@@ -26,7 +26,7 @@ class File extends Model
     /**
      * @return mixed
      */
-    public function users()
+    public function user()
     {
         return $this->morphMany(
             User::class,
@@ -39,10 +39,10 @@ class File extends Model
     /**
      * @return mixed
      */
-    public function entitys()
+    public function organization()
     {
         return $this->morphMany(
-            Entity::class,
+            Organization::class,
             self::RELATION_SLUG,
             self::ID_FILE_OWNER,
             self::FILE_OWNER
