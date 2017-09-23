@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use TCG\Voyager\Models\Permission;
 use Charis\Role;
 
 class PermissionRoleTableSeeder extends Seeder
