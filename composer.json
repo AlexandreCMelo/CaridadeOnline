@@ -27,6 +27,7 @@
         "symfony/dom-crawler": "^3.3",
         "symfony/psr-http-message-bridge": "^1.0",
         "laravel/socialite": "^3.0",
+        "socialiteproviders/generators": "^2.0",
         "socialiteproviders/instagram": "^3.0",
         "socialiteproviders/linkedin": "^3.0",
         "socialiteproviders/reddit": "^3.0"

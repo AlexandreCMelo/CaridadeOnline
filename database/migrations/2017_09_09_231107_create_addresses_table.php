@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Charis\Address;
-use Charis\AddressType;
+use Charis\Models\Address;
+use Charis\Models\AddressType;
 
 class CreateAddressesTable extends Migration
 {

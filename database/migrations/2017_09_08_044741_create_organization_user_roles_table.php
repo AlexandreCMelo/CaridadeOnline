@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Charis\User;
-use Charis\Role;
-use Charis\OrganizationRoleUser;
-use Charis\Organization;
+use Charis\Models\User;
+use Charis\Models\Role;
+use Charis\Models\OrganizationRoleUser;
+use Charis\Models\Organization;
 
 
 class CreateOrganizationUserRolesTable extends Migration

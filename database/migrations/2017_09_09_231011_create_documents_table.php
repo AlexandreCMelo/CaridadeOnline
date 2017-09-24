@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Charis\Document;
-use Charis\DocumentType;
+use Charis\Models\Document;
+use Charis\Models\DocumentType;
 
 class CreateDocumentsTable extends Migration
 {
