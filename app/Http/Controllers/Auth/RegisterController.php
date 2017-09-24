@@ -8,6 +8,7 @@ use Charis\Traits\ActivationTrait;
 use Charis\Traits\CaptureIpTrait;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Charis\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -66,11 +67,17 @@ class RegisterController extends Controller
     {
         $ipAddress = new CaptureIpTrait();
 
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password'])
+            'password' => bcrypt($data['password']),
+            'token'    => str_random(64),
+            'fk_system_role'    => \Charis\Models\Role::ID_REGISTERED_USER,
+            'signup_ip_address' => $ipAddress->getClientIp(),
+            'activated'         => true
         ]);
+
+        return $user;
     }
 
 

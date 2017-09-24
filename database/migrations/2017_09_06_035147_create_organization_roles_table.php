@@ -21,7 +21,7 @@ class CreateOrganizationRolesTable extends Migration
             $table->timestampsTz();
         });
 
-        DB::table(Category::TABLE_NAME)->insert(
+        DB::table(OrganizationRole::TABLE_NAME)->insert(
             [
                 [
                     OrganizationRole::ID   => OrganizationRole::ID_ORGANIZATION_FOLLOWER,
@@ -50,6 +50,6 @@ class CreateOrganizationRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(Category::TABLE_NAME);
+        Schema::dropIfExists(OrganizationRole::TABLE_NAME);
     }
 }

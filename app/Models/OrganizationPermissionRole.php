@@ -25,7 +25,7 @@ class OrganizationPermissionRole extends Pivot
      */
     const TABLE_NAME = 'organization_role_permissions';
     const ID_ORGANIZATION_ROLE_PERMISSION = 'id_organization_role_permissions';
-    const ID_ROLE = 'fk_role_organization_role';
+    const ID_ROLE = 'fk_organization_role';
     const ID_PERMISSION = 'fk_permission';
 
 }
