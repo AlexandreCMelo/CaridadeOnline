@@ -1,10 +1,10 @@
 <?php
 
-namespace Charis\Http\Controllers;
+namespace Charis\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class HomeController extends \Charis\Http\Controllers\Controller
 {
     /**
      * Create a new controller instance.
