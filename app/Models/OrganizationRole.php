@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class OrganizationRole extends Eloquent
+class OrganizationRole extends Model
 {
     /**
      * The table associated with the model.

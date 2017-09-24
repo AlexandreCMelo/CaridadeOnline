@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class Locale extends Eloquent
+class Locale extends Model
 {
     /**
      * The table associated with the model.

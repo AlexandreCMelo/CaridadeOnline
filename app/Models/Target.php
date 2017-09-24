@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class Target extends Eloquent
+class Target extends Model
 {
 
     /**

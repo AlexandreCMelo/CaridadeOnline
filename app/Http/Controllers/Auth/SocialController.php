@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Models\Profile;
-use App\Models\Social;
-use App\Models\User;
-use App\Traits\ActivationTrait;
-use App\Traits\CaptureIpTrait;
+use Charis\Http\Controllers\Controller;
+use Charis\Models\Social;
+use Charis\Models\User;
+use Charis\Traits\ActivationTrait;
+use Charis\Traits\CaptureIpTrait;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
-use jeremykenedy\LaravelRoles\Models\Role;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialController extends Controller

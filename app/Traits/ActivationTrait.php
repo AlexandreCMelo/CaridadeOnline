@@ -3,7 +3,7 @@
 namespace Charis\Traits;
 
 use App\Logic\Activation\ActivationRepository;
-use App\Models\User;
+use Charis\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 trait ActivationTrait

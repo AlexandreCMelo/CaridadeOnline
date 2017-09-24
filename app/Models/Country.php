@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class Country extends Eloquent
+class Country extends Model
 {
     /**
      * The table associated with the model.

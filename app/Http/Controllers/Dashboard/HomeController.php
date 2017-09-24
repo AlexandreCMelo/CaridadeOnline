@@ -4,6 +4,7 @@ namespace Charis\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 
+
 class HomeController extends \Charis\Http\Controllers\Controller
 {
     /**
@@ -13,7 +14,7 @@ class HomeController extends \Charis\Http\Controllers\Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     /**
@@ -23,6 +24,6 @@ class HomeController extends \Charis\Http\Controllers\Controller
      */
     public function index()
     {
-        return view('home');
+        return view('Dashboard.home');
     }
 }

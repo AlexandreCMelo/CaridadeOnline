@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Charis\Http\Middleware;
 
 use App\Models\Activation;
 use Auth;

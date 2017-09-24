@@ -4,6 +4,9 @@ namespace Charis\Http\Controllers\Auth;
 
 use Charis\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -45,5 +48,19 @@ class LoginController extends Controller
         return view('Auth.login');
     }
 
+
+    /**
+     * Logout, Clear Session, and Return.
+     *
+     * @return void
+     */
+    public function logout()
+    {
+        $user = Auth::user();
+        Auth::logout();
+        Session::flush();
+
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+    }
 
 }
