@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Charis\Models\Role;
 use Charis\Models\User;
 use Charis\Models\Country;
 use Charis\Models\Locale;
@@ -26,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer(User::ID_TIMEZONE)->unsigned()->nullable();;
             $table->string(User::ID_LOCALE, 8)->unsigned()->nullable();;
             $table->bigInteger(User::SRC)->nullable();
+            $table->integer(User::ID_SYSTEM_ROLE)->nullable();
             $table->string(User::NAME);
             $table->string(User::EMAIL)->unique();
             $table->string(User::PASSWORD);
@@ -54,6 +56,10 @@ class CreateUsersTable extends Migration
             $table->foreign(User::ID_LOCALE)
                 ->references(Locale::ID)
                 ->on(Locale::TABLE_NAME);
+
+            $table->foreign(User::ID_SYSTEM_ROLE)
+                ->references(Role::ID)
+                ->on(Role::TABLE_NAME);
 
         });
     }

@@ -25,14 +25,20 @@ class Permission extends Model
      */
     const TABLE_NAME = 'permissions';
     const ID = 'id';
-    const NAME = 'name';
+    const CODE = 'code';
     const DESCRIPTION = 'description';
 
     /**
      * Permission table parameters
      */
-    const ENTITY_FOLLOWER = 10;
-    const ENTITY_PARTNER = 20;
-    const ENTITY_MANAGER = 30;
+    const CAN_MANAGE_ORGANIZATION_INFO = 10;
+    const CAN_MANAGE_ORGANIZATION_COMMENTS = 20;
+    const CAN_MANAGE_ORGANIZATION_USERS = 30;
+    const CAN_UPDATE_ORGANIZATION_PICTURE = 40;
+
+    const CAN_MANAGE_ORGANIZATION_INFO_CODE = 'can-manage-organization-info';
+    const CAN_MANAGE_ORGANIZATION_COMMENTS_CODE = 'can-manage-organization-comments-info';
+    const CAN_MANAGE_ORGANIZATION_USERS_CODE = 'can-manage-organization-users-info';
+    const CAN_UPDATE_ORGANIZATION_PICTURE_CODE = 'can-manage-organization-picture-info';
 
 }

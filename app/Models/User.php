@@ -19,6 +19,7 @@ class User extends Authenticatable
     const ID_COUNTRY = 'fk_country';
     const ID_TIMEZONE = 'fk_timezone';
     const ID_LOCALE = 'fk_locale';
+    const ID_SYSTEM_ROLE = 'fk_system_role';
     const SRC = 'src';
     const NAME = 'name';
     const EMAIL = 'email';
@@ -30,6 +31,7 @@ class User extends Authenticatable
     const ZIP_CODE = 'zipcode';
     const PHONE = 'phone';
     const ATTRIBUTES = 'attributes';
+    const ACTIVATED = 'activated';
     const DELETE_AT = 'deleted_at';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -58,7 +60,13 @@ class User extends Authenticatable
         self::NAME,
         self::EMAIL,
         self::PASSWORD,
-        self::ID_COUNTRY
+        self::ID_COUNTRY,
+        'activated',
+        'token',
+        'signup_ip_address',
+        'signup_confirmation_ip_address',
+        'signup_sm_ip_address',
+        'fk_system_role'
     ];
 
     /**-

@@ -4,14 +4,14 @@ namespace Charis\Models;
 
 use \Illuminate\Database\Eloquent\Relations\Pivot;
 
-class RolePermission extends Pivot
+class OrganizationPermissionRole extends Pivot
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'role_permissions';
+    protected $table = 'organization_role_permissions';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,8 +23,9 @@ class RolePermission extends Pivot
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'role_permissions';
-    const ID_ROLE = 'fk_role';
+    const TABLE_NAME = 'organization_role_permissions';
+    const ID_ORGANIZATION_ROLE_PERMISSION = 'id_organization_role_permissions';
+    const ID_ROLE = 'fk_organization_role';
     const ID_PERMISSION = 'fk_permission';
 
 }

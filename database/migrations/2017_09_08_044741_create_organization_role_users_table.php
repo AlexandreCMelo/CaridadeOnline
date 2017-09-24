@@ -9,7 +9,7 @@ use Charis\Models\OrganizationRoleUser;
 use Charis\Models\Organization;
 
 
-class CreateOrganizationUserRolesTable extends Migration
+class CreateOrganizationRoleUsersTable extends Migration
 {
     /**
      * Run the migrations.
