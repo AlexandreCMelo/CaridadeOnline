@@ -50,10 +50,10 @@ class Document extends Eloquent
     /**
      * @return mixed
      */
-    public function entitys()
+    public function organizations()
     {
         return $this->morphMany(
-            Entity::class,
+            Organization::class,
             self::RELATION_SLUG,
             self::ID_OWNER,
             self::OWNER_TYPE

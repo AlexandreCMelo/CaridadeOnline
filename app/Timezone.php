@@ -25,6 +25,7 @@ class Timezone extends Eloquent
      */
     const TABLE_NAME = 'timezones';
     const ID = 'id';
+    const NAME = 'name';
     const COUNTRY_CODE = 'country_code';
     const COORDINATES = 'coordinates';
     const NOTES = 'notes';
