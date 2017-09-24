@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class Address extends Eloquent
+class Address extends Model
 {
     /**
      * The table associated with the model.

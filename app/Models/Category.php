@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class Category extends Eloquent
+class Category extends Model
 {
     /**
      * The table associated with the model.

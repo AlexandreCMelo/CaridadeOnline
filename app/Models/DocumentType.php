@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class DocumentType extends Eloquent
+class DocumentType extends Model
 {
     /**
      * The table associated with the model.

@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class Activity extends Eloquent
+class Activity extends Model
 {
     /**
      * The table associated with the model.

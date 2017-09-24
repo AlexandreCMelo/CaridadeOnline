@@ -3,9 +3,8 @@
 namespace Charis\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use \Eloquent;
 
-class Organization extends Eloquent
+class Organization extends Model
 {
     use SoftDeletes;
 

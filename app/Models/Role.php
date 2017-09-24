@@ -2,8 +2,6 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
 class Role extends Eloquent
 {
     /**

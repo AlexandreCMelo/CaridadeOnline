@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class Timezone extends Eloquent
+class Timezone extends Model
 {
     /**
      * The table associated with the model.

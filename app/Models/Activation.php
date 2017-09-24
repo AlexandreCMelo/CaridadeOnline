@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class Activation extends Eloquent
+class Activation extends Model
 {
     /**
      * The database table used by the model.

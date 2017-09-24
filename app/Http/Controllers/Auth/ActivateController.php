@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Models\Activation;
-use App\Models\Profile;
-use App\Models\User;
-use App\Traits\ActivationTrait;
-use App\Traits\CaptureIpTrait;
+use Charis\Http\Controllers\Controller;
+use Charis\Models\Activation;
+use Charis\Traits\ActivationTrait;
+use Charis\Traits\CaptureIpTrait;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
-use jeremykenedy\LaravelRoles\Models\Role;
 
 class ActivateController extends Controller
 {

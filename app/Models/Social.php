@@ -2,9 +2,7 @@
 
 namespace Charis\Models;
 
-use \Eloquent;
-
-class Social extends Eloquent
+class Social extends Model
 {
     /**
      * The database table used by the model.

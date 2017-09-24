@@ -2,6 +2,8 @@
 
 namespace Charis\Http;
 
+use Charis\Http\Middleware\CheckCurrentUser;
+use Charis\Http\Middleware\CheckIsUserActivated;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -41,6 +43,9 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+        'activated' => [
+            CheckIsUserActivated::class,
+        ],
     ];
 
     /**
@@ -57,5 +62,9 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \Charis\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'activated'     => CheckIsUserActivated::class,
+        'currentUser'   => CheckCurrentUser::class,
+
+
     ];
 }

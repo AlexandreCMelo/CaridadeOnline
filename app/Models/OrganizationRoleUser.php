@@ -2,9 +2,6 @@
 
 namespace Charis\Models;
 
-use \Illuminate\Database\Eloquent\Relations\Pivot;
-
-
 class OrganizationRoleUser extends Pivot
 {
     /**

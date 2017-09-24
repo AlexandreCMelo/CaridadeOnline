@@ -2,7 +2,6 @@
 
 namespace Charis\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Charis\Album;
 use Charis\File;
 
