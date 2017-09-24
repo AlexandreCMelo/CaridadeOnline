@@ -25,24 +25,19 @@ class CreateRolesTable extends Migration
         DB::table(Role::TABLE_NAME)->insert(
             [
                 [
-                    Role::ID   => Role::ID_ORGANIZATION_FOLLOWER,
-                    Role::NAME => "Organization Follower",
-                    Role::DESCRIPTION => "Follows Organization"
-                ],
-                [
-                    Role::ID   => Role::ID_ORGANIZATION_PARTNER,
-                    Role::NAME => "Organization Partner",
-                    Role::DESCRIPTION => "Speaks for Organization sake"
-                ],
-                [
-                    Role::ID   => Role::ID_ORGANIZATION_MANAGER,
-                    Role::NAME => "Organization Manager",
-                    Role::DESCRIPTION => "Manages an Organization"
-                ],
-                [
-                    Role::ID   => Role::ID_SYSTEM_ADMIN,
+                    Role::ID   => Role::ID_SYSTEM_ADMIN_USER,
                     Role::NAME => "Administrator",
                     Role::DESCRIPTION => "Manages system"
+                ],
+                [
+                    Role::ID   => Role::ID_REGISTERED_USER,
+                    Role::NAME => "Registered user",
+                    Role::DESCRIPTION => "Logged in"
+                ],
+                [
+                    Role::ID   => Role::ID_UNSUPERVISED_USER,
+                    Role::NAME => "Unsupervised user",
+                    Role::DESCRIPTION => "Logged out"
                 ]
             ]);
     }

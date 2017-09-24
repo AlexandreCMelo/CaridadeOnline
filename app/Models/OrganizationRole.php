@@ -4,14 +4,14 @@ namespace Charis\Models;
 
 use \Eloquent;
 
-class Role extends Eloquent
+class OrganizationRole extends Eloquent
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'roles';
+    protected $table = 'organization_roles';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,18 +23,14 @@ class Role extends Eloquent
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'roles';
+    const TABLE_NAME = 'organization_roles';
     const ID = 'id';
     const NAME = 'name';
     const DESCRIPTION = 'description';
 
-    /**
-     * Default Roles
-     */
-    const ID_SYSTEM_ADMIN_USER = 100;
-    const ID_REGISTERED_USER = 20;
-    const ID_UNSUPERVISED_USER= 10;
-
-
+    const ID_ORGANIZATION_FOLLOWER = 10;
+    const ID_ORGANIZATION_PARTNER = 20;
+    const ID_ORGANIZATION_MANAGER = 30;
 
 }
+
