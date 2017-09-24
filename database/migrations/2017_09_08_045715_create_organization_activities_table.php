@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Charis\Organization;
-use Charis\OrganizationActivity;
-use Charis\Activity;
+use Charis\Models\Organization;
+use Charis\Models\OrganizationActivity;
+use Charis\Models\Activity;
 
 class CreateOrganizationActivitiesTable extends Migration
 {

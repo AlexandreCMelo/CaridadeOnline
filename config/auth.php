@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Charis\User::class,
+            'model' => Charis\Models\User::class,
         ],
 
         // 'users' => [

@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Charis\File;
-use Charis\FileType;
+use Charis\Models\File;
+use Charis\Models\FileType;
 
 class CreateFilesTable extends Migration
 {

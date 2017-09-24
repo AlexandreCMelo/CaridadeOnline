@@ -3,11 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Charis\User;
-use Charis\Country;
-use Charis\Locale;
-use Charis\Timezone;
-use Charis\OwnerType;
+use Charis\Models\User;
+use Charis\Models\Country;
+use Charis\Models\Locale;
+use Charis\Models\Timezone;
+use Charis\Models\OwnerType;
 
 
 class CreateUsersTable extends Migration

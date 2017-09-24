@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Charis\Target;
-use Charis\OrganizationTarget;
+use Charis\Models\Target;
+use Charis\Models\OrganizationTarget;
 
 class CreateTargetsTable extends Migration
 {

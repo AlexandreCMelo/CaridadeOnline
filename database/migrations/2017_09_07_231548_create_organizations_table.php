@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Charis\Organization;
-use Charis\Country;
-use Charis\Locale;
-use Charis\Timezone;
+use Charis\Models\Organization;
+use Charis\Models\Country;
+use Charis\Models\Locale;
+use Charis\Models\Timezone;
 
 class CreateOrganizationsTable extends Migration
 {

@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Charis\AlbumFile;
-use Charis\Album;
-use Charis\File;
+use Charis\Models\AlbumFile;
+use Charis\Models\Album;
+use Charis\Models\File;
 
 class CreateAlbumFilesTable extends Migration
 {
