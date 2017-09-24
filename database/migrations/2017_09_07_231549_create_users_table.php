@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->string(User::PHONE)->nullable();
             $table->jsonb(User::ATTRIBUTES)->nullable();
             $table->softDeletes();
-            $table->timestamps();
+            $table->timestampsTz();
             $table->rememberToken();
 
             $table->foreign(User::ID_COUNTRY)

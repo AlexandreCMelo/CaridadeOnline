@@ -21,7 +21,7 @@ class CreateDocumentsTable extends Migration
             $table->integer(Document::ID_OWNER)->unsigned();
             $table->string(Document::OWNER_TYPE);
             $table->string(Document::VALUE);
-            $table->timestamps();
+            $table->timestampsTz();
 
             $table->foreign(Document::ID_TYPE)
                 ->references(DocumentType::ID)

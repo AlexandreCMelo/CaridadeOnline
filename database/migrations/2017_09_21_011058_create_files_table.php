@@ -25,7 +25,7 @@ class CreateFilesTable extends Migration
             $table->string(File::MIME_TYPE);
             $table->string(File::SIZE);
             $table->jsonb(File::ATTRIBUTES)->nullable();
-            $table->timestamps();
+            $table->timestampsTz();
 
 
             $table->foreign(File::ID_FILE_TYPE)

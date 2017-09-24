@@ -21,7 +21,7 @@ class CreateAlbumFilesTable extends Migration
             $table->integer(AlbumFile::ID_ALBUM)->unsigned();
             $table->integer(AlbumFile::ID_FILE)->unsigned();
             $table->integer(AlbumFile::CREATED_BY)->unsigned();
-            $table->timestamps();
+            $table->timestampsTz();
 
 
             $table->foreign(AlbumFile::ID_ALBUM)
