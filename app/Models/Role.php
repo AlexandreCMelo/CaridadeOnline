@@ -2,7 +2,7 @@
 
 namespace Charis\Models;
 
-class Role extends Eloquent
+class Role extends Model
 {
     /**
      * The table associated with the model.

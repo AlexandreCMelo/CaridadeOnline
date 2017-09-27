@@ -1,10 +1,10 @@
 <?php
 
 use Faker\Generator as Faker;
-use Charis\OrganizationRoleUser;
-use Charis\Organization;
-use Charis\User;
-use Charis\Role;
+use Charis\Models\OrganizationRoleUser;
+use Charis\Models\Organization;
+use Charis\Models\User;
+use Charis\Models\Role;
 
 
 $factory->define(OrganizationRoleUser::class, function (Faker $faker) {

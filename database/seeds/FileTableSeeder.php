@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\File;
+use Charis\Models\File;
 
 class FileTableSeeder extends Seeder
 {

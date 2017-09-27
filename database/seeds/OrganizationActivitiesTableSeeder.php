@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\OrganizationActivity;
+use Charis\Models\OrganizationActivity;
 
 class OrganizationActivitiesTableSeeder extends Seeder
 {

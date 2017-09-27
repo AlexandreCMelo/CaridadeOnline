@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\User;
+use Charis\Models\User;
 
 class UserTableSeeder extends Seeder
 {

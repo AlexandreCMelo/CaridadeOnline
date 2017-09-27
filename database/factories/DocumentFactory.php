@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 use Faker\Provider\pt_BR\Person as BrazilPerson;
-use Charis\Document;
+use Charis\Models\Document;
 
 
 /*
@@ -34,8 +34,8 @@ $factory->define(Document::class, function (Faker $faker) {
 
     return [
         Document::ID_TYPE => $documentType,
-        Document::OWNER_TYPE => 'Charis\User',
-        Document::ID_OWNER => $faker->numberBetween(1, Charis\User::count()),
+        Document::OWNER_TYPE => 'Charis\Models\User',
+        Document::ID_OWNER => $faker->numberBetween(1, Charis\Models\User::count()),
         Document::VALUE => $documentValue,
     ];
 });

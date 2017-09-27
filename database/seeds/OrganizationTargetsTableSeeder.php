@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\OrganizationTarget;
+use Charis\Models\OrganizationTarget;
 
 class OrganizationTargetsTableSeeder extends Seeder
 {

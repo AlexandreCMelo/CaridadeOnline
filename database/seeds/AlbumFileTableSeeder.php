@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\AlbumFile;
+use Charis\Models\AlbumFile;
 
 class AlbumFileTableSeeder extends Seeder
 {
