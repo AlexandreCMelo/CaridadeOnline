@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\Address;
+use Charis\Models\Address;
 
 class AddressTableSeeder extends Seeder
 {

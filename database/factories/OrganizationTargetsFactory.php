@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use Charis\Organization;
-use Charis\OrganizationTarget;
-use Charis\Target;
+use Charis\Models\Organization;
+use Charis\Models\OrganizationTarget;
+use Charis\Models\Target;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +17,8 @@ use Charis\Target;
 */
 
 $factory->define(OrganizationTarget::class, function (Faker $faker) {
-    $entitys = Charis\Organization::pluck(Organization::ID)->toArray();
-    $targets = Charis\Target::pluck(Target::ID)->toArray();
+    $entitys = Charis\Models\Organization::pluck(Organization::ID)->toArray();
+    $targets = Charis\Models\Target::pluck(Target::ID)->toArray();
 
     return [
         OrganizationTarget::ID_ORGANIZATION => $faker->randomElement($entitys),

@@ -1,7 +1,7 @@
 <?php
 
-use Charis\Organization;
-use Charis\OrganizationActivity;
+use Charis\Models\Organization;
+use Charis\Models\OrganizationActivity;
 use Faker\Generator as Faker;
 use Faker\Provider\pt_BR\Company as BrazilCompany;
 

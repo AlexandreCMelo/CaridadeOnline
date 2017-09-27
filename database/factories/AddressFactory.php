@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 use Faker\Provider\pt_BR\Address as BrazilAddress;
-use Charis\Address;
+use Charis\Models\Address;
 
 
 /*
@@ -25,7 +25,7 @@ $factory->define(Address::class, function (Faker $faker) {
 
     return [
         Address::ID_TYPE => rand(0, 1) ? $addressTypeHome : $addressTypeBuilding,
-        Address::OWNER_TYPE => rand(0, 1) ? 'Charis\User' : 'Charis\Organization',
+        Address::OWNER_TYPE => rand(0, 1) ? 'Charis\Models\User' : 'Charis\Models\Organization',
         Address::ID_OWNER => rand(1, 100),
         Address::ID_COUNTRY => 30,
         Address::DISTRICT => null,

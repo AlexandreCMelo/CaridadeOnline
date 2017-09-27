@@ -1,9 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
-use Charis\Organization;
-use Charis\OrganizationCategory;
-use Charis\Category;
+use Charis\Models\Organization;
+use Charis\Models\OrganizationCategory;
+use Charis\Models\Category;
 
 /*
 |--------------------------------------------------------------------------

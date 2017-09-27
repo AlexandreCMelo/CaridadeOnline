@@ -1,6 +1,6 @@
 <?php
 
-use Charis\User;
+use Charis\Models\User;
 use Faker\Generator as Faker;
 use Faker\Provider\pt_BR\Address as BrazilAddress;
 use Faker\Provider\pt_BR\Person as BrazilPerson;
@@ -26,6 +26,7 @@ $factory->define(User::class, function (Faker $faker) {
         User::PASSWORD => $password ?: $password = bcrypt('secret'),
         User::ID_COUNTRY => 30,
         User::ID_LOCALE => 'br',
+        User::TOKEN => mt_rand(1, 10000),
         User::ID_TIMEZONE => 178,
         User::REMEMBER_TOKEN => str_random(10),
     ];

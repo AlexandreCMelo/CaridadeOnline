@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\OrganizationRoleUser;
+use Charis\Models\OrganizationRoleUser;
 
 class OrganizationRoleUsersTableSeeder extends Seeder
 {

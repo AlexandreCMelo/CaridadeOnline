@@ -2,6 +2,11 @@
 
 namespace Charis\Models;
 
+use \Illuminate\Database\Eloquent\Relations\Pivot;
+use \Charis\Models\User;
+use \Charis\Models\OrganizationRole;
+use \Charis\Models\Organization;
+
 class OrganizationRoleUser extends Pivot
 {
     /**
@@ -28,5 +33,32 @@ class OrganizationRoleUser extends Pivot
     const ID_ORGANIZATION = 'fk_organization';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+
+    /**
+     *
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class, User::ID, self::ID_USER);
+    }
+
+
+    /**
+     *
+     */
+    public function organizationRole()
+    {
+        return $this->hasOne(OrganizationRole::class, OrganizationRole::ID, self::ID_ROLE);
+    }
+
+
+    /**
+     *
+     */
+    public function organization()
+    {
+        return $this->hasOne(Organization::class, Organization::ID, self::ID_ORGANIZATION);
+    }
 
 }

@@ -36,6 +36,7 @@ class User extends Authenticatable
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
     const REMEMBER_TOKEN = 'remember_token';
+    const TOKEN = 'token';
 
     /**
      * The table associated with the model.

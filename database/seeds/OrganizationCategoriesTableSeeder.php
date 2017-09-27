@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\OrganizationCategory;
+use Charis\Models\OrganizationCategory;
 
 class OrganizationCategoriesTableSeeder extends Seeder
 {

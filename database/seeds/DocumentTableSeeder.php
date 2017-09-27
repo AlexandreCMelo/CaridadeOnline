@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\Document;
+use Charis\Models\Document;
 
 
 class DocumentTableSeeder extends Seeder

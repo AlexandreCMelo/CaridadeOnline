@@ -1,14 +1,14 @@
 <?php
 
 use Faker\Generator as Faker;
-use Charis\Album;
-use Charis\Organization;
-use Charis\User;
+use Charis\Models\Album;
+use Charis\Models\Organization;
+use Charis\Models\User;
 
 $factory->define(Model::class, function (Faker $faker) {
 
-    $organizations = Charis\Organization::pluck(Organization::ID)->toArray();
-    $users = Charis\User::pluck(User::ID)->toArray();
+    $organizations = Charis\Models\Organization::pluck(Organization::ID)->toArray();
+    $users = Charis\Models\User::pluck(User::ID)->toArray();
     $albumName = 'Album do '.$faker->name;
 
     return [

@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\Organization;
-use Charis\OrganizationTarget;
-use Charis\OrganizationActivity;
+use Charis\Models\Organization;
+use Charis\Models\OrganizationTarget;
+use Charis\Models\OrganizationActivity;
 
 class OrganizationTableSeeder extends Seeder
 {
