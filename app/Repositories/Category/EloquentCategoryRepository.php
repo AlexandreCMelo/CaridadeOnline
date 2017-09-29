@@ -1,4 +1,4 @@
-<?php namespace Charis\Repositories\Organization;
+<?php namespace Charis\Repositories\Category;
 
 use Charis\Models\Category;
 use Auth;
@@ -25,9 +25,30 @@ class EloquentCategoryRepository implements ICategoryRepository
      *
      * @return mixed
      */
-    public function all()
+    public function all($asArray = false)
     {
-        return Category::all();
+        $data = Category::all();
+        if ($asArray) {
+            return $data->toArray();
+        }
+        return $data;
+    }
+
+    /**
+     * Fetch a user by id
+     *
+     * @return mixed
+     */
+    public function buildList()
+    {
+        $data = [];
+        foreach($this->all(true) as $category) {
+            $data[] = [
+                $category[category::ID] => $category[category::NAME]
+            ];
+        };
+
+        return $data;
     }
 
     /**
