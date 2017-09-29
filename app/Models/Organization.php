@@ -4,6 +4,33 @@ namespace Charis\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class Organization
+ * @package Charis\Models
+ * @method setName($name)
+ * @method setDescription($description)
+ * @method setShortDescription($shortDescription)
+ * @method setEmail($email)
+ * @method setPhone($phone)
+ * @method setWebsite($website)
+ * @method setStatus($status)
+ * @method setAttributes($attributes)
+ * @method setSrc($src)
+ * @method setCountry($idCountry)
+ * @method setTimezone($idTimezone)
+ * @method setLocale($idLocale)
+ * @method getName()
+ * @method getDescription()
+ * @method getShortDescription()
+ * @method getEmail()
+ * @method getPhone()
+ * @method getWebsite()
+ * @method getStatus()
+ * @method getSrc()
+ * @method getCountry()
+ * @method getTimezone()
+ * @method getLocale()
+ */
 class Organization extends Model
 {
     use SoftDeletes;
@@ -28,6 +55,8 @@ class Organization extends Model
     const DELETED_AT = 'deleted_at';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+
 
     /**
      * The table associated with the model.

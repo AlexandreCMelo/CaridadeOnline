@@ -17,7 +17,7 @@
 Route::get('/', 'HomeController@index')->name('welcome');
 
 
-Route::resource('organizations', 'OrganizationController@index');
+Route::resource('organizations', 'OrganizationController');
 
 
 // Authentication Routes

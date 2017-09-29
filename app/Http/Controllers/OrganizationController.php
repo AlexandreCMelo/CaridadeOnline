@@ -4,7 +4,7 @@ namespace Charis\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class OrganizationController extends \Charis\Http\Controllers\Controller
+class OrganizationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class OrganizationController extends \Charis\Http\Controllers\Controller
      */
     public function create()
     {
-        //
+        return view('Organization.create');
     }
 
     /**

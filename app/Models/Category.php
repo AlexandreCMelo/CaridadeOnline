@@ -2,6 +2,13 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Category
+ * @package Charis\Models
+ *
+ * @method setName($name)
+ * @method getName()
+ */
 class Category extends Model
 {
     /**
