@@ -83,6 +83,14 @@ class Organization extends Model
         return $this->hasMany(Role::class);
     }
 
+    /**
+     * Get organization category collection
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, Comment::ID_ORGANIZATION, self::ID);
+    }
+
 
 
 }

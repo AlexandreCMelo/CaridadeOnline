@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Charis\Http\Controllers\Auth;
 
 use Charis\Http\Controllers\Controller;
 use Charis\Models\Social;

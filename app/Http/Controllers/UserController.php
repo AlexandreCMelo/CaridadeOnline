@@ -4,7 +4,7 @@ namespace Charis\Http\Controllers;
 
 use Auth;
 
-class UserController extends Controller
+class UserController extends \Charis\Http\Controllers\Controller
 {
     /**
      * UserController constructor.
