@@ -14,7 +14,11 @@
 */
 
 // Homepage Route
-Route::get('/', 'Dashboard\HomeController@index')->name('welcome');
+Route::get('/', 'HomeController@index')->name('welcome');
+
+
+Route::resource('organizations', 'OrganizationController');
+
 
 // Authentication Routes
 Auth::routes();
@@ -89,80 +93,8 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
     Route::get('/',
         [
             'as' => 'dashboard',
-            'uses' => 'Dashboard\HomeController@index'
+            'uses' => 'HomeController@index'
         ]
     );
-
-    // Show users profile - viewable by other users.
-    Route::get('profile/{username}',
-        [
-            'as' => '{username}',
-            'uses' => 'ProfilesController@show',
-        ]
-    );
-});
-
-
-// Registered, activated, and is current user routes.
-Route::group(['middleware'=> ['auth', 'activated', 'currentUser']], function () {
-
-    // User Profile and Account Routes
-    Route::resource(
-        'profile',
-        'ProfilesController', [
-            'only'  => [
-                'show',
-                'edit',
-                'update',
-                'create',
-            ],
-        ]
-    );
-    Route::put('profile/{username}/updateUserAccount', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@updateUserAccount',
-    ]);
-    Route::put('profile/{username}/updateUserPassword', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@updateUserPassword',
-    ]);
-    Route::delete('profile/{username}/deleteUserAccount', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@deleteUserAccount',
-    ]);
-
-    // Route to show user avatar
-    Route::get('images/profile/{id}/avatar/{image}', [
-        'uses'      => 'ProfilesController@userProfileAvatar',
-    ]);
-
-    // Route to upload user avatar.
-    Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
-});
-
-// Registered, activated, and is admin routes.
-Route::group(['middleware'=> ['auth', 'activated', 'role:admin']], function () {
-    Route::resource('/users/deleted', 'SoftDeletesController', [
-        'only' => [
-            'index', 'show', 'update', 'destroy',
-        ],
-    ]);
-
-    Route::resource('users', 'UsersManagementController', [
-        'names' => [
-            'index'   => 'users',
-            'destroy' => 'user.destroy',
-        ],
-        'except' => [
-            'deleted',
-        ],
-    ]);
-
-    Route::resource('themes', 'ThemesManagementController', [
-        'names' => [
-            'index'   => 'themes',
-            'destroy' => 'themes.destroy',
-        ],
-    ]);
 
 });

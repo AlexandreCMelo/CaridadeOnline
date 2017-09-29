@@ -1,8 +1,6 @@
 <?php
 
-namespace Charis\Http\Controllers\Dashboard;
-
-use Illuminate\Http\Request;
+namespace Charis\Http\Controllers;
 
 
 class HomeController extends \Charis\Http\Controllers\Controller

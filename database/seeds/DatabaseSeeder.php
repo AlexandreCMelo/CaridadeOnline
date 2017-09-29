@@ -20,9 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(OrganizationCategoriesTableSeeder::class);
         $this->call(OrganizationTargetsTableSeeder::class);
         $this->call(OrganizationRoleUsersTableSeeder::class);
-        $this->call(FileTableSeeder::class);
-        $this->call(AlbumTableSeeder::class);
-        $this->call(AlbumFileTableSeeder::class);
+        $this->call(CommentTableSeeder::class);
+
 
     }
 }

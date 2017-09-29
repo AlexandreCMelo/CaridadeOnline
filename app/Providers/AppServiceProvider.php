@@ -3,6 +3,9 @@
 namespace Charis\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Charis\Repositories\Category\EloquentCategoryRepository;
+use Charis\Repositories\Category\ICategoryRepository;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
+        $this->app->bind(
+            ICategoryRepository::class,
+            EloquentCategoryRepository::class
+        );
+
     }
 }
