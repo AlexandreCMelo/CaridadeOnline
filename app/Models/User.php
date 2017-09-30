@@ -116,4 +116,14 @@ class User extends Authenticatable
             Document::ID_OWNER
         );
     }
+
+    /**
+     * @return Organization
+     */
+    public function organizations()
+    {
+        return $this->belongsToMany(Organization::class, OrganizationRoleUser::TABLE_NAME,OrganizationRoleUser::ID_USER, self::ID)->firstOr([]);
+    }
+
+
 }

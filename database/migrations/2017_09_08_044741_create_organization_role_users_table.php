@@ -4,10 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Models\User;
-use Charis\Models\Role;
+use Charis\Models\OrganizationRole;
 use Charis\Models\OrganizationRoleUser;
 use Charis\Models\Organization;
-
 
 class CreateOrganizationRoleUsersTable extends Migration
 {
@@ -31,8 +30,8 @@ class CreateOrganizationRoleUsersTable extends Migration
                 ->on(User::TABLE_NAME)->onDelete('cascade');
 
             $table->foreign(OrganizationRoleUser::ID_ROLE)
-                ->references(Role::ID)
-                ->on(Role::TABLE_NAME);
+                ->references(OrganizationRole::ID)
+                ->on(OrganizationRole::TABLE_NAME);
 
             $table->foreign(OrganizationRoleUser::ID_ORGANIZATION)
                 ->references(Organization::ID)
