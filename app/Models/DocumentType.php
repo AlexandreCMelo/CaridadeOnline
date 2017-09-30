@@ -2,6 +2,16 @@
 
 namespace Charis\Models;
 
+/**
+ * Class DocumentType
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getName()
+ * @method getDescription()
+ * @method setName($name)
+ * @method setDescription($description)
+ */
 class DocumentType extends Model
 {
     /**
@@ -26,7 +36,10 @@ class DocumentType extends Model
     const NAME = 'name';
     const DESCRIPTION = 'description';
 
-    public function users()
+    /**
+     * @return mixed
+     */
+    public function documents()
     {
         return $this->belongsToMany(Document::class, Document::ID_TYPE);
     }

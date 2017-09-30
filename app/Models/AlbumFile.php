@@ -2,9 +2,20 @@
 
 namespace Charis\Models;
 
-use Charis\Album;
-use Charis\File;
-
+/**
+ * Class AlbumFile
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getAlbumId()
+ * @method getFileId()
+ * @method getCreatedAt()
+ * @method getUpdatedAt()
+ * @method setAlbumId()
+ * @method setFileId()
+ * @method setCreatedAt()
+ * @method setUpdatedAt()
+ */
 class AlbumFile extends Model
 {
     const ID = 'id';
@@ -16,11 +27,17 @@ class AlbumFile extends Model
     const TABLE_NAME = 'album_files';
 
 
+    /**
+     * @return Album
+     */
     public function album()
     {
         $this->hasOne(Album::class, Album::ID, self::ID_ALBUM);
     }
 
+    /**
+     * @return File
+     */
     public function file()
     {
         $this->hasOne(File::class, File::ID, self::ID_FILE);

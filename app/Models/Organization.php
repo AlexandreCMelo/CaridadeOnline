@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Organization
  * @package Charis\Models
+ *
  * @method setName($name)
  * @method setDescription($description)
  * @method setShortDescription($shortDescription)
@@ -43,7 +44,7 @@ class Organization extends Model
     const ID_COUNTRY = 'fk_country';
     const ID_TIMEZONE = 'fk_timezone';
     const ID_LOCALE = 'fk_locale';
-    const SRC = 'src';
+    const SRC = 'origin_id';
     const NAME = 'name';
     const DESCRIPTION = 'description';
     const SHORT_DESCRIPTION = 'short_description';

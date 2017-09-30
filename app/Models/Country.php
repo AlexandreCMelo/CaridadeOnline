@@ -2,6 +2,25 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Country
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getName()
+ * @method getCountryName()
+ * @method getIso3166Code()
+ * @method getIsoCode()
+ * @method getPhoneCode()
+ * @method getSeq()
+ * @method setId()
+ * @method setName($name)
+ * @method setCountryName($countryName)
+ * @method setIso3166Code($iso3166Code)
+ * @method setIsoCode($isoCode)
+ * @method setPhoneCode($phoneCode)
+ * @method setSeq($seq)
+ */
 class Country extends Model
 {
     /**

@@ -6,8 +6,9 @@ namespace Charis\Models;
  * Class Category
  * @package Charis\Models
  *
- * @method setName($name)
+ * @method getId()
  * @method getName()
+ * @method setName($name)
  */
 class Category extends Model
 {
@@ -42,5 +43,13 @@ class Category extends Model
     const ENVIRONMENTAL_HEALTH = 50;
     const HEALTH = 70;
     const ANIMAL_HEALTH = 80;
+
+    /**
+     * @return Organization
+     */
+    public function organizations(){
+        return $this->belongsToMany(Organization::class)->using(OrganizationActivity::class);
+    }
+
 }
 

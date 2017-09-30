@@ -2,6 +2,14 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Activity
+ * @package Charis\Models
+ *
+ * @method getId($id)
+ * @method getName()
+ * @method setName($name)
+ */
 class Activity extends Model
 {
     /**
@@ -33,5 +41,12 @@ class Activity extends Model
     protected $fillable = [
         self::NAME,
     ];
+
+    /**
+     * @return Organization
+     */
+    public function organizations(){
+        return $this->belongsToMany(Organization::class)->using(OrganizationActivity::class);
+    }
 
 }

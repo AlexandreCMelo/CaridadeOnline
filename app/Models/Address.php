@@ -2,6 +2,34 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Address
+ * @package Charis\Models
+ *
+ * @method getId($id)
+ * @method getName()
+ * @method getType($typeId)
+ * @method getOwner($ownerClass)
+ * @method getCountry($countryId)
+ * @method getAddress($address)
+ * @method getState($state)
+ * @method getDistrict($district)
+ * @method getCity($city)
+ * @method getZipCode($zipCode)
+ * @method getLatitude($latitude)
+ * @method getLongitude($longitude)
+ * @method setName($name)
+ * @method setType($typeId)
+ * @method setOwner($ownerClass)
+ * @method setCountry($countryId)
+ * @method setAddress($address)
+ * @method setState($state)
+ * @method setDistrict($district)
+ * @method setCity($city)
+ * @method setZipCode($zipCode)
+ * @method setLatitude($latitude)
+ * @method setLongitude($longitude)
+ */
 class Address extends Model
 {
     /**
@@ -32,11 +60,18 @@ class Address extends Model
     const DISTRICT = 'district';
     const CITY = 'city';
     const ZIP_CODE = 'zip_code';
-    const RELATION_SLUG = 'addressable';
     const LATITUDE = 'latitude';
     const LONGITUDE = 'longitude';
 
+    /**
+     * Morph slug
+     */
+    const RELATION_SLUG = 'addressable';
 
+
+    /**
+     * @return User
+     */
     public function user()
     {
         return $this->morphMany(
@@ -47,6 +82,9 @@ class Address extends Model
         );
     }
 
+    /**
+     * @return Organization
+     */
     public function organization()
     {
         return $this->morphMany(
