@@ -21,8 +21,7 @@ class EloquentCategoryRepository implements ICategoryRepository
     }
 
     /**
-     * Fetch a user by id
-     *
+     * @param bool $asArray
      * @return mixed
      */
     public function all($asArray = false)

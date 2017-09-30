@@ -2,6 +2,10 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Social
+ * @package Charis\Models
+ */
 class Social extends Model
 {
     /**

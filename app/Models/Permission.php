@@ -2,14 +2,30 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Permission
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getCode()
+ * @method getDescription()
+ * @method setId()
+ * @method setCode()
+ * @method setDescription()
+ */
 class Permission extends Model
 {
+    /**
+     * Table parameters
+     */
+    const TABLE_NAME = 'permissions';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'permissions';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -18,10 +34,6 @@ class Permission extends Model
      */
     public $timestamps = false;
 
-    /**
-     * Table parameters
-     */
-    const TABLE_NAME = 'permissions';
     const ID = 'id';
     const CODE = 'code';
     const DESCRIPTION = 'description';

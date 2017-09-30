@@ -3,18 +3,33 @@
 namespace Charis\Models;
 
 use \Illuminate\Database\Eloquent\Relations\Pivot;
-use \Charis\Models\User;
-use \Charis\Models\OrganizationRole;
-use \Charis\Models\Organization;
 
+/**
+ * Class OrganizationRoleUser
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getUserId()
+ * @method getRoleId()
+ * @method getOrganizationId() 
+ * @method setId()
+ * @method setUserId()
+ * @method setRoleId()
+ * @method setOrganizationId()
+ */
 class OrganizationRoleUser extends Pivot
 {
+    /**
+     * Table parameters
+     */
+    const TABLE_NAME = 'organization_role_users';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'organization_role_users';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,10 +38,6 @@ class OrganizationRoleUser extends Pivot
      */
     public $timestamps = true;
 
-    /**
-     * Table parameters
-     */
-    const TABLE_NAME = 'organization_role_users';
     const ID = 'id';
     const ID_USER = 'fk_user';
     const ID_ROLE = 'fk_role';
@@ -34,18 +45,16 @@ class OrganizationRoleUser extends Pivot
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     /**
-     *
+     * @return User
      */
     public function user()
     {
         return $this->hasOne(User::class, User::ID, self::ID_USER);
     }
 
-
     /**
-     *
+     * @return OrganizationRole
      */
     public function organizationRole()
     {
@@ -54,7 +63,7 @@ class OrganizationRoleUser extends Pivot
 
 
     /**
-     *
+     * @return Organization
      */
     public function organization()
     {

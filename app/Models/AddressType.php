@@ -2,6 +2,17 @@
 
 namespace Charis\Models;
 
+/**
+ * Class AddressType
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getName()
+ * @method getDescription()
+ * @method setId($id)
+ * @method setName($name)
+ * @method setDescription($description)
+ */
 class AddressType extends Model
 {
     /**

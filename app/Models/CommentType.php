@@ -4,6 +4,14 @@ namespace Charis\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class CommentType
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getName()
+ * @method setName($name)
+ */
 class CommentType extends Model
 {
     /**

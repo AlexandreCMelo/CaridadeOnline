@@ -2,6 +2,25 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Document
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getValue()
+ * @method getTypeId()
+ * @method getOwner()
+ * @method getOwnerId()
+ * @method getCreatedAt()
+ * @method getUpdatedAt()
+ * @method setId($id)
+ * @method setValue()
+ * @method setTypeId($typeId)
+ * @method setOwner($ownerClass)
+ * @method setOwnerId($ownerClass)
+ * @method setCreatedAt($countryId)
+ * @method setUpdatedAt($countryId)
+ */
 class Document extends Model
 {
     /**

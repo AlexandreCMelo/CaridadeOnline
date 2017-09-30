@@ -2,14 +2,40 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Timezone
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getName()
+ * @method getCountryCode()
+ * @method getCoordinates()
+ * @method getNotes()
+ * @method getUtcOffset()
+ * @method getUtcDistOffset()
+ * @method getComments()
+ * @method setId()
+ * @method setName()
+ * @method setCountryCode()
+ * @method setCoordinates()
+ * @method setNotes()
+ * @method setUtcOffset()
+ * @method setUtcDistOffset()
+ * @method setComments()
+ */
 class Timezone extends Model
 {
+    /**
+     * Table parameters
+     */
+    const TABLE_NAME = 'timezones';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'timezones';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -18,10 +44,6 @@ class Timezone extends Model
      */
     public $timestamps = false;
 
-    /**
-     * Table parameters
-     */
-    const TABLE_NAME = 'timezones';
     const ID = 'id';
     const NAME = 'name';
     const COUNTRY_CODE = 'country_code';

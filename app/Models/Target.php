@@ -2,6 +2,14 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Target
+ * @package Charis\Models
+ *
+ * @method getId($id)
+ * @method getName()
+ * @method setName($name)
+ */
 class Target extends Model
 {
 
@@ -37,5 +45,13 @@ class Target extends Model
     const TEENAGER = 60;
     const SPECIAL_CONDITIONS = 70;
     const GENERAL = 80;
+
+    /**
+     * @return Organization
+     */
+    public function organizations(){
+        return $this->belongsToMany(Organization::class)->using(OrganizationActivity::class);
+    }
+
 
 }

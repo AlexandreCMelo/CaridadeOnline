@@ -2,14 +2,30 @@
 
 namespace Charis\Models;
 
+/**
+ * Class OrganizationRole
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getName()
+ * @method getDescription()
+ * @method setId($id)
+ * @method setName($name)
+ * @method setDescription($description)
+ */
 class OrganizationRole extends Model
 {
+    /**
+     * Table parameters
+     */
+    const TABLE_NAME = 'organization_roles';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'organization_roles';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -18,10 +34,6 @@ class OrganizationRole extends Model
      */
     public $timestamps = false;
 
-    /**
-     * Table parameters
-     */
-    const TABLE_NAME = 'organization_roles';
     const ID = 'id';
     const NAME = 'name';
     const DESCRIPTION = 'description';

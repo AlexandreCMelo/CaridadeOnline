@@ -7,8 +7,6 @@
 
         {!! Form::open(['route' => 'organizations.store']) !!}
 
-
-
         <div class="form-group">
             {{ Form::label('name', null, ['class' => 'control-label']) }}
             {{ Form::text('name', '', ['class' => 'form-control']) }}

@@ -2,13 +2,41 @@
 
 namespace Charis\Models;
 
+/**
+ * Class File
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getOwnerId()
+ * @method getTypeId()
+ * @method getOwner()
+ * @method getName()
+ * @method getPath()
+ * @method getSize()
+ * @method getMimeType()
+ * @method getAttributes()
+ * @method getDeletedAt()
+ * @method getCreatedAt()
+ * @method getUpdatedAt()
+ * @method setId()
+ * @method setOwnerId()
+ * @method setTypeId()
+ * @method setOwner()
+ * @method setName()
+ * @method setPath()
+ * @method setSize()
+ * @method setMimeType()
+ * @method setAttributes()
+ * @method setDeletedAt()
+ * @method setCreatedAt()
+ * @method setUpdatedAt()
+ */
 class File extends Model
 {
-
     const ID = 'id';
-    const ID_FILE_OWNER = 'fk_file_owner';
+    const ID_FILE_OWNER = 'fk_owner';
     const ID_FILE_TYPE = 'fk_tile_type';
-    const FILE_OWNER = 'file_owner';
+    const FILE_OWNER = 'owner';
     const NAME = 'Name';
     const PATH = 'Path';
     const SIZE = 'size';
@@ -17,12 +45,22 @@ class File extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
     const DELETED_AT = 'deleted_at';
+
+    /**
+     * @var string
+     */
+    protected $table = 'files';
+
+    /**
+     * Morph slug
+     */
     const RELATION_SLUG = 'ownable';
+
     const TABLE_NAME = 'files';
 
 
     /**
-     * @return mixed
+     * @return User
      */
     public function user()
     {
@@ -35,7 +73,7 @@ class File extends Model
     }
 
     /**
-     * @return mixed
+     * @return Organization
      */
     public function organization()
     {

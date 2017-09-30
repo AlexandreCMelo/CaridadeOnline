@@ -2,6 +2,17 @@
 
 namespace Charis\Models;
 
+/**
+ * Class Role
+ * @package Charis\Models
+ *
+ * @method getId()
+ * @method getName()
+ * @method getDescription()
+ * @method setId()
+ * @method setName()
+ * @method setDescription()
+ */
 class Role extends Model
 {
     /**
@@ -32,7 +43,6 @@ class Role extends Model
     const ID_SYSTEM_ADMIN_USER = 100;
     const ID_REGISTERED_USER = 20;
     const ID_UNSUPERVISED_USER= 10;
-
 
 
 }
