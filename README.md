@@ -5,20 +5,16 @@
 
 CaridadeOnline is a laravel-LTS-powered, cloud-enabled, mobile-ready, API compliant, PHP 7 project made to help charitable entitys in Brazil
 
-# Installation
-> composer require alexandre-cmelo/caridade-online
-
 # Features!
 
-  - Get information about nearby Entitys
-  - Complement entity information
-  - Request entity contact
-  - Map based search entitys all accross Brazil
-  - Send message to an entity  
-  - Manage your entity information, and contacts
-  - Create photo entity photo albums 
+  - Get information about nearby Organizations
+  - Complement organization info
+  - Request organization contact
+  - Map based search for organizations all accross Brazil
+  - Send message to an organization  
+  - Manage your organization information, and contacts
+  - Create photo organization photo albums 
   - Use Charis Api to build powerful applications on scale
-  - Update info for the entitys you may know
   - SEO-Friendly
-  - OPEN-SOURCE under MIT license
+  - OPEN-SOURCE under GPL license
 
