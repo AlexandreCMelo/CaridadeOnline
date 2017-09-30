@@ -1,9 +1,6 @@
 <?php namespace Charis\Repositories\Country;
 
-use Charis\Models\Country;
-use Auth;
-
-class EloquentCountryRepository implements ICountryRepository
+class CountryRepository implements ICountryRepository
 {
     const DEFAULT_LIMIT = 10;
 

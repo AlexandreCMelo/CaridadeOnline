@@ -18,17 +18,6 @@ namespace Charis\Models;
  * @method getZipCode()
  * @method getLatitude()
  * @method getLongitude()
- * @method setName($name)
- * @method setType($typeId)
- * @method setOwner($ownerClass)
- * @method setCountry($countryId)
- * @method setAddress($address)
- * @method setState($state)
- * @method setDistrict($district)
- * @method setCity($city)
- * @method setZipCode($zipCode)
- * @method setLatitude($latitude)
- * @method setLongitude($longitude)
  */
 class Address extends Model
 {

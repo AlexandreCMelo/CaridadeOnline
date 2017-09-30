@@ -51,4 +51,5 @@ class Locale extends Model
         self::ID,
     ];
 
+    const DEFAULT_LOCALE_BRAZIL = 'br';
 }

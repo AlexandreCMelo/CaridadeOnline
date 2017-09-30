@@ -12,12 +12,6 @@ namespace Charis\Models;
  * @method getUserId()
  * @method getCreatedAt()
  * @method getUpdatedAt() 
- * @method setId($id)
- * @method setName($name)
- * @method setOrganizationId($organizationId)
- * @method setUserId($userId)
- * @method setCreatedAt($createdAt)
- * @method setUpdatedAt($updatedAt)
  */
 class Album extends Model
 {

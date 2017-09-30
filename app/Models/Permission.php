@@ -9,9 +9,6 @@ namespace Charis\Models;
  * @method getId()
  * @method getCode()
  * @method getDescription()
- * @method setId($id)
- * @method setCode($code)
- * @method setDescription($description)
  */
 class Permission extends Model
 {

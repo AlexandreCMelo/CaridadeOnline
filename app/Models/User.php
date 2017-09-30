@@ -25,21 +25,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method getUpdatedAt()
  * @method getToken()
  * @method getRememberToken()
- * @method setName($name)
- * @method setEmail($email)
- * @method setPhone($phone)
- * @method setEnabled($enabled)
- * @method setPassword($password)
- * @method setSrc($src)
- * @method setActivated($activated)
- * @method setCountry($idCountry)
- * @method setTimezone($idTimezone)
- * @method setLocale($idLocale)
- * @method setDeletedAt($idLocale)
- * @method setCreatedAt($idLocale)
- * @method setUpdatedAt($idLocale)
- * @method setToken($idLocale)
- * @method setRememberToken($idLocale)
  */
 class User extends Authenticatable
 {

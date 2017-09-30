@@ -19,18 +19,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method getCountry()
  * @method getTimezone()
  * @method getLocale()
- * @method setName($name)
- * @method setDescription($description)
- * @method setShortDescription($shortDescription)
- * @method setEmail($email)
- * @method setPhone($phone)
- * @method setWebsite($website)
- * @method setStatus($status)
- * @method setAttributes($attributes)
- * @method setSrc($src)
- * @method setCountry($idCountry)
- * @method setTimezone($idTimezone)
- * @method setLocale($idLocale)
  */
 class Organization extends Model
 {

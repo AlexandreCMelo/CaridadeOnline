@@ -2,7 +2,7 @@
 
 namespace Charis\Http\Controllers;
 
-use Charis\Repositories\Category\EloquentCategoryRepository;
+use Charis\Repositories\Category\CategoryRepository;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
@@ -22,7 +22,7 @@ class OrganizationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(EloquentCategoryRepository $eloquentCategoryRepository)
+    public function create(CategoryRepository $eloquentCategoryRepository)
     {
         $categories = $eloquentCategoryRepository->buildList();
 

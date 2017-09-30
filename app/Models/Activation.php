@@ -10,10 +10,6 @@ namespace Charis\Models;
  * @method getUserId()
  * @method getToken()
  * @method getIpAddress()
- * @method setId($id)
- * @method setUserId($userId)
- * @method setToken($token)
- * @method setIpAddress($ipAddress)
  */
 class Activation extends Model
 {

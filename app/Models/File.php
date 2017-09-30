@@ -18,18 +18,6 @@ namespace Charis\Models;
  * @method getDeletedAt()
  * @method getCreatedAt()
  * @method getUpdatedAt()
- * @method setId($id)
- * @method setOwnerId($ownerId)
- * @method setTypeId($typeId)
- * @method setOwner($ownerClass)
- * @method setName($name)
- * @method setPath($path)
- * @method setSize($size)
- * @method setMimeType($mimeType)
- * @method setAttributes($attributes)
- * @method setDeletedAt($deletedAt)
- * @method setCreatedAt($createdAt)
- * @method setUpdatedAt($updatedAt)
  */
 class File extends Model
 {

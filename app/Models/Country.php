@@ -62,4 +62,7 @@ class Country extends Model
     ];
 
 
+    const DEFAULT_COUNTRY_BRAZIL = '30';
+
+
 }

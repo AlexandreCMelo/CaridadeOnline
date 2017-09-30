@@ -1,9 +1,12 @@
 <?php namespace Charis\Repositories\Organization;
 
+use Charis\Models\Country;
+use Charis\Models\Locale;
 use Charis\Models\Organization;
 use Auth;
+use Charis\Models\Timezone;
 
-class EloquentUserRepository implements IActivityRepository
+class OrganizationRepository implements IOrganizationRepository
 {
 
     const DEFAULT_LIMIT = 10;
@@ -132,10 +135,8 @@ class EloquentUserRepository implements IActivityRepository
         // TODO: Implement findContactUsers() method.
     }
 
+
     /**
-     *
-     * Adds a organization
-     *
      * @param $name
      * @param $description
      * @param $shortDescription
@@ -148,6 +149,7 @@ class EloquentUserRepository implements IActivityRepository
      * @param bool $idTimezone
      * @param bool $idLocale
      * @param bool $src
+     * @return bool|Organization
      */
     public function addOrganization(
         $name,
@@ -166,21 +168,30 @@ class EloquentUserRepository implements IActivityRepository
 
         $organization = new Organization();
 
-        $organization->setName($name);
-        $organization->setDescription($description);
-        $organization->setShortDescription($shortDescription);
-        $organization->setEmail($email);
-        $organization->setPhone($phone);
-        $organization->setWebsite($website);
-        $organization->setStatus($status);
-        $organization->setSrc($src);
-        $organization->setAttributes($attributes);
-        $organization->setCountry($idCountry);
-        $organization->setTimezone($idTimezone);
-        $organization->setLocale($idLocale);
+        if($idCountry == false){
+            $idCountry = Country::DEFAULT_COUNTRY_BRAZIL;
+        }
+
+        if($idTimezone == false){
+            $idTimezone = Timezone::DEFAULT_TIMEZONE_BRAZIL;
+        }
+
+        if($idLocale == false){
+            $idLocale = Locale::DEFAULT_LOCALE_BRAZIL;
+        }
+
+        $organization->{Organization::NAME} = $name;
+        $organization->{Organization::DESCRIPTION} = $description;
+        $organization->{Organization::SHORT_DESCRIPTION} = $shortDescription;
+        $organization->{Organization::EMAIL} = $email;
+        $organization->{Organization::PHONE} = $phone;
+        $organization->{Organization::WEBSITE} = $website;
+        $organization->{Organization::ID_COUNTRY} = $idCountry;
+        $organization->{Organization::ID_TIMEZONE} = $idTimezone;
+        $organization->{Organization::ID_LOCALE} = $idLocale;
 
         if($organization->save()){
-            return $organization;
+            return $organization->id;
         }
 
         return false;
