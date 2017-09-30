@@ -135,7 +135,6 @@ class OrganizationRepository implements IOrganizationRepository
         // TODO: Implement findContactUsers() method.
     }
 
-
     /**
      * @param $name
      * @param $description
@@ -151,7 +150,7 @@ class OrganizationRepository implements IOrganizationRepository
      * @param bool $src
      * @return bool|Organization
      */
-    public function addOrganization(
+    public function add(
         $name,
         $description,
         $shortDescription,
