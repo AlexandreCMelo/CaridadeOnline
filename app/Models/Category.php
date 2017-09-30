@@ -12,12 +12,15 @@ namespace Charis\Models;
  */
 class Category extends Model
 {
+
+    const TABLE_NAME = 'categories';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'categories';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -29,9 +32,17 @@ class Category extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'categories';
     const ID = 'id';
     const NAME = 'name';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        self::NAME,
+    ];
 
     /**
      * Avaliable categories

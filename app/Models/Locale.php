@@ -10,9 +10,9 @@ namespace Charis\Models;
  * @method getName()
  * @method getCode()
  * @method getEnabled()
- * @method setId()
- * @method setCode()
- * @method setEnabled()
+ * @method setId($id)
+ * @method setCode($code)
+ * @method setEnabled($enabled)
  * @method setName($name)
  */
 class Locale extends Model
@@ -37,9 +37,18 @@ class Locale extends Model
      */
     public $timestamps = false;
 
-
     const ID = 'id';
     const CODE = 'code';
     const NAME = 'name';
     const ENABLED = 'enabled';
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID,
+    ];
+
 }

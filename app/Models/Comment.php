@@ -15,22 +15,25 @@ use Illuminate\Database\Eloquent\Model;
  * @method getContent()
  * @method getCreatedAt()
  * @method getUpdatedAt()
- * @method setId()
- * @method setOrganizationId()
- * @method setTypeId()
- * @method setUserId()
- * @method setContent()
- * @method setCreatedAt()
- * @method setUpdatedAt()
+ * @method setId($id)
+ * @method setOrganizationId($organizationId)
+ * @method setTypeId($typeId)
+ * @method setUserId($userId)
+ * @method setContent($content)
+ * @method setCreatedAt($createdAt)
+ * @method setUpdatedAt($updatedAt)
  */
 class Comment extends Model
 {
+
+    const TABLE_NAME = 'comments';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'comments';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -42,7 +45,6 @@ class Comment extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'comments';
     const ID = 'id';
     const ID_ORGANIZATION = 'id_organization';
     const ID_TYPE = 'id_type';
@@ -51,6 +53,14 @@ class Comment extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID
+    ];
 
     /**
      * @return Organization

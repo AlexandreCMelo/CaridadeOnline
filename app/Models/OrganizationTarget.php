@@ -9,9 +9,9 @@ namespace Charis\Models;
  * @method getId()
  * @method getOrganizationId()
  * @method getTargetId()
- * @method setId()
- * @method setOrganizationId()
- * @method setTargetId()
+ * @method setId($id)
+ * @method setOrganizationId($organizationId)
+ * @method setTargetId($targetId)
  */
 class OrganizationTarget extends Model
 {
@@ -37,6 +37,15 @@ class OrganizationTarget extends Model
     const ID = 'id';
     const ID_ORGANIZATION = 'fk_organization';
     const ID_TARGET = 'fk_target';
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID,
+    ];
 
 
 }

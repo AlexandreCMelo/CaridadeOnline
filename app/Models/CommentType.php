@@ -14,12 +14,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CommentType extends Model
 {
+
+    /**
+     * Table parameters
+     */
+    const TABLE_NAME = 'comment_types';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'comment_types';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -28,10 +34,6 @@ class CommentType extends Model
      */
     public $timestamps = false;
 
-    /**
-     * Table parameters
-     */
-    const TABLE_NAME = 'comment_types';
     const ID = 'id';
     const NAME = 'name';
 
@@ -41,4 +43,14 @@ class CommentType extends Model
 
     const ORGANIZATION = 10;
     const ALBUM = 20;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        self::NAME,
+    ];
+
 }

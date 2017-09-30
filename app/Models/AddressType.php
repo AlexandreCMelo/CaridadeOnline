@@ -15,12 +15,15 @@ namespace Charis\Models;
  */
 class AddressType extends Model
 {
+
+    const TABLE_NAME = 'address_types';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'address_types';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -32,8 +35,17 @@ class AddressType extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'address_types';
     const ID = 'id';
     const NAME = 'name';
     const DESCRIPTION = 'description';
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID
+    ];
+
 }

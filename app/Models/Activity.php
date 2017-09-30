@@ -6,18 +6,22 @@ namespace Charis\Models;
  * Class Activity
  * @package Charis\Models
  *
- * @method getId($id)
+ * @method getId()
  * @method getName()
+ * @method setId($id)
  * @method setName($name)
  */
 class Activity extends Model
 {
+
+    const TABLE_NAME = 'activities';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'activities';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -29,7 +33,6 @@ class Activity extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'activities';
     const ID = 'id';
     const NAME = 'name';
 

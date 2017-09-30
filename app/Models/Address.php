@@ -6,18 +6,18 @@ namespace Charis\Models;
  * Class Address
  * @package Charis\Models
  *
- * @method getId($id)
+ * @method getId()
  * @method getName()
- * @method getType($typeId)
- * @method getOwner($ownerClass)
- * @method getCountry($countryId)
- * @method getAddress($address)
- * @method getState($state)
- * @method getDistrict($district)
- * @method getCity($city)
- * @method getZipCode($zipCode)
- * @method getLatitude($latitude)
- * @method getLongitude($longitude)
+ * @method getType()
+ * @method getOwner()
+ * @method getCountry()
+ * @method getAddress()
+ * @method getState()
+ * @method getDistrict()
+ * @method getCity()
+ * @method getZipCode()
+ * @method getLatitude()
+ * @method getLongitude()
  * @method setName($name)
  * @method setType($typeId)
  * @method setOwner($ownerClass)
@@ -32,12 +32,15 @@ namespace Charis\Models;
  */
 class Address extends Model
 {
+
+    const TABLE_NAME = 'addresses';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'addresses';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -49,7 +52,6 @@ class Address extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'addresses';
     const ID = 'id';
     const ID_TYPE = 'fk_type';
     const ID_OWNER = 'fk_owner';
@@ -68,6 +70,14 @@ class Address extends Model
      */
     const RELATION_SLUG = 'addressable';
 
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID
+    ];
 
     /**
      * @return User

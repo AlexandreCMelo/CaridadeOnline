@@ -23,12 +23,15 @@ namespace Charis\Models;
  */
 class Country extends Model
 {
+
+    const TABLE_NAME = 'country';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'country';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -40,7 +43,6 @@ class Country extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'country';
     const ID = 'id';
     const COUNTRY_NAME = 'country_name';
     const NAME = 'name';
@@ -49,4 +51,15 @@ class Country extends Model
     const ISO_CODE = 'iso_code';
     const PHONE_CODE = 'phone_code';
     const SEQ = 'seq';
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID
+    ];
+
+
 }

@@ -14,7 +14,7 @@ namespace Charis\Models;
  * @method getCreatedAt()
  * @method getUpdatedAt()
  * @method setId($id)
- * @method setValue()
+ * @method setValue($value)
  * @method setTypeId($typeId)
  * @method setOwner($ownerClass)
  * @method setOwnerId($ownerClass)
@@ -23,12 +23,15 @@ namespace Charis\Models;
  */
 class Document extends Model
 {
+
+    const TABLE_NAME = 'documents';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'documents';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -40,7 +43,6 @@ class Document extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'documents';
     const ID = 'id';
     const ID_TYPE = 'fk_type';
     const ID_OWNER = 'fk_owner';
@@ -48,8 +50,17 @@ class Document extends Model
     const VALUE = 'value';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
     const RELATION_SLUG = 'addressable';
 
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID
+    ];
 
     /**
      * @return mixed
