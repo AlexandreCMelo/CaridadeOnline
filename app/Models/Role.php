@@ -9,18 +9,21 @@ namespace Charis\Models;
  * @method getId()
  * @method getName()
  * @method getDescription()
- * @method setId()
- * @method setName()
- * @method setDescription()
+ * @method setId($id)
+ * @method setName($name)
+ * @method setDescription($description)
  */
 class Role extends Model
 {
+
+    const TABLE_NAME = 'roles';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'roles';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -32,7 +35,6 @@ class Role extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'roles';
     const ID = 'id';
     const NAME = 'name';
     const DESCRIPTION = 'description';
@@ -44,5 +46,13 @@ class Role extends Model
     const ID_REGISTERED_USER = 20;
     const ID_UNSUPERVISED_USER= 10;
 
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID,
+    ];
 
 }

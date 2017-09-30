@@ -6,19 +6,21 @@ namespace Charis\Models;
  * Class Target
  * @package Charis\Models
  *
- * @method getId($id)
+ * @method getId()
  * @method getName()
  * @method setName($name)
  */
 class Target extends Model
 {
 
+    const TABLE_NAME = 'targets';
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'targets';
+    protected $table = self::TABLE_NAME;
 
     /**
      * Indicates if the model should be timestamped.
@@ -30,7 +32,6 @@ class Target extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'targets';
     const ID = 'id';
     const NAME = 'name';
 
@@ -45,6 +46,15 @@ class Target extends Model
     const TEENAGER = 60;
     const SPECIAL_CONDITIONS = 70;
     const GENERAL = 80;
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID,
+    ];
 
     /**
      * @return Organization

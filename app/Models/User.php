@@ -40,7 +40,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method setUpdatedAt($idLocale)
  * @method setToken($idLocale)
  * @method setRememberToken($idLocale)
-
  */
 class User extends Authenticatable
 {
@@ -66,36 +65,6 @@ class User extends Authenticatable
      */
     protected $dates = [self::DELETE_AT];
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        self::NAME,
-        self::EMAIL,
-        self::PASSWORD,
-        self::ID_COUNTRY,
-        'activated',
-        'token',
-        'signup_ip_address',
-        'signup_confirmation_ip_address',
-        'signup_sm_ip_address',
-        'fk_system_role'
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'activated',
-        'token',
-    ];
-
     const ID = 'id';
     const ID_COUNTRY = 'fk_country';
     const ID_TIMEZONE = 'fk_timezone';
@@ -113,14 +82,38 @@ class User extends Authenticatable
     const REMEMBER_TOKEN = 'remember_token';
     const TOKEN = 'token';
 
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'activated',
+        'token',
+        'signup_ip_address',
+        'signup_confirmation_ip_address',
+        'signup_sm_ip_address',
+    ];
 
     /**
      * @return mixed
      */
-    public function address(){
+    public function address()
+    {
         return $this->morphMany(
             Address::class,
-                'addressable',
+            'addressable',
             Address::OWNER_TYPE,
             Address::ID_OWNER
         );
@@ -129,10 +122,11 @@ class User extends Authenticatable
     /**
      * @return mixed
      */
-    public function documents(){
+    public function documents()
+    {
         return $this->morphMany(
             Document::class,
-                'addressable',
+            'addressable',
             Document::OWNER_TYPE,
             Document::ID_OWNER
         );

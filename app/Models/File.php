@@ -18,21 +18,29 @@ namespace Charis\Models;
  * @method getDeletedAt()
  * @method getCreatedAt()
  * @method getUpdatedAt()
- * @method setId()
- * @method setOwnerId()
- * @method setTypeId()
- * @method setOwner()
- * @method setName()
- * @method setPath()
- * @method setSize()
- * @method setMimeType()
- * @method setAttributes()
- * @method setDeletedAt()
- * @method setCreatedAt()
- * @method setUpdatedAt()
+ * @method setId($id)
+ * @method setOwnerId($ownerId)
+ * @method setTypeId($typeId)
+ * @method setOwner($ownerClass)
+ * @method setName($name)
+ * @method setPath($path)
+ * @method setSize($size)
+ * @method setMimeType($mimeType)
+ * @method setAttributes($attributes)
+ * @method setDeletedAt($deletedAt)
+ * @method setCreatedAt($createdAt)
+ * @method setUpdatedAt($updatedAt)
  */
 class File extends Model
 {
+
+    const TABLE_NAME = 'files';
+
+    /**
+     * @var string
+     */
+    protected $table = self::TABLE_NAME;
+
     const ID = 'id';
     const ID_FILE_OWNER = 'fk_owner';
     const ID_FILE_TYPE = 'fk_tile_type';
@@ -47,17 +55,18 @@ class File extends Model
     const DELETED_AT = 'deleted_at';
 
     /**
-     * @var string
+     * The attributes that are not mass assignable.
+     *
+     * @var array
      */
-    protected $table = 'files';
+    protected $guarded = [
+        self::ID,
+    ];
 
     /**
      * Morph slug
      */
     const RELATION_SLUG = 'ownable';
-
-    const TABLE_NAME = 'files';
-
 
     /**
      * @return User

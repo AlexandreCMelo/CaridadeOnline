@@ -42,5 +42,13 @@ class OrganizationRole extends Model
     const ID_ORGANIZATION_PARTNER = 20;
     const ID_ORGANIZATION_MANAGER = 30;
 
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID,
+    ];
 }
 

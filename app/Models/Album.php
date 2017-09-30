@@ -12,16 +12,19 @@ namespace Charis\Models;
  * @method getUserId()
  * @method getCreatedAt()
  * @method getUpdatedAt() 
- * @method setName()
- * @method setOrganizationId()
- * @method setOrganization()
- * @method setUserId()
- * @method setUser()
- * @method setCreatedAt()
- * @method setUpdatedAt()
+ * @method setId($id)
+ * @method setName($name)
+ * @method setOrganizationId($organizationId)
+ * @method setUserId($userId)
+ * @method setCreatedAt($createdAt)
+ * @method setUpdatedAt($updatedAt)
  */
 class Album extends Model
 {
+
+    const TABLE_NAME = 'albums';
+
+    protected $table = self::TABLE_NAME;
 
     const ID = 'id';
     const NAME = 'name';
@@ -29,12 +32,15 @@ class Album extends Model
     const CREATED_BY = 'created_by';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-    const TABLE_NAME = 'albums';
 
     /**
-     * @var string
+     * The attributes that are not mass assignable.
+     *
+     * @var array
      */
-    protected $table = 'albums';
+    protected $guarded = [
+        self::ID
+    ];
 
     /**
      * @return Organization
@@ -57,6 +63,6 @@ class Album extends Model
      */
     public function files()
     {
-        return $this->belongsToMany(File::class, File::ID, self::ID);
+        return $this->hasMany(File::class, File::ID, self::ID);
     }
 }

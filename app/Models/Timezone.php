@@ -15,13 +15,13 @@ namespace Charis\Models;
  * @method getUtcDistOffset()
  * @method getComments()
  * @method setId()
- * @method setName()
- * @method setCountryCode()
- * @method setCoordinates()
- * @method setNotes()
- * @method setUtcOffset()
- * @method setUtcDistOffset()
- * @method setComments()
+ * @method setName($name)
+ * @method setCountryCode($code)
+ * @method setCoordinates($coordinates)
+ * @method setNotes($notes)
+ * @method setUtcOffset($utcOffset)
+ * @method setUtcDistOffset($utcDistOffset)
+ * @method setComments($comments)
  */
 class Timezone extends Model
 {
@@ -52,4 +52,14 @@ class Timezone extends Model
     const COORDINATED_UNIVERSAL_TIME_OFFSET = 'utc_offset';
     const COORDINATED_UNIVERSAL_TIME_DAYLIGHT_SAVING_TOME_OFFSET = 'utc_dist_offset';
     const COMMENTS = 'comments';
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID,
+    ];
+
 }

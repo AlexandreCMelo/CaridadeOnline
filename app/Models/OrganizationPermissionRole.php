@@ -10,9 +10,9 @@ use \Illuminate\Database\Eloquent\Relations\Pivot;
  *
  * @method getId()
  * @method getOrganizationRoleId()
- * @method getPermissionId() 
- * @method setOrganizationRoleId()
- * @method setPermissionId()
+ * @method getPermissionId()
+ * @method setOrganizationRoleId($organizationRoleId)
+ * @method setPermissionId($permissionId)
  */
 class OrganizationPermissionRole extends Pivot
 {
@@ -40,4 +40,12 @@ class OrganizationPermissionRole extends Pivot
     const ID_ROLE = 'fk_organization_role';
     const ID_PERMISSION = 'fk_permission';
 
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID,
+    ];
 }

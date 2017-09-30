@@ -11,9 +11,9 @@ use \Illuminate\Database\Eloquent\Relations\Pivot;
  * @method getId()
  * @method getOrganizationId()
  * @method getCategoryId()
- * @method setId()
- * @method setOrganizationId()
- * @method setCategoryId()
+ * @method setId($id)
+ * @method setOrganizationId($organizationId)
+ * @method setCategoryId($categoryId)
  */
 class OrganizationCategory extends Pivot
 {
@@ -41,5 +41,12 @@ class OrganizationCategory extends Pivot
     const ID_ORGANIZATION = 'fk_organization';
     const ID_CATEGORY = 'fk_category';
 
-
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID,
+    ];
 }

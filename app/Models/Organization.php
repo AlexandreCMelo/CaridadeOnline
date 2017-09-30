@@ -8,6 +8,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class Organization
  * @package Charis\Models
  *
+ * @method getName()
+ * @method getDescription()
+ * @method getShortDescription()
+ * @method getEmail()
+ * @method getPhone()
+ * @method getWebsite()
+ * @method getStatus()
+ * @method getSrc()
+ * @method getCountry()
+ * @method getTimezone()
+ * @method getLocale()
  * @method setName($name)
  * @method setDescription($description)
  * @method setShortDescription($shortDescription)
@@ -20,17 +31,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method setCountry($idCountry)
  * @method setTimezone($idTimezone)
  * @method setLocale($idLocale)
- * @method getName()
- * @method getDescription()
- * @method getShortDescription()
- * @method getEmail()
- * @method getPhone()
- * @method getWebsite()
- * @method getStatus()
- * @method getSrc()
- * @method getCountry()
- * @method getTimezone()
- * @method getLocale()
  */
 class Organization extends Model
 {
@@ -40,6 +40,14 @@ class Organization extends Model
      * Table parameters
      */
     const TABLE_NAME = 'organizations';
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = self::TABLE_NAME;
+
     const ID = 'id';
     const ID_COUNTRY = 'fk_country';
     const ID_TIMEZONE = 'fk_timezone';
@@ -57,14 +65,15 @@ class Organization extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
-
     /**
-     * The table associated with the model.
+     * The attributes that are not mass assignable.
      *
-     * @var string
+     * @var array
      */
-    protected $table = 'organizations';
+    protected $guarded = [
+        self::ID,
+    ];
+
 
     /**
      * Indicates if the model should be timestamped.

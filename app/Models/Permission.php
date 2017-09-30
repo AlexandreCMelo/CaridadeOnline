@@ -9,9 +9,9 @@ namespace Charis\Models;
  * @method getId()
  * @method getCode()
  * @method getDescription()
- * @method setId()
- * @method setCode()
- * @method setDescription()
+ * @method setId($id)
+ * @method setCode($code)
+ * @method setDescription($description)
  */
 class Permission extends Model
 {
@@ -50,5 +50,15 @@ class Permission extends Model
     const CAN_MANAGE_ORGANIZATION_COMMENTS_CODE = 'can-manage-organization-comments-info';
     const CAN_MANAGE_ORGANIZATION_USERS_CODE = 'can-manage-organization-users-info';
     const CAN_UPDATE_ORGANIZATION_PICTURE_CODE = 'can-manage-organization-picture-info';
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        self::ID,
+    ];
+
 
 }
