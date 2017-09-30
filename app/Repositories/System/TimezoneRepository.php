@@ -1,9 +1,6 @@
-<?php namespace Charis\Repositories\Organization;
+<?php namespace Charis\Repositories\System;
 
-use Charis\Models\Locale;
-use Auth;
-
-class EloquentLocaleRepository implements ILocaleRepository
+class TimezoneRepository implements ITimezoneRepository
 {
 
     const DEFAULT_LIMIT = 10;
@@ -17,7 +14,7 @@ class EloquentLocaleRepository implements ILocaleRepository
      */
     public function findById($id)
     {
-        return Locale::find($id);
+        return Timezone::find($id);
     }
 
     /**
@@ -27,7 +24,8 @@ class EloquentLocaleRepository implements ILocaleRepository
      */
     public function all()
     {
-        return Locale::all();
+        return Timezone::all();
     }
+
 
 }

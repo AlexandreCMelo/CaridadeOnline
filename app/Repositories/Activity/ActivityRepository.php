@@ -1,11 +1,11 @@
-<?php namespace Charis\Repositories\Target;
+<?php namespace Charis\Repositories\Organization;
 
-use Charis\Models\Target;
+use Charis\Models\Activity;
 use Auth;
 
-class EloquentTargetRepository implements ITargetRepository
+class ActivityRepository implements IActivityRepository
 {
-
+    
     const DEFAULT_LIMIT = 10;
 
     /**
@@ -17,7 +17,7 @@ class EloquentTargetRepository implements ITargetRepository
      */
     public function findById($id)
     {
-        return Target::find($id);
+        return Activity::find($id);
     }
 
     /**
@@ -27,28 +27,28 @@ class EloquentTargetRepository implements ITargetRepository
      */
     public function all()
     {
-        return Target::all();
+        return Activity::all();
     }
+
 
     /**
      * @param $name
      * @param $description
-     * @return bool|Organization
+     * @return bool|Activity
      */
     public function addOrganization(
         $name,
         $description
     ) {
 
-        $target = new Target();
+        $activity = new Activity();
 
-        $target->setName($name);
+        $activity->setName($name);
 
-        if($target->save()){
-            return $target;
+        if ($activity->save()) {
+            return $activity;
         }
 
         return false;
     }
-
 }

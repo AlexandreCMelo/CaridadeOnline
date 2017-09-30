@@ -3,7 +3,7 @@
 use Charis\Models\Category;
 use Auth;
 
-class EloquentCategoryRepository implements ICategoryRepository
+class CategoryRepository implements ICategoryRepository
 {
 
     const DEFAULT_LIMIT = 10;

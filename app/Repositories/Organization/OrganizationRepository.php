@@ -3,7 +3,7 @@
 use Charis\Models\Organization;
 use Auth;
 
-class EloquentUserRepository implements IActivityRepository
+class OrganizationRepository implements IOrganizationRepository
 {
 
     const DEFAULT_LIMIT = 10;
@@ -60,82 +60,8 @@ class EloquentUserRepository implements IActivityRepository
         return $data;
     }
 
-    /**
-     * @param $email
-     */
-    public function findByEmail($email)
-    {
-        return Organization::where(Organization::EMAIL, $email);
-    }
 
     /**
-     * @param $targetId
-     */
-    public function findManyByTarget($targetId)
-    {
-        // TODO: Implement findManyByTarget() method.
-    }
-
-    /**
-     * @param $activitiesId
-     */
-    public function findManyByActivities($activitiesId)
-    {
-        // TODO: Implement findManyByActivities() method.
-    }
-
-    /**
-     * @param $categoryId
-     */
-    public function findManyByCategory($categoryId)
-    {
-        // TODO: Implement findManyByCategory() method.
-    }
-
-    /**
-     * @param $roleId
-     */
-    public function findUsersByRole($roleId)
-    {
-        // TODO: Implement findUsersByRole() method.
-    }
-
-    /**
-     *
-     */
-    public function findUsers()
-    {
-        // TODO: Implement findUsers() method.
-    }
-
-    /**
-     *
-     */
-    public function findComments()
-    {
-        // TODO: Implement findComments() method.
-    }
-
-    /**
-     *
-     */
-    public function findFollowersUsers()
-    {
-        // TODO: Implement findFollowersUsers() method.
-    }
-
-    /**
-     *
-     */
-    public function findContactUsers()
-    {
-        // TODO: Implement findContactUsers() method.
-    }
-
-    /**
-     *
-     * Adds a organization
-     *
      * @param $name
      * @param $description
      * @param $shortDescription
@@ -148,6 +74,7 @@ class EloquentUserRepository implements IActivityRepository
      * @param bool $idTimezone
      * @param bool $idLocale
      * @param bool $src
+     * @return bool|Organization
      */
     public function addOrganization(
         $name,
