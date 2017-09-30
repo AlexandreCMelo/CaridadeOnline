@@ -13,13 +13,6 @@ namespace Charis\Models;
  * @method getOwnerId()
  * @method getCreatedAt()
  * @method getUpdatedAt()
- * @method setId($id)
- * @method setValue($value)
- * @method setTypeId($typeId)
- * @method setOwner($ownerClass)
- * @method setOwnerId($ownerClass)
- * @method setCreatedAt($countryId)
- * @method setUpdatedAt($countryId)
  */
 class Document extends Model
 {

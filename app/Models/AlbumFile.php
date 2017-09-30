@@ -11,11 +11,6 @@ namespace Charis\Models;
  * @method getFileId()
  * @method getCreatedAt()
  * @method getUpdatedAt()
- * @method setId($id)
- * @method setAlbumId($albumId)
- * @method setFileId($fileId)
- * @method setCreatedAt($createdAt)
- * @method setUpdatedAt($updatedAt)
  */
 class AlbumFile extends Model
 {

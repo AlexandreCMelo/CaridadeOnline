@@ -9,9 +9,6 @@ namespace Charis\Models;
  * @method getId()
  * @method getName()
  * @method getDescription()
- * @method setId($id)
- * @method setName($name)
- * @method setDescription($description)
  */
 class DocumentType extends Model
 {

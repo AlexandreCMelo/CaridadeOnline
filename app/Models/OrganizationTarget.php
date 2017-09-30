@@ -9,9 +9,6 @@ namespace Charis\Models;
  * @method getId()
  * @method getOrganizationId()
  * @method getTargetId()
- * @method setId($id)
- * @method setOrganizationId($organizationId)
- * @method setTargetId($targetId)
  */
 class OrganizationTarget extends Model
 {

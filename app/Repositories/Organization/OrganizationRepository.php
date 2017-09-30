@@ -1,7 +1,10 @@
 <?php namespace Charis\Repositories\Organization;
 
+use Charis\Models\Country;
+use Charis\Models\Locale;
 use Charis\Models\Organization;
 use Auth;
+use Charis\Models\Timezone;
 
 class OrganizationRepository implements IOrganizationRepository
 {
@@ -60,6 +63,78 @@ class OrganizationRepository implements IOrganizationRepository
         return $data;
     }
 
+    /**
+     * @param $email
+     */
+    public function findByEmail($email)
+    {
+        return Organization::where(Organization::EMAIL, $email);
+    }
+
+    /**
+     * @param $targetId
+     */
+    public function findManyByTarget($targetId)
+    {
+        // TODO: Implement findManyByTarget() method.
+    }
+
+    /**
+     * @param $activitiesId
+     */
+    public function findManyByActivities($activitiesId)
+    {
+        // TODO: Implement findManyByActivities() method.
+    }
+
+    /**
+     * @param $categoryId
+     */
+    public function findManyByCategory($categoryId)
+    {
+        // TODO: Implement findManyByCategory() method.
+    }
+
+    /**
+     * @param $roleId
+     */
+    public function findUsersByRole($roleId)
+    {
+        // TODO: Implement findUsersByRole() method.
+    }
+
+    /**
+     *
+     */
+    public function findUsers()
+    {
+        // TODO: Implement findUsers() method.
+    }
+
+    /**
+     *
+     */
+    public function findComments()
+    {
+        // TODO: Implement findComments() method.
+    }
+
+    /**
+     *
+     */
+    public function findFollowersUsers()
+    {
+        // TODO: Implement findFollowersUsers() method.
+    }
+
+    /**
+     *
+     */
+    public function findContactUsers()
+    {
+        // TODO: Implement findContactUsers() method.
+    }
+
 
     /**
      * @param $name
@@ -93,21 +168,30 @@ class OrganizationRepository implements IOrganizationRepository
 
         $organization = new Organization();
 
-        $organization->setName($name);
-        $organization->setDescription($description);
-        $organization->setShortDescription($shortDescription);
-        $organization->setEmail($email);
-        $organization->setPhone($phone);
-        $organization->setWebsite($website);
-        $organization->setStatus($status);
-        $organization->setSrc($src);
-        $organization->setAttributes($attributes);
-        $organization->setCountry($idCountry);
-        $organization->setTimezone($idTimezone);
-        $organization->setLocale($idLocale);
+        if($idCountry == false){
+            $idCountry = Country::DEFAULT_COUNTRY_BRAZIL;
+        }
+
+        if($idTimezone == false){
+            $idTimezone = Timezone::DEFAULT_TIMEZONE_BRAZIL;
+        }
+
+        if($idLocale == false){
+            $idLocale = Locale::DEFAULT_LOCALE_BRAZIL;
+        }
+
+        $organization->{Organization::NAME} = $name;
+        $organization->{Organization::DESCRIPTION} = $description;
+        $organization->{Organization::SHORT_DESCRIPTION} = $shortDescription;
+        $organization->{Organization::EMAIL} = $email;
+        $organization->{Organization::PHONE} = $phone;
+        $organization->{Organization::WEBSITE} = $website;
+        $organization->{Organization::ID_COUNTRY} = $idCountry;
+        $organization->{Organization::ID_TIMEZONE} = $idTimezone;
+        $organization->{Organization::ID_LOCALE} = $idLocale;
 
         if($organization->save()){
-            return $organization;
+            return $organization->id;
         }
 
         return false;

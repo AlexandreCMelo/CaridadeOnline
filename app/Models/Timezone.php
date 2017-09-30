@@ -15,13 +15,6 @@ namespace Charis\Models;
  * @method getUtcDistOffset()
  * @method getComments()
  * @method setId()
- * @method setName($name)
- * @method setCountryCode($code)
- * @method setCoordinates($coordinates)
- * @method setNotes($notes)
- * @method setUtcOffset($utcOffset)
- * @method setUtcDistOffset($utcDistOffset)
- * @method setComments($comments)
  */
 class Timezone extends Model
 {
@@ -61,5 +54,7 @@ class Timezone extends Model
     protected $guarded = [
         self::ID,
     ];
+
+    const DEFAULT_TIMEZONE_BRAZIL = '130';
 
 }

@@ -8,7 +8,6 @@ namespace Charis\Models;
  *
  * @method getId()
  * @method getName()
- * @method setName($name)
  */
 class Category extends Model
 {

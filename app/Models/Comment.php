@@ -15,13 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method getContent()
  * @method getCreatedAt()
  * @method getUpdatedAt()
- * @method setId($id)
- * @method setOrganizationId($organizationId)
- * @method setTypeId($typeId)
- * @method setUserId($userId)
- * @method setContent($content)
- * @method setCreatedAt($createdAt)
- * @method setUpdatedAt($updatedAt)
  */
 class Comment extends Model
 {

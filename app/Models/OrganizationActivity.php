@@ -11,9 +11,6 @@ use \Illuminate\Database\Eloquent\Relations\Pivot;
  * @method getId()
  * @method getOrganizationId()
  * @method getActivityId() 
- * @method setId($id)
- * @method setOrganizationId($organizationId)
- * @method setActivityId($activityId)
  */
 class OrganizationActivity extends Pivot
 {
