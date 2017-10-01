@@ -1,5 +1,10 @@
 <?php namespace Charis\Repositories\Target;
 
+use Charis\Models\Role;
+use Charis\Models\User;
+use Charis\Models\Country;
+use Charis\Models\Locale;
+use Charis\Models\Timezone;
 /**
  * Class TargetRepository
  * @package Charis\Repositories\Target
@@ -9,47 +14,107 @@ class UserRepository implements IUserRepository
 
     const DEFAULT_LIMIT = 10;
 
-    /**
-     * Fetch a user by id
-     *
-     * @param int $id
-     *
-     * @return mixed
-     */
-    public function findById($id)
-    {
-        return Target::find($id);
-    }
-
-    /**
-     * Fetch a user by id
-     *
-     * @return mixed
-     */
     public function all()
     {
-        return Target::all();
+        return User::All();
     }
 
-    /**
-     * @param $name
-     * @param $description
-     * @return bool|Organization
-     */
-    public function addOrganization(
+    public function add(
         $name,
-        $description
+        $email,
+        $enabled,
+        $token,
+        $password,
+        $systemRole,
+        $phone = false,
+        $countryId = false,
+        $timezoneId = false,
+        $localeId = false,
+        $origin = false,
+        $organizationId = false,
+        $organizationRole = false
     ) {
+        $user = new User();
 
-        $target = new Target();
+        $user->{User::NAME} = $name;
+        $user->{User::NAME} = $email;
+        $user->{User::NAME} = $enabled;
+        $user->{User::NAME} = $token;
+        $user->{User::NAME} = bcrypt($password);
+        $user->{User::NAME} = $systemRole;
 
-        $target->setName($name);
-
-        if($target->save()){
-            return $target;
+        if (!$phone == false) {
+            $user->{User::PHONE} = $phone;
         }
 
-        return false;
+        if ($countryId == false) {
+            $user->{User::NAME} = Country::DEFAULT_COUNTRY_BRAZIL;
+        }
+
+        if ($timezoneId == false) {
+            $user->{User::NAME} = Timezone::DEFAULT_TIMEZONE_BRAZIL;
+        }
+
+        if ($localeId == false) {
+            $user->{User::NAME} = Locale::DEFAULT_LOCALE_BRAZIL;
+        }
+
+        if ($systemRole == false) {
+            $user->{User::NAME} = Role::ID_REGISTERED_USER;
+        }
+
+
     }
+
+    public function remove($id)
+    {
+        // TODO: Implement remove() method.
+    }
+
+    public function findUser($id, $email, $countryId, $systemRole, $name, $deleted)
+    {
+        // TODO: Implement findUser() method.
+    }
+
+    public function findById($id)
+    {
+        // TODO: Implement findById() method.
+    }
+
+    public function findByEmail($email)
+    {
+        // TODO: Implement findByEmail() method.
+    }
+
+    public function findByCity($cityName)
+    {
+        // TODO: Implement findByCity() method.
+    }
+
+    public function findByCountry($countryId)
+    {
+        // TODO: Implement findByCountry() method.
+    }
+
+    public function findBySystemRole($systemRole)
+    {
+        // TODO: Implement findBySystemRole() method.
+    }
+
+    public function findByName($name)
+    {
+        // TODO: Implement findByName() method.
+    }
+
+    public function findDeletedUsers()
+    {
+        // TODO: Implement findDeletedUsers() method.
+    }
+
+    public function addOrganizationRole($userId, $organizationId, $roleId)
+    {
+        // TODO: Implement addOrganizationRole() method.
+    }
+
 
 }
