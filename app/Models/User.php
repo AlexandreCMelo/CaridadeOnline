@@ -84,7 +84,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'activated',
+        'enabled',
         'token',
         'signup_ip_address',
         'signup_confirmation_ip_address',

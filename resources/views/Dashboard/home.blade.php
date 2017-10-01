@@ -13,9 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                        <div id="map" style="margin: 0; padding: 0; height: 500px;  width: 100%;">
 
-                    You are logged in!
+                        </div>
                 </div>
+
             </div>
         </div>
     </div>
