@@ -29,6 +29,10 @@ class RoleRepository implements IRoleRepository
             $roleId = OrganizationRole::ID_ORGANIZATION_FOLLOWER;
         }
 
+        if($data = $this->findByOrganizationRoleUser($organizationId, $roleId, $userId)){
+            $this->removeUserFromOrganization($organizationId, $userId);
+        }
+
         $organizationRole = new OrganizationRoleUser();
 
         $organizationRole->{OrganizationRoleUser::ID_USER} = $userId;
@@ -72,6 +76,25 @@ class RoleRepository implements IRoleRepository
     {
         $data = OrganizationRoleUser::where(OrganizationRoleUser::ID_ROLE, $roleId)
             ->where(OrganizationRoleUser::ID_ORGANIZATION, $organizationId)->get();
+
+        if($data->count()){
+            return $data;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $organizationId
+     * @param $roleId
+     * @param $userId
+     * @return bool
+     */
+    public function findByOrganizationRoleUser($organizationId, $roleId, $userId)
+    {
+        $data = OrganizationRoleUser::where(OrganizationRoleUser::ID_ROLE, $roleId)
+            ->where(OrganizationRoleUser::ID_ORGANIZATION, $organizationId)
+            ->where(OrganizationRoleUser::ID_USER, $userId)->get();
 
         if($data->count()){
             return $data;
