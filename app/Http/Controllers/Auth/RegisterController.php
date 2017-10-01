@@ -73,8 +73,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'token'    => str_random(64),
             'fk_system_role'    => \Charis\Models\Role::ID_REGISTERED_USER,
-            'signup_ip_address' => $ipAddress->getClientIp(),
-            'activated'         => true
+            'signup_ip_address' => $ipAddress->getClientIp()
         ]);
 
         return $user;

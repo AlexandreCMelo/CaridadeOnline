@@ -73,8 +73,10 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNeJTzpoBp2y3KX4F6rqGUN8YDV-7M3TA&libraries=places" defer></script>
+    <script src="{{ asset('js/gmaps.js') }}"></script>
+    <!-- Scripts -->
+
 </body>
 </html>

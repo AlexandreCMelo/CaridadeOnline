@@ -158,6 +158,24 @@ class UserRepository implements IUserRepository
         return $data->get();
     }
 
+    /**
+     * @param $userId
+     * @return bool
+     */
+    public function findNearbyOrganizations($userId){
+        $location = $this->location()->get()->first();
+        if (!$location) return false;
+        $lat = $location->latitud;
+        $long = $location->longitud;
+        if (empty($lat) || empty($long)) return false;
+        $raw = '111.045 * DEGREES(ACOS(COS(RADIANS('.$lat.')) * COS(RADIANS(latitud)) * COS(RADIANS(longitud) - RADIANS('.$long.')) + SIN(RADIANS('.$lat.')) * SIN(RADIANS(latitud))))';
+        $users = UserLocation::select('user_id', 'latitud', 'longitud', 'address',
+            DB::raw($raw.' AS distance'))->with('user')->where('user_id', '!=', $this->id)
+            ->havingRaw('distance < 50')->orderBy('distance', 'ASC')->get();
+        return $users;
+    }
+
+
     public function findById($id)
     {
         // TODO: Implement findById() method.
