@@ -59,7 +59,7 @@ class Target extends Model
      * @return Organization
      */
     public function organizations(){
-        return $this->belongsToMany(Organization::class)->using(OrganizationActivity::class);
+        return $this->belongsToMany(Organization::class, OrganizationTarget::TABLE_NAME,OrganizationTarget::ID_TARGET, self::ID);
     }
 
 

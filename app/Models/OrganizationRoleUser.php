@@ -2,6 +2,8 @@
 
 namespace Charis\Models;
 
+use \Illuminate\Database\Eloquent\Relations\Pivot;
+
 /**
  * Class OrganizationRoleUser
  * @package Charis\Models
@@ -11,7 +13,7 @@ namespace Charis\Models;
  * @method getRoleId()
  * @method getOrganizationId() 
  */
-class OrganizationRoleUser extends Model
+class OrganizationRoleUser extends Pivot
 {
     /**
      * Table parameters

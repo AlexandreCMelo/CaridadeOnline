@@ -1,15 +1,25 @@
 <?php namespace Charis\Repositories\Organization;
 
+use Charis\Models\Activity;
+use Charis\Models\Category;
 use Charis\Models\Country;
 use Charis\Models\Locale;
 use Charis\Models\Organization;
-use Auth;
+use Charis\Models\OrganizationRoleUser;
+use Charis\Models\Target;
 use Charis\Models\Timezone;
+use Charis\Repositories\Organization\RoleRepository;
+use Auth;
 
 class OrganizationRepository implements IOrganizationRepository
 {
 
     const DEFAULT_LIMIT = 10;
+
+    /**
+     * @var RoleRepository
+     */
+    protected $organizationRoleRepository = null;
 
     /**
      * Get a paginated list of all users
@@ -68,61 +78,74 @@ class OrganizationRepository implements IOrganizationRepository
      */
     public function findByEmail($email)
     {
-        return Organization::where(Organization::EMAIL, $email);
+        return Organization::where(Organization::EMAIL, $email)->get();
     }
 
     /**
      * @param $targetId
+     * @return mixed
      */
-    public function findManyByTarget($targetId)
+    public function findManyByTargetId($targetId)
     {
-        // TODO: Implement findManyByTarget() method.
+        return Target::where(Target::ID, $targetId)->first()->organizations()->get();
+
     }
 
     /**
-     * @param $activitiesId
+     * @param $activityId
+     * @return mixed
      */
-    public function findManyByActivities($activitiesId)
+    public function findManyByActivityId($activityId)
     {
-        // TODO: Implement findManyByActivities() method.
+        return Activity::where(Activity::ID, $activityId)->first()->organizations()->get();
     }
 
     /**
      * @param $categoryId
+     * @return mixed
      */
-    public function findManyByCategory($categoryId)
+    public function findManyByCategoryId($categoryId)
     {
-        // TODO: Implement findManyByCategory() method.
+        return Category::where(Category::ID, $categoryId)->first()->organizations()->get();
     }
 
     /**
+     * @param $organizationId
      * @param $roleId
+     * @return bool
      */
-    public function findUsersByRole($roleId)
+    public function findUsersByRole($organizationId, $roleId)
     {
-        // TODO: Implement findUsersByRole() method.
+        return $this->getOrganizationRoleRepository()->findUsersByOrganizationRole($organizationId, $roleId);
+    }
+
+    /**
+     * @param $organizationId
+     * @return bool
+     */
+    public function findUsers($organizationId)
+    {
+        $data = OrganizationRoleUser::where(OrganizationRoleUser::ID_ORGANIZATION, $organizationId)->pluck(OrganizationRoleUser::ID_USER)->all();
+
+        if(!empty($data)){
+            return $data;
+        }
+
+        return false;
     }
 
     /**
      *
      */
-    public function findUsers()
+    public function findComments($organizationId)
     {
-        // TODO: Implement findUsers() method.
+       //$data = Comment
     }
 
     /**
      *
      */
-    public function findComments()
-    {
-        // TODO: Implement findComments() method.
-    }
-
-    /**
-     *
-     */
-    public function findFollowersUsers()
+    public function findFollowersUsers($organizationId)
     {
         // TODO: Implement findFollowersUsers() method.
     }
@@ -130,7 +153,7 @@ class OrganizationRepository implements IOrganizationRepository
     /**
      *
      */
-    public function findContactUsers()
+    public function findContactUsers($organizationId)
     {
         // TODO: Implement findContactUsers() method.
     }
@@ -199,9 +222,22 @@ class OrganizationRepository implements IOrganizationRepository
     /**
      *
      */
-    public function findManagerUsers()
+    public function findManagerUsers($organizationId)
     {
         // TODO: Implement findManagerUsers() method.
+    }
+
+
+    /**
+     * @return RoleRepository
+     */
+    public function getOrganizationRoleRepository(){
+
+        if($this->organizationRoleRepository == null){
+            $this->organizationRoleRepository = new RoleRepository();
+        }
+
+        return $this->organizationRoleRepository;
     }
 
 

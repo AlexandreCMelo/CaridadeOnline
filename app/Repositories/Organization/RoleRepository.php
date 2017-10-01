@@ -15,27 +15,48 @@ class RoleRepository implements IRoleRepository
 
     /**
      * @param $userId
-     * @param $organization
-     * @param bool $role
+     * @param $organizationId
+     * @param bool $roleId
      * @return bool
      */
     public function addUserToOrganization(
         $userId,
-        $organization,
-        $role = false
+        $organizationId,
+        $roleId = false
     ) {
 
-        if(!$role) {
-            $role = OrganizationRole::ID_ORGANIZATION_FOLLOWER;
+        if (!$roleId) {
+            $roleId = OrganizationRole::ID_ORGANIZATION_FOLLOWER;
         }
 
         $organizationRole = new OrganizationRoleUser();
 
         $organizationRole->{OrganizationRoleUser::ID_USER} = $userId;
-        $organizationRole->{OrganizationRoleUser::ID_ORGANIZATION} = $organization;
-        $organizationRole->{OrganizationRoleUser::ID_ROLE} = $role;
+        $organizationRole->{OrganizationRoleUser::ID_ORGANIZATION} = $organizationId;
+        $organizationRole->{OrganizationRoleUser::ID_ROLE} = $roleId;
 
-        if($organizationRole->save()){
+        if ($organizationRole->save()) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    /**
+     * @param $userId
+     * @param $organizationId
+     * @return bool
+     */
+    public function removeUserFromOrganization(
+        $organizationId,
+        $userId
+    ) {
+
+        $userRelation = OrganizationRoleUser::where(OrganizationRoleUser::ID_USER, $userId)
+            ->where(OrganizationRoleUser::ID_ORGANIZATION, $organizationId);
+
+        if ($userRelation->delete()) {
             return true;
         }
 
@@ -43,12 +64,20 @@ class RoleRepository implements IRoleRepository
     }
 
     /**
-     *
+     * @param $organizationId
+     * @param $roleId
+     * @return bool
      */
-    public function findManagerUsers()
+    public function findUsersByOrganizationRole($organizationId, $roleId)
     {
-        // TODO: Implement findManagerUsers() method.
-    }
+        $data = OrganizationRoleUser::where(OrganizationRoleUser::ID_ROLE, $roleId)
+            ->where(OrganizationRoleUser::ID_ORGANIZATION, $organizationId)->get();
 
+        if($data->count()){
+            return $data;
+        }
+
+        return false;
+    }
 
 }

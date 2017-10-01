@@ -58,7 +58,7 @@ class Category extends Model
      * @return Organization
      */
     public function organizations(){
-        return $this->belongsToMany(Organization::class)->using(OrganizationActivity::class);
+        return $this->belongsToMany(Organization::class, OrganizationCategory::TABLE_NAME,OrganizationCategory::ID_CATEGORY, self::ID);
     }
 
 }
