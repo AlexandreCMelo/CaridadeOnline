@@ -28,7 +28,7 @@ interface IUserRepository
 
     public function remove($id);
 
-    public function findUser($id, $email, $countryId, $systemRole, $name, $deleted);
+    public function findUser($name = false, $email = false, $countryId = false, $systemRole = false, $deleted = false);
 
     public function findById($id);
 

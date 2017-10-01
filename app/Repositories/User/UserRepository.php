@@ -5,7 +5,9 @@ use Charis\Models\User;
 use Charis\Models\Country;
 use Charis\Models\Locale;
 use Charis\Models\Timezone;
+use Charis\Models\Address;
 use Charis\Repositories\Organization\RoleRepository;
+
 /**
  * Class TargetRepository
  * @package Charis\Repositories\Target
@@ -88,8 +90,8 @@ class UserRepository implements IUserRepository
             $user->{User::ID_SYSTEM_ROLE} = Role::ID_REGISTERED_USER;
         }
 
-        if($user->save()){
-            if(!empty($organizationId) && !empty($organizationRole)) {
+        if ($user->save()) {
+            if (!empty($organizationId) && !empty($organizationRole)) {
                 $this->getOrganizationRoleRepository()->addUserToOrganization(
                     $user->id, $organizationId, $organizationRole
                 );
@@ -106,9 +108,54 @@ class UserRepository implements IUserRepository
         // TODO: Implement remove() method.
     }
 
-    public function findUser($id, $email, $countryId, $systemRole, $name, $deleted)
-    {
-        // TODO: Implement findUser() method.
+    public function findUser(
+        $name = false,
+        $email = false,
+        $countryId = false,
+        $cityName = false,
+        $address = false,
+        $systemRole = false,
+        $deleted = false
+    ) {
+        $data = User::query();
+
+        if ($name) {
+            $data->where(User::NAME, 'like', '%' . $name . '%');
+        }
+
+        if ($email) {
+            $data->where(User::EMAIL, $email);
+        }
+
+        if ($countryId) {
+            $data->where(User::ID_COUNTRY, $countryId);
+        }
+
+        if ($systemRole) {
+            $data->where(User::ID_SYSTEM_ROLE, $name);
+        }
+
+        if ($deleted) {
+            $data->where(User::DELETE_AT, $name);
+        }
+
+        if ($address || $cityName) {
+            $data->join(Address::TABLE_NAME, function ($join) use ($address) {
+                $join->on(User::TABLE_NAME . '.' . User::ID, '=', Address::ID_OWNER)
+                    ->raw(' and ' . \DB::raw(Address::OWNER_TYPE . " = '" . User::class . "'"));
+            });
+
+            if ($address) {
+                $data->where(Address::ADDRESS, 'like', '%' . $address . '%');
+            }
+
+            if ($cityName) {
+                $data->where(Address::CITY, 'like', '%' . $cityName . '%');
+            }
+        }
+
+
+        return $data->get();
     }
 
     public function findById($id)
