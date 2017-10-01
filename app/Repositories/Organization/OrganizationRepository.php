@@ -2,15 +2,21 @@
 
 use Charis\Models\Activity;
 use Charis\Models\Category;
+use Charis\Models\Comment;
 use Charis\Models\Country;
 use Charis\Models\Locale;
 use Charis\Models\Organization;
+use Charis\Models\OrganizationRole;
 use Charis\Models\OrganizationRoleUser;
 use Charis\Models\Target;
 use Charis\Models\Timezone;
-use Charis\Repositories\Organization\RoleRepository;
+use Charis\Repositories\Comment\CommentRepository;
 use Auth;
 
+/**
+ * Class OrganizationRepository
+ * @package Charis\Repositories\Organization
+ */
 class OrganizationRepository implements IOrganizationRepository
 {
 
@@ -20,6 +26,11 @@ class OrganizationRepository implements IOrganizationRepository
      * @var RoleRepository
      */
     protected $organizationRoleRepository = null;
+
+    /**
+     * @var CommentRepository
+     */
+    protected $commentsRepository = null;
 
     /**
      * Get a paginated list of all users
@@ -75,6 +86,7 @@ class OrganizationRepository implements IOrganizationRepository
 
     /**
      * @param $email
+     * @return mixed
      */
     public function findByEmail($email)
     {
@@ -125,9 +137,10 @@ class OrganizationRepository implements IOrganizationRepository
      */
     public function findUsers($organizationId)
     {
-        $data = OrganizationRoleUser::where(OrganizationRoleUser::ID_ORGANIZATION, $organizationId)->pluck(OrganizationRoleUser::ID_USER)->all();
+        $data = OrganizationRoleUser::where(OrganizationRoleUser::ID_ORGANIZATION,
+            $organizationId)->pluck(OrganizationRoleUser::ID_USER)->all();
 
-        if(!empty($data)){
+        if (!empty($data)) {
             return $data;
         }
 
@@ -135,27 +148,42 @@ class OrganizationRepository implements IOrganizationRepository
     }
 
     /**
-     *
+     * @param bool $organizationId
+     * @param bool $userId
+     * @param bool $keyword
+     * @return Comment
      */
-    public function findComments($organizationId)
+    public function findComments($organizationId = false, $userId = false, $keyword = false)
     {
-       //$data = Comment
+        return $this->getCommentRepository()->findOrganizationComments($organizationId, $userId, $keyword);
     }
 
     /**
-     *
+     * @param $organizationId
+     * @return bool
      */
     public function findFollowersUsers($organizationId)
     {
-        // TODO: Implement findFollowersUsers() method.
+        return $this->getOrganizationRoleRepository()->findUsersByOrganizationRole($organizationId, OrganizationRole::ID_ORGANIZATION_FOLLOWER);
     }
 
     /**
-     *
+     * @param $organizationId
+     * @return bool
      */
-    public function findContactUsers($organizationId)
+    public function findPartnerUsers($organizationId)
     {
-        // TODO: Implement findContactUsers() method.
+        return $this->getOrganizationRoleRepository()->findUsersByOrganizationRole($organizationId, OrganizationRole::ID_ORGANIZATION_PARTNER);
+    }
+
+
+    /**
+     * @param $organizationId
+     * @return bool
+     */
+    public function findManagerUsers($organizationId)
+    {
+        return $this->getOrganizationRoleRepository()->findUsersByOrganizationRole($organizationId, OrganizationRole::ID_ORGANIZATION_MANAGER);
     }
 
     /**
@@ -190,15 +218,15 @@ class OrganizationRepository implements IOrganizationRepository
 
         $organization = new Organization();
 
-        if($idCountry == false){
+        if ($idCountry == false) {
             $idCountry = Country::DEFAULT_COUNTRY_BRAZIL;
         }
 
-        if($idTimezone == false){
+        if ($idTimezone == false) {
             $idTimezone = Timezone::DEFAULT_TIMEZONE_BRAZIL;
         }
 
-        if($idLocale == false){
+        if ($idLocale == false) {
             $idLocale = Locale::DEFAULT_LOCALE_BRAZIL;
         }
 
@@ -212,7 +240,7 @@ class OrganizationRepository implements IOrganizationRepository
         $organization->{Organization::ID_TIMEZONE} = $idTimezone;
         $organization->{Organization::ID_LOCALE} = $idLocale;
 
-        if($organization->save()){
+        if ($organization->save()) {
             return $organization->id;
         }
 
@@ -220,24 +248,29 @@ class OrganizationRepository implements IOrganizationRepository
     }
 
     /**
-     *
-     */
-    public function findManagerUsers($organizationId)
-    {
-        // TODO: Implement findManagerUsers() method.
-    }
-
-
-    /**
      * @return RoleRepository
      */
-    public function getOrganizationRoleRepository(){
+    public function getOrganizationRoleRepository()
+    {
 
-        if($this->organizationRoleRepository == null){
+        if ($this->organizationRoleRepository == null) {
             $this->organizationRoleRepository = new RoleRepository();
         }
 
         return $this->organizationRoleRepository;
+    }
+
+    /**
+     * @return CommentRepository
+     */
+    public function getCommentRepository()
+    {
+
+        if ($this->commentsRepository == null) {
+            $this->commentsRepository = new CommentRepository();
+        }
+
+        return $this->commentsRepository;
     }
 
 

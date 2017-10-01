@@ -1,9 +1,8 @@
-<?php namespace Charis\Repositories\Category;
+<?php namespace Charis\Repositories\Comment;
 
 use Charis\Models\Comment;
-use Auth;
 use Charis\Models\CommentType;
-use Charis\Repositories\Comment\TypeRepository;
+use Auth;
 
 /**
  * Class CommentRepository
