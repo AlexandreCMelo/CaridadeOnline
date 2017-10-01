@@ -9,11 +9,9 @@ use Charis\Models\Category;
  */
 interface ICommentRepository
 {
-    public function findOrganizationCommentByKeyword();
+    public function findOrganizationComments($organizationId = false, $userId = false, $keyword = false);
+    public function findComments($organizationId = false, $typeId = false, $userId = false, $keyword = false);
+    public function findUserComments($userId, $keyword = false);
     public function addComment($organizationId, $userId, $typeId, $content);
-    public function removeCommentById();
-    public function addOrganizationComment();
-    public function removeOrganizationCommentById();
-    public function addAlbumComment();
-    public function removeAlbumCommentById();
+    public function removeCommentById($id);
 }

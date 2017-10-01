@@ -1,15 +1,75 @@
-<?php namespace Charis\Repositories\Category;
+<?php namespace Charis\Repositories\Comment;
 
 use Charis\Models\Comment;
+use Charis\Models\CommentType;
 use Auth;
 
+/**
+ * Class CommentRepository
+ * @package Charis\Repositories\Category
+ */
 class CommentRepository implements ICommentRepository
 {
-    public function findOrganizationCommentByKeyword()
-    {
-        // TODO: Implement findOrganizationCommentByKeyword() method.
+
+    /**
+     * @param bool $organizationId
+     * @param bool $userId
+     * @param bool $keyword
+     * @return mixed
+     */
+    public function findOrganizationComments($organizationId = false, $userId = false, $keyword = false){
+        return $this->findComments($organizationId, CommentType::ORGANIZATION, $userId, $keyword);
     }
 
+
+    /**
+     * @param $userId
+     * @param bool $keyword
+     * @return mixed
+     */
+    public function findUserComments($userId, $keyword = false)
+    {
+        return $this->findComments(false, false, $userId, $keyword);
+
+    }
+
+    /**
+     * @param $organizationId
+     * @param bool $typeId
+     * @param bool $userId
+     * @param bool $keyword
+     * @return mixed
+     */
+    public function findComments($organizationId = false, $typeId = false, $userId = false, $keyword = false)
+    {
+        $data = Comment::query();
+
+        if($organizationId) {
+            $data->where(Comment::ID_ORGANIZATION, $organizationId);
+        }
+
+        if($userId) {
+            $data->where(Comment::ID_USER, $typeId);
+        }
+
+        if($typeId) {
+            $data->where(Comment::ID_TYPE, $typeId);
+        }
+
+        if($keyword) {
+            $data->where(Comment::CONTENT, 'like', '%' . $keyword . '%');
+        }
+
+        return $data->get();
+    }
+
+    /**
+     * @param $organizationId
+     * @param $userId
+     * @param $typeId
+     * @param $content
+     * @return bool|Comment
+     */
     public function addComment($organizationId, $userId, $typeId, $content)
     {
         $comment = New Comment();
@@ -19,36 +79,20 @@ class CommentRepository implements ICommentRepository
         $comment->{Comment::ID_TYPE} = $typeId;
         $comment->{Comment::CONTENT} = $content;
 
-        if($comment->save()){
+        if ($comment->save()) {
             return $comment;
         }
 
         return false;
     }
 
-    public function removeCommentById()
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function removeCommentById($id)
     {
-        // TODO: Implement removeComment() method.
-    }
-
-    public function addOrganizationComment()
-    {
-        // TODO: Implement addOrganizationComment() method.
-    }
-
-    public function removeOrganizationCommentById()
-    {
-        // TODO: Implement removeOrganizationComment() method.
-    }
-
-    public function addAlbumComment()
-    {
-        // TODO: Implement addAlbumComment() method.
-    }
-
-    public function removeAlbumCommentById()
-    {
-        // TODO: Implement removeAlbumComment() method.
+        return Comment::find($id)->delete();
     }
 
 

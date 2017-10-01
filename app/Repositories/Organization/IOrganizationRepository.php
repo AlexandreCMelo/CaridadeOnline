@@ -17,6 +17,6 @@ interface IOrganizationRepository
     public function findUsers($organizationId);
     public function findComments($organizationId);
     public function findFollowersUsers($organizationId);
-    public function findContactUsers($organizationId);
+    public function findPartnerUsers($organizationId);
     public function findManagerUsers($organizationId);
 }
