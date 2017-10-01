@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->string(User::EMAIL)->unique();
             $table->string(User::PASSWORD);
             $table->string(User::PHONE)->nullable();
-            $table->boolean('activated')->default(true);
+            $table->boolean(User::ACTIVATED)->default(true);
             $table->string('token');
             $table->ipAddress('signup_ip_address')->nullable();
             $table->ipAddress('signup_confirmation_ip_address')->nullable();
