@@ -3,7 +3,7 @@
 namespace Charis\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Charis\Repositories\Category\CategoryRepository;
+use Charis\Repositories\Category\CommentRepository;
 use Charis\Repositories\Category\ICategoryRepository;
 
 
@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(
             ICategoryRepository::class,
-            CategoryRepository::class
+            CommentRepository::class
         );
 
     }
