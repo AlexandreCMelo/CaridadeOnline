@@ -186,6 +186,11 @@ class OrganizationRepository implements IOrganizationRepository
         return $this->getOrganizationRoleRepository()->findUsersByOrganizationRole($organizationId, OrganizationRole::ID_ORGANIZATION_MANAGER);
     }
 
+    public function remove($id)
+    {
+        return Organization::find($id)->delete();
+    }
+
     /**
      * @param $name
      * @param $description

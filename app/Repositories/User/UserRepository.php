@@ -15,6 +15,9 @@ use Charis\Repositories\Organization\RoleRepository;
 class UserRepository implements IUserRepository
 {
 
+    /**
+     *
+     */
     const DEFAULT_LIMIT = 10;
 
     /**
@@ -103,11 +106,25 @@ class UserRepository implements IUserRepository
 
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function remove($id)
     {
-        // TODO: Implement remove() method.
+        return User::find($id)->delete();
     }
 
+    /**
+     * @param bool $name
+     * @param bool $email
+     * @param bool $countryId
+     * @param bool $cityName
+     * @param bool $address
+     * @param bool $systemRole
+     * @param bool $deleted
+     * @return mixed
+     */
     public function findUser(
         $name = false,
         $email = false,
@@ -176,44 +193,77 @@ class UserRepository implements IUserRepository
     }
 
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function findById($id)
     {
-        // TODO: Implement findById() method.
+        return User::find($id)->get();
     }
 
+    /**
+     * @param $email
+     * @return mixed
+     */
     public function findByEmail($email)
     {
-        // TODO: Implement findByEmail() method.
+       return $this->findUser(false, $email);
     }
 
+    /**
+     * @param $cityName
+     * @return mixed
+     */
     public function findByCity($cityName)
     {
-        // TODO: Implement findByCity() method.
+        return $this->findUser(false, false,false, $cityName);
     }
 
+    /**
+     * @param $countryId
+     * @return mixed
+     */
     public function findByCountry($countryId)
     {
-        // TODO: Implement findByCountry() method.
+        return $this->findUser(false, false, $countryId);
     }
 
+    /**
+     * @param $systemRole
+     * @return mixed
+     */
     public function findBySystemRole($systemRole)
     {
-        // TODO: Implement findBySystemRole() method.
+        return $this->findUser(false, false, false, false, false, $systemRole);
     }
 
+    /**
+     * @param $name
+     * @return mixed
+     */
     public function findByName($name)
     {
-        // TODO: Implement findByName() method.
+       return $this->findUser($name);
     }
 
+    /**
+     * @return mixed
+     */
     public function findDeletedUsers()
     {
-        // TODO: Implement findDeletedUsers() method.
+        return User::onlyTrashed()->get();
     }
 
+    /**
+     * @param $userId
+     * @param $organizationId
+     * @param $roleId
+     * @return bool
+     */
     public function addOrganizationRole($userId, $organizationId, $roleId)
     {
-        // TODO: Implement addOrganizationRole() method.
+        return $this->getOrganizationRoleRepository()->addUserToOrganization($userId, $organizationId, $roleId);
     }
 
 

@@ -7,7 +7,6 @@ namespace Charis\Models;
  * @package Charis\Models
  *
  * @method getId()
- * @method getName()
  * @method getType()
  * @method getOwner()
  * @method getCountry()

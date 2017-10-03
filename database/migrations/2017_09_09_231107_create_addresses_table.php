@@ -20,13 +20,13 @@ class CreateAddressesTable extends Migration
             $table->increments(Address::ID);
             $table->integer(Address::ID_TYPE)->unsigned();
             $table->integer(Address::ID_COUNTRY)->unsigned();
-            $table->string(Address::OWNER_TYPE)->unsigned();
+            $table->string(Address::OWNER_TYPE));
             $table->integer(Address::ID_OWNER)->unsigned();
-            $table->string(Address::STATE, 128)->nullable();
-            $table->string(Address::CITY,128)->nullable();
+            $table->string(Address::STATE, 128);
+            $table->string(Address::CITY,128);
+            $table->string(Address::ADDRESS);
             $table->string(Address::DISTRICT,128)->nullable();
             $table->string(Address::ZIP_CODE)->nullable();
-            $table->string(Address::ADDRESS)->nullable();
             $table->float(Address::LATITUDE,10, 6)->nullable();
             $table->float(Address::LONGITUDE, 10 ,6)->nullable();
             $table->timestampsTz();
