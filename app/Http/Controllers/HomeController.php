@@ -24,4 +24,9 @@ class HomeController extends \Charis\Http\Controllers\Controller
     {
         return view('Dashboard.home');
     }
+
+    public function home()
+    {
+        return view('home');
+    }
 }

@@ -1,4 +1,9 @@
 <div class="row">
+
+    <p class="text-center margin-bottom-3">
+        Or Login with
+    </p>
+
     <div class="col-md-12 margin-bottom-2 text-center">
         <a href="{{ url('social.redirect',['provider' => 'instagram']) }}" class="btn btn-social-icon btn-lg margin-half btn-instagram"><i class="fa fa-instagram"></i></a>
         <a href="{{ url('social.redirect',['provider' => 'facebook']) }}" class="btn btn-social-icon btn-lg margin-half btn-facebook"><i class="fa fa-facebook"></i></a>
