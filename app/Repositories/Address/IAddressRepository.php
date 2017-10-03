@@ -1,14 +1,30 @@
 <?php
-namespace Charis\Repositories\Category;
-
-use Charis\Models\Category;
+namespace Charis\Repositories\Address;
 
 /**
- * Interface CategoryRepository
- * @package Charis\Repositories\Category
+ * Interface IAddressRepository
+ * @package Charis\Repositories\Address
  */
-interface ICategoryRepository
+interface IAddressRepository
 {
-    public function findById($id);
-    public function all();
+    public function add(
+        $typeId,
+        $ownerId,
+        $owner,
+        $countryId,
+        $address,
+        $state,
+        $city,
+        $district = false,
+        $zipcode = false,
+        $latitude = false,
+        $long= false
+    );
+    public function remove($id);
+    public function getOwnerId($id);
+    public function isOrganizationAddress($id);
+    public function isUserAddress($id);
+    public function getByAddress($ownerType, $address = false, $countryId = false, $state = false, $city = false);
+    public function getCityUsers($city);
+    public function getCityOrganizations($city);
 }
