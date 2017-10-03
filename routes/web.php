@@ -14,7 +14,6 @@
 */
 
 // Homepage Route
-Route::get('/', 'HomeController@index')->name('welcome');
 
 
 Route::resource('organizations', 'OrganizationController');
@@ -23,8 +22,16 @@ Route::resource('organizations', 'OrganizationController');
 // Authentication Routes
 Auth::routes();
 
+
 // Public Routes
 Route::group(['middleware' => 'web'], function () {
+    //  Homepage Route - Redirect based on user role is in controller.
+    Route::get('/',
+        [
+            'as' => 'home',
+            'uses' => 'HomeController@home'
+        ]
+    );
 
     // Activation Routes
     Route::get('/activate',
@@ -89,12 +96,10 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
             'uses' => 'Auth\LoginController@logout'
         ])->name('logout');
 
-    //  Homepage Route - Redirect based on user role is in controller.
-    Route::get('/',
+    Route::get('/dashboard',
         [
             'as' => 'dashboard',
             'uses' => 'HomeController@index'
-        ]
-    );
+        ]);
 
 });
