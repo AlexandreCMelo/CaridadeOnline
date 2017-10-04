@@ -10,7 +10,7 @@
 
 <body>
 @include('nav')
-@yield('page')
+@yield('content')
 
 </body>
 </html>
