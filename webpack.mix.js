@@ -20,3 +20,5 @@ mix.autoload({
     .js('resources/assets/js/gmaps.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css');
 
+
+
