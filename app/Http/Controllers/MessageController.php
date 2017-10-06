@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Session;
 
 class MessagesController extends Controller
 {
+
+    /**
+     * UserController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Show all of the message threads to the user.
      *
