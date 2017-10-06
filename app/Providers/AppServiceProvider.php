@@ -2,9 +2,11 @@
 
 namespace Charis\Providers;
 
+use Charis\Http\ViewComposers\MenuComposer;
 use Illuminate\Support\ServiceProvider;
 use Charis\Repositories\Category\CommentRepository;
 use Charis\Repositories\Category\ICategoryRepository;
+use View;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -16,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('nav', MenuComposer::class);
     }
 
     /**
