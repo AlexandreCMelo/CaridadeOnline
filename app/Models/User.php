@@ -5,6 +5,7 @@ namespace Charis\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Cmgmyr\Messenger\Traits\Messagable;
 
 /**
  * Class User
@@ -30,7 +31,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
-
+    use Messagable;
     /**
      * Table parameters
      */

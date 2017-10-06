@@ -257,11 +257,9 @@ class OrganizationRepository implements IOrganizationRepository
      */
     public function getOrganizationRoleRepository()
     {
-
         if ($this->organizationRoleRepository == null) {
             $this->organizationRoleRepository = new RoleRepository();
         }
-
         return $this->organizationRoleRepository;
     }
 
@@ -270,11 +268,9 @@ class OrganizationRepository implements IOrganizationRepository
      */
     public function getCommentRepository()
     {
-
         if ($this->commentsRepository == null) {
             $this->commentsRepository = new CommentRepository();
         }
-
         return $this->commentsRepository;
     }
 

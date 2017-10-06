@@ -272,7 +272,6 @@ class UserRepository implements IUserRepository
      */
     public function getOrganizationRoleRepository()
     {
-
         if ($this->organizationRoleRepository == null) {
             $this->organizationRoleRepository = new RoleRepository();
         }

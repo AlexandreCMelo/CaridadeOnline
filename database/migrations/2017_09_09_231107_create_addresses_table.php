@@ -20,7 +20,7 @@ class CreateAddressesTable extends Migration
             $table->increments(Address::ID);
             $table->integer(Address::ID_TYPE)->unsigned();
             $table->integer(Address::ID_COUNTRY)->unsigned();
-            $table->string(Address::OWNER_TYPE));
+            $table->string(Address::OWNER_TYPE);
             $table->integer(Address::ID_OWNER)->unsigned();
             $table->string(Address::STATE, 128);
             $table->string(Address::CITY,128);
