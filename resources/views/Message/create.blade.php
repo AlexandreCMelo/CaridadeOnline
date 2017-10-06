@@ -1,6 +1,6 @@
-@extends('master')
+@extends('Message.boiler')
 
-@section('content')
+@section('page')
     <h1>Create a new message</h1>
     <form action="{{ route('messages.store') }}" method="post">
         {{ csrf_field() }}

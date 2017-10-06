@@ -1,4 +1,4 @@
-@extends('master')
+@extends('Message.boiler')
 
 @section('content')
     <div class="col-md-6">
