@@ -13,27 +13,21 @@
                 <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Usuários</a>
+                <a class="nav-link" href="#">{{ __('views.user') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Map</a>
+                <a class="nav-link" href="#">{{ __('views.map') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('organizations.create') }}">{{ __('views.new_organization') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/messages">{{ __('views.messages') }} @include('Message.unread-count')</a>
             </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
             @guest
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-
-
             <li class="nav-item">
                 <a class="nav-link" href="/register">Cadastro</a>
             </li>
@@ -41,8 +35,14 @@
                 <a class="nav-link" href="/login">Login</a>
             </li>
                 @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ Auth::user()->name }}</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropDownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropDownUser">
+                            <a class="dropdown-item" href="#">{{ __('views.profile') }}</a>
+                            <a class="dropdown-item" href="{{ route('logout')  }}">Logout</a>
+                        </div>
                     </li>
             @endguest
         </ul>
