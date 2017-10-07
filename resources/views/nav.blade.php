@@ -18,12 +18,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">{{ __('views.map') }}</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('organizations.create') }}">{{ __('views.new_organization') }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/messages">{{ __('views.messages') }} @include('Message.unread-count')</a>
-            </li>
+
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('organizations.create') }}">{{ __('views.new_organization') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/messages">{{ __('views.messages') }} @include('Message.unread-count')</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/messages/create">{{ __('views.new_message') }}</a>
+                </li>
+            @endauth
         </ul>
 
         <ul class="navbar-nav ml-auto">
