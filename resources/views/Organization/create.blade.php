@@ -1,4 +1,4 @@
-@extends('Template.layouts.app')
+@extends('master')
 
 @section('content')
 
@@ -8,21 +8,23 @@
         {!! Form::open(['route' => 'organizations.store']) !!}
 
         <div class="form-group">
-            {{ Form::label('name', null, ['class' => 'control-label']) }}
-            {{ Form::text('name', '', ['class' => 'form-control']) }}
+            <label for="name" class="control-label">Name</label>
+            <input type="text" name="name" class="form-control">
         </div>
         <div class="form-group">
-            {{ Form::label('description', null, ['class' => 'control-label']) }}
-            {{ Form::textarea('description', '', ['class' => 'form-control']) }}
+            <label for="description" class="control-label">Description</label>
+            <textarea name="description" class="form-control"></textarea>
         </div>
 
         <div class="form-group">
-            {{ Form::label('categories', null, ['class' => 'control-label']) }}
-            {{ Form::select(
-            'description',
-            $categories,
-            '',
-            array('multiple' => true, 'class' => 'form-control')) }}
+
+            <label for="categories" class="control-label">Categories</label>
+            <select multiple name="categories" class="control-label">
+                @foreach($categories as $key => $value)
+                    <option value="{{ $key }}">{{ $value }}</option>
+                @endforeach
+            </select>
+
         </div>
         <div class="form-group">
             {{ Form::label('activities', null, ['class' => 'control-label']) }}
