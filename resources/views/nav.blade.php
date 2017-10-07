@@ -1,23 +1,57 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <div class="container">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+    <a class="navbar-brand" href="#"></a>
 
-                @foreach ($menuOptions as $option)
-                    <li><a href="/">{{ $option }}</a></li>
-                @endforeach
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">{{ __('views.user') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">{{ __('views.map') }}</a>
+            </li>
+
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('organizations.create') }}">{{ __('views.new_organization') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/messages">{{ __('views.messages') }} @include('Message.unread-count')</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/messages/create">{{ __('views.new_message') }}</a>
+                </li>
+            @endauth
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            @guest
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Cadastro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropDownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropDownUser">
+                            <a class="dropdown-item" href="#">{{ __('views.profile') }}</a>
+                            <a class="dropdown-item" href="{{ route('logout')  }}">Logout</a>
+                        </div>
+                    </li>
+            @endguest
+        </ul>
+
     </div>
 </nav>

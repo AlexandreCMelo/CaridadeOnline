@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('page')
+@section('content')
     <div class="container">
 
         <form class="form-horizontal" method="POST" action="{{ route('login') }}">

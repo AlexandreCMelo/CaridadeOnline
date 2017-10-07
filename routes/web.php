@@ -110,4 +110,10 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
             'uses' => 'HomeController@index'
         ]);
 
+    Route::group(['prefix' => 'organization'], function() {
+        Route::get('new', [
+            'uses' => 'OrganizationController@create'
+        ]);
+    });
+
 });

@@ -14,9 +14,11 @@ let mix = require('laravel-mix');
 
 mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery'],
-    'popper.js': ['Popper']
+    Popper: ['popper.js', 'default'],
 })
     .js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/gmaps.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css');
+
+
 

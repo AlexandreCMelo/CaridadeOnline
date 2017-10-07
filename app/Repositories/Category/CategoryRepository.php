@@ -42,9 +42,7 @@ class CategoryRepository implements ICategoryRepository
     {
         $data = [];
         foreach($this->all(true) as $category) {
-            $data[] = [
-                $category[category::ID] => $category[category::NAME]
-            ];
+            $data[$category[category::ID]] = $category[category::NAME];
         };
 
         return $data;

@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('page')
+@section('content')
 
     <div class="jumbotron">
         <div class="container">
