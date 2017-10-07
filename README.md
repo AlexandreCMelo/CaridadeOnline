@@ -5,6 +5,18 @@
 
 CaridadeOnline is a laravel-LTS-powered, cloud-enabled, mobile-ready, API compliant, PHP 7 project made to help charitable organizations across Brazil
 
+# Requirements
+
+    PHP >= 7.0.0
+    OpenSSL PHP Extension
+    PDO PHP Extension
+    PDO PGSQL PHP Extension
+    Mbstring PHP Extension
+    Tokenizer PHP Extension
+    XML PHP Extension
+    
+
+
 # Features!
 
   - Get information about nearby Organizations
