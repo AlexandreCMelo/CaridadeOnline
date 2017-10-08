@@ -7,4 +7,5 @@ return [
     'new_organization' => 'Nova Organização',
     'messages' => 'Mensagens',
     'new_message' => 'Nova Mensagem',
+    'follow' => 'Seguir',
 ];

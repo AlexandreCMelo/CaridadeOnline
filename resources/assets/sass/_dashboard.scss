@@ -1,0 +1,232 @@
+$color_1: #14594d;
+$color_2: #fff;
+$color_3: #DFC717;
+$font_family_1: 'Kumar One', cursive;
+$background_color_1: #ff5078;
+$background_color_2: #1e1e1e;
+
+/*flipper-card*/
+h2 {
+  float: left;
+  width: 100%;
+  color: $color_1;
+  margin-bottom: 60px;
+  font-size: 14px;
+  position: relative;
+  z-index: 3;
+  span {
+    font-family: $font_family_1;
+    display: block;
+    font-size: 45px;
+    text-transform: none;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  a {
+    color: $color_2;
+    font-weight: bold;
+  }
+}
+
+section {
+  float: left;
+  width: 100%;
+  padding: 30px 0;
+  position: relative;
+  overflow: hidden;
+  background: #6F8D8A;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    background: url("https://xraydelta.files.wordpress.com/2012/02/the-tree-of-life-wallpapers-hd-4.jpg") no-repeat 0 0;
+    background-size: cover;
+    filter: blur(10px);
+    z-index: 0;
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+  }
+}
+
+h3 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: $color_2;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-default {
+  background: #DFC717;
+  color: $color_2;
+  font-weight: 700;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+.card {
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+  border: none;
+  margin-bottom: 30px;
+}
+
+.card-01 {
+  .card-body {
+    position: relative;
+    padding-top: 40px;
+  }
+  .badge-box {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    text-align: center;
+    i {
+      background: #DFC717;
+      color: $color_2;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+}
+
+.card-01.height-fix {
+  height: 455px;
+  overflow: hidden;
+  .card-img-top {
+    width: auto !important;
+  }
+  .card-img-overlay {
+    top: unset;
+    color: $color_2;
+    background: -moz-linear-gradient(top, rgba(26, 96, 111, 0) 0%, rgba(26, 96, 111, 0) 1%, rgba(24, 87, 104, 0.91) 31%, rgba(21, 65, 89, 0.91) 100%);
+    background: -webkit-linear-gradient(top, rgba(26, 96, 111, 0) 0%, rgba(26, 96, 111, 0) 1%, rgba(24, 87, 104, 0.91) 31%, rgba(21, 65, 89, 0.91) 100%);
+    background: linear-gradient(to bottom, rgba(26, 96, 111, 0) 0%, rgba(26, 96, 111, 0) 1%, rgba(24, 87, 104, 0.91) 31%, rgba(21, 65, 89, 0.91) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#001a606f', endColorstr='#e8154159', GradientType=0);
+  }
+  .fa {
+    color: $color_2;
+    font-size: 22px;
+    margin-right: 18px;
+  }
+}
+
+.profile-box {
+  background-size: cover;
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    filter: blur(10px);
+    background: url("https://images.pexels.com/photos/195825/pexels-photo-195825.jpeg?h=350&auto=compress&cs=tinysrgb") no-repeat;
+    background-size: cover;
+    width: 120%;
+    position: absolute;
+    content: "";
+    height: 120%;
+    left: -10%;
+    top: 0;
+    z-index: 0;
+  }
+  img {
+    width: 170px;
+    height: 170px;
+    position: relative;
+    border: 5px solid #fff;
+  }
+}
+
+.social-box {
+  i {
+    border: 1px solid #DFC717;
+    color: $color_3;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    &:hover {
+      background: #DFC717;
+      color: $color_2;
+    }
+  }
+  a {
+    margin: 0 5px;
+  }
+}
+.video-foreground {
+  float: left;
+  width: 100%;
+  height: 500px;
+}
+;
+.card-flipper {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.card__front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  background-color: $background_color_1;
+}
+
+.card__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  background-color: $background_color_2;
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  .card {
+    width: 100%;
+    height: 65vh;
+  }
+}
+
+.card-flipper.effect__hover {
+  &:hover {
+    .card__front {
+      -webkit-transform: rotateY(-180deg);
+      transform: rotateY(-180deg);
+    }
+    .card__back {
+      -webkit-transform: rotateY(0);
+      transform: rotateY(0);
+    }
+  }
+}
+
+.card-flipper.effect__random.flipped {
+  .card__front {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+  .card__back {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+}
