@@ -15,7 +15,7 @@ class Permission extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'permissions';
+    const TABLE_NAME = 'permission';
 
     /**
      * The table associated with the model.
@@ -29,7 +29,7 @@ class Permission extends Model
      *
      * @var bool
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     const ID = 'id';
     const CODE = 'code';

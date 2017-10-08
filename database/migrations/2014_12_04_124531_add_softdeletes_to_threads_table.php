@@ -17,6 +17,7 @@ class AddSoftdeletesToThreadsTable extends Migration
         Schema::table(Models::table('threads'), function (Blueprint $table) {
             $table->softDeletes();
         });
+
     }
 
     /**

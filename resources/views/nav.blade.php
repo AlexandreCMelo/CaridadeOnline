@@ -29,6 +29,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/messages/create">{{ __('views.new_message') }}</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.upload') }}">{{ __('views.upload_prototype') }}</a>
+                </li>
             @endauth
         </ul>
 

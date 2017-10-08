@@ -8,5 +8,7 @@ return [
     'messages' => 'Messages',
     'new_message' => 'New message',
     'follow' => 'Follow',
+    'upload_prototype' => 'Upload picture prototype',
+
 
 ];

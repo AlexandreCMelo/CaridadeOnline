@@ -29,6 +29,7 @@ class FileType extends Model
     const VIDEO = 20;
     const IMAGE = 30;
     const AVATAR = 40;
+    const LOGO = 50;
 
     /**
      * The attributes that are mass assignable.

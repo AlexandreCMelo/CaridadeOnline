@@ -33,11 +33,12 @@ class File extends Model
     const ID_FILE_OWNER = 'fk_owner';
     const ID_FILE_TYPE = 'fk_tile_type';
     const FILE_OWNER = 'owner';
-    const NAME = 'Name';
-    const PATH = 'Path';
+    const NAME = 'name';
+    const PATH = 'path';
     const SIZE = 'size';
     const MIME_TYPE = 'mime_type';
     const ATTRIBUTES = 'attributes';
+    const CREATED_BY = 'created_by';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
     const DELETED_AT = 'deleted_at';
