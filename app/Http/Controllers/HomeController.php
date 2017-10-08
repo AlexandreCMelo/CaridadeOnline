@@ -5,10 +5,9 @@ namespace Charis\Http\Controllers;
 
 class HomeController extends \Charis\Http\Controllers\Controller
 {
+
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * HomeController constructor.
      */
     public function __construct()
     {
@@ -25,8 +24,12 @@ class HomeController extends \Charis\Http\Controllers\Controller
         return view('Dashboard.home');
     }
 
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function home()
     {
-        return view('home');
+        return view('Dashboard.home');
     }
 }

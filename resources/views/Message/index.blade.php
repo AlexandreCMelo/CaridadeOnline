@@ -1,6 +1,6 @@
 @extends('Message.boiler')
 
-@section('page')
+@section('content')
     @include('Message.partials.flash')
     @each('Message.partials.thread', $threads, 'thread', 'Message.partials.no-threads')
 @stop
