@@ -3,6 +3,7 @@
 namespace Charis\Http\Controllers;
 
 
+use Charis\Models\FileType;
 use Charis\Models\Organization;
 use Charis\Models\User;
 use Charis\Repositories\File\FileRepository;
@@ -84,16 +85,17 @@ class HomeController extends \Charis\Http\Controllers\Controller
             $fileService = new FileService();
 
             $addFileProtoType = $fileService->addFileFromRequestProtoType($request, Auth::id());
-            //$addFileToOrganization = $fileService->addFileFromRequest($request, 30, Auth::id(), 56, Organization::class);
-            //$addImageToOrganization = $fileService->addImageFromRequest($request, 30, Auth::id());
-            //$addVideoToOrganization = $fileService->addVideoFromRequest($request, 30, Auth::id());
-            //$addLogoToOrganization = $fileService->addLogoFromRequest($request, 30, Auth::id());
-            //$addFileToUser = $fileService->addFileFromRequest($request, 30, Auth::id(), 13, User::class);
-            //$addImageToUser = $fileService->addImageFromRequest($request,  13, Auth::id());
-            //$addAvatarToUser = $fileService->addAvatarFromRequest($request,  13, Auth::id());
-            //$addFileToSystem = $fileService->addVideoFromRequest($request, 30, Auth::id());
+            $organizationId = 56;
+            $userId = 13;
+            //$addFileToOrganization = $fileService->addFileFromRequest($request, FileType::IMAGE, Auth::id(), $organizationId, Organization::class);
+            //$addImageToOrganization = $fileService->addImageFromRequest($request, $organizationId, Auth::id());
+            //$addVideoToOrganization = $fileService->addVideoFromRequest($request, $organizationId, Auth::id());
+            //$addLogoToOrganization = $fileService->addLogoFromRequest($request, $organizationId, Auth::id());
+            //$addFileToUser = $fileService->addFileFromRequest($request, FileType::VIDEO, Auth::id(), 13, User::class);
+            //$addImageToUser = $fileService->addImageFromRequest($request,  $userId, Auth::id());
+            //$addAvatarToUser = $fileService->addAvatarFromRequest($request,  $userId, Auth::id());
+            //$addFileToSystem = $fileService->addFileToSystem($request, FileType::IMAGE, Auth::id());
 
-            //$addFileToOrganization = $fileService->addFileFromRequest($request, 30, Auth::id());
 
             var_dump($addFileProtoType);
             die();
