@@ -14,6 +14,7 @@ class CreateOrganizationRolesTable extends Migration
      */
     public function up()
     {
+
         Schema::create(OrganizationRole::TABLE_NAME, function (Blueprint $table) {
             $table->increments(OrganizationRole::ID);
             $table->string(OrganizationRole::NAME, 128);

@@ -8,4 +8,5 @@ return [
     'messages' => 'Mensagens',
     'new_message' => 'Nova Mensagem',
     'follow' => 'Seguir',
+    'upload_prototype' => 'Subir foto prototipo',
 ];

@@ -110,6 +110,18 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
             'uses' => 'HomeController@index'
         ]);
 
+    Route::get('/dashboard/upload',
+        [
+            'as' => 'dashboard.upload',
+            'uses' => 'HomeController@upload'
+        ]);
+
+    Route::post('/dashboard/upload/create',
+        [
+            'as' => 'dashboard.upload.create',
+            'uses' => 'HomeController@uploadCreate'
+        ]);
+
     Route::group(['prefix' => 'organization'], function() {
         Route::get('new', [
             'uses' => 'OrganizationController@create'

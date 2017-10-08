@@ -38,6 +38,10 @@ class CreateFileTypesTable extends Migration
                     FileType::ID          => FileType::AVATAR,
                     FileType::NAME        => "Avatar",
                 ],
+                [
+                    FileType::ID          => FileType::LOGO,
+                    FileType::NAME        => "Logo",
+                ],
             ]
         );
     }
