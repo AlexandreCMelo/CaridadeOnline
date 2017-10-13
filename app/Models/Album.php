@@ -22,7 +22,7 @@ class Album extends Model
 
     const ID = 'id';
     const NAME = 'name';
-    const ID_ORGANIZATION = 'fk_organization';
+    const ID_ORGANIZATION = 'organization_id';
     const CREATED_BY = 'created_by';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

@@ -41,10 +41,10 @@ class Address extends Model
      * Table parameters
      */
     const ID = 'id';
-    const ID_TYPE = 'fk_type';
-    const ID_OWNER = 'fk_owner';
+    const ID_TYPE = 'type_id';
+    const ID_OWNER = 'owner_id';
     const OWNER_TYPE = 'owner_type';
-    const ID_COUNTRY = 'fk_country';
+    const ID_COUNTRY = 'country_id';
     const ADDRESS = 'address';
     const STATE = 'state';
     const DISTRICT = 'district';

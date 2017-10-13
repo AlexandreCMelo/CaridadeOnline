@@ -37,9 +37,9 @@ class Organization extends Model
     protected $table = self::TABLE_NAME;
 
     const ID = 'id';
-    const ID_COUNTRY = 'fk_country';
-    const ID_TIMEZONE = 'fk_timezone';
-    const ID_LOCALE = 'fk_locale';
+    const ID_COUNTRY = 'country_id';
+    const ID_TIMEZONE = 'timezone_id';
+    const ID_LOCALE = 'locale_id';
     const SRC = 'origin_id';
     const NAME = 'name';
     const DESCRIPTION = 'description';
@@ -99,7 +99,7 @@ class Organization extends Model
      */
     public function categories()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsToMany(Category::class, Category::TABLE_NAME, Category::ID, self::CA);
     }
 
     /**

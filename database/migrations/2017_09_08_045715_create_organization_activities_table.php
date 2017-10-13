@@ -18,8 +18,8 @@ class CreateOrganizationActivitiesTable extends Migration
     {
         Schema::create(ActivityOrganization::TABLE_NAME, function (Blueprint $table) {
             $table->increments(ActivityOrganization::ID);
-            $table->integer(ActivityOrganization::ID_ORGANIZATION)->unsignable();
-            $table->integer(ActivityOrganization::ID_ACTIVITY)->unsignable();
+            $table->integer(ActivityOrganization::ID_ORGANIZATION)->unsigned();
+            $table->integer(ActivityOrganization::ID_ACTIVITY)->unsigned();
 
             $table->foreign(ActivityOrganization::ID_ORGANIZATION)
                 ->references(Organization::ID)

@@ -34,10 +34,9 @@ class OrganizationRoleUser extends Pivot
      */
     public $timestamps = true;
 
-    const ID = 'id';
-    const ID_USER = 'fk_user';
-    const ID_ROLE = 'fk_role';
-    const ID_ORGANIZATION = 'fk_organization';
+    const ID_USER = 'user_id';
+    const ID_ROLE = 'role_id';
+    const ID_ORGANIZATION = 'organization_id';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 

@@ -34,9 +34,8 @@ class OrganizationPermissionRole extends Pivot
      */
     public $timestamps = true;
 
-    const ID = 'id';
-    const ID_ROLE = 'fk_organization_role';
-    const ID_PERMISSION = 'fk_permission';
+    const ID_ROLE = 'organization_role_id';
+    const ID_PERMISSION = 'permission_id';
 
     /**
      * The attributes that are not mass assignable.

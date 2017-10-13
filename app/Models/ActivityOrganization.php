@@ -34,9 +34,8 @@ class ActivityOrganization extends Pivot
     public $timestamps = false;
 
 
-    const ID = 'id';
-    const ID_ORGANIZATION = 'fk_organization';
-    const ID_ACTIVITY = 'fk_activity';
+    const ID_ORGANIZATION = 'organization_id';
+    const ID_ACTIVITY = 'activity_id';
 
     /**
      * The attributes that are not mass assignable.
