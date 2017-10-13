@@ -49,6 +49,6 @@ class Activity extends Model
      * @return Organization
      */
     public function organizations(){
-        return $this->belongsToMany(Organization::class, OrganizationActivity::TABLE_NAME,OrganizationActivity::ID_ACTIVITY, self::ID);
+        return $this->belongsToMany(Organization::class, ActivityOrganization::TABLE_NAME,ActivityOrganization::ID_ACTIVITY, self::ID);
     }
 }

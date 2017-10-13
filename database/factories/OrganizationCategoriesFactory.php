@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 use Charis\Models\Organization;
-use Charis\Models\OrganizationCategory;
+use Charis\Models\CategoryOrganization;
 use Charis\Models\Category;
 
 /*
@@ -16,12 +16,12 @@ use Charis\Models\Category;
 |
 */
 
-$factory->define(OrganizationCategory::class, function (Faker $faker) {
+$factory->define(CategoryOrganization::class, function (Faker $faker) {
     $organizations = Organization::pluck(Organization::ID)->toArray();
-    $categories = Category::pluck(OrganizationCategory::ID)->toArray();
+    $categories = Category::pluck(CategoryOrganization::ID)->toArray();
 
     return [
-        OrganizationCategory::ID_ORGANIZATION => $faker->randomElement($organizations),
-        OrganizationCategory::ID_CATEGORY => $faker->randomElement($categories)
+        CategoryOrganization::ID_ORGANIZATION => $faker->randomElement($organizations),
+        CategoryOrganization::ID_CATEGORY => $faker->randomElement($categories)
     ];
 });

@@ -18,7 +18,7 @@ class OrganizationPermissionRole extends Pivot
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'organization_role_permissions';
+    const TABLE_NAME = 'organization_role_permission';
 
     /**
      * The table associated with the model.

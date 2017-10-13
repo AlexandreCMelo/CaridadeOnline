@@ -1,6 +1,7 @@
 <?php
 
 namespace Charis\Models;
+use \Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
  * Class OrganizationTarget
@@ -10,12 +11,12 @@ namespace Charis\Models;
  * @method getOrganizationId()
  * @method getTargetId()
  */
-class OrganizationTarget extends Model
+class OrganizationTarget extends Pivot
 {
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'organization_targets';
+    const TABLE_NAME = 'organization_target';
 
     /**
      * The table associated with the model.

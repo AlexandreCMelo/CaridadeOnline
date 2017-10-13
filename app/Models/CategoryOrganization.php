@@ -5,20 +5,20 @@ namespace Charis\Models;
 use \Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
- * Class OrganizationCategory
+ * Class CategoryOrganization
  * @package Charis\Models
  *
  * @method getId()
  * @method getOrganizationId()
  * @method getCategoryId()
  */
-class OrganizationCategory extends Pivot
+class CategoryOrganization extends Pivot
 {
 
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'organization_categories';
+    const TABLE_NAME = 'category_organization';
 
     /**
      * The table associated with the model.

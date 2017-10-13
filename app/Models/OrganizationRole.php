@@ -15,7 +15,7 @@ class OrganizationRole extends Model
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'organization_roles';
+    const TABLE_NAME = 'organization_role';
 
     /**
      * The table associated with the model.

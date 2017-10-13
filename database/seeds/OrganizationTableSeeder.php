@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Charis\Models\Organization;
 use Charis\Models\OrganizationTarget;
-use Charis\Models\OrganizationActivity;
+use Charis\Models\ActivityOrganization;
 
 class OrganizationTableSeeder extends Seeder
 {

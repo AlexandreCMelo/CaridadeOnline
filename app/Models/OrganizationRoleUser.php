@@ -18,7 +18,7 @@ class OrganizationRoleUser extends Pivot
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'organization_role_users';
+    const TABLE_NAME = 'organization_role_user';
 
     /**
      * The table associated with the model.
