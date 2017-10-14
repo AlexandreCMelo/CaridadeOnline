@@ -30,25 +30,30 @@ class ActivityRepository implements IActivityRepository
         return Activity::all();
     }
 
-
     /**
-     * @param $name
-     * @param $description
-     * @return bool|Activity
+     * @param $organizationId
+     * @param $activities
+     * @return bool|$activities
      */
-    public function add(
-        $name,
-        $description
+    public function addToOrganization(
+        $organizationId,
+        $activities
     ) {
 
-        $activity = new Activity();
-
-        $activity->setName($name);
-
-        if ($activity->save()) {
-            return $activity;
+        if(empty($activities) || empty($organizationId)) {
+            return false;
         }
 
-        return false;
+        if(!is_array($activities)){
+            $activities = (array)$activities;
+        }
+
+        $organization = Organization::find($organizationId);
+
+        foreach ($activities as $activity){
+            $organization->activities()->attach($activity);
+        }
+
+        return true;
     }
 }

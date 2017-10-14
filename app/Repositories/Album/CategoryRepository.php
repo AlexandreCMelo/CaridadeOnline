@@ -1,9 +1,10 @@
-<?php namespace Charis\Repositories\Category;
+<?php namespace Charis\Repositories\Album;
 
 use Charis\Models\Category;
 use Auth;
+use Charis\Models\Organization;
 
-class CategoryRepository implements ICategoryRepository
+class CategoryRepository implements IAlbumRepository
 {
 
     const DEFAULT_LIMIT = 10;
@@ -67,6 +68,34 @@ class CategoryRepository implements ICategoryRepository
         }
 
         return false;
+    }
+
+
+    /**
+     * @param $organizationId
+     * @param $categories
+     * @return bool|Category
+     */
+    public function addToOrganization(
+        $organizationId,
+        $categories
+    ) {
+
+        if(empty($categories) || empty($organizationId)) {
+            return false;
+        }
+
+        if(!is_array($categories)){
+            $categories = (array)$categories;
+        }
+
+        $organization = Organization::find($organizationId);
+
+        foreach ($categories as $category){
+            $organization->categories()->attach($category);
+        }
+
+        return true;
     }
 
 }

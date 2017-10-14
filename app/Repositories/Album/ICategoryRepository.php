@@ -1,13 +1,12 @@
 <?php
-namespace Charis\Repositories\Category;
+namespace Charis\Repositories\Album;
 
-use Charis\Models\Category;
 
 /**
- * Interface CategoryRepository
- * @package Charis\Repositories\Category
+ * Interface AlbumRepository
+ * @package Charis\Repositories\Album
  */
-interface ICategoryRepository
+interface IAlbumRepository
 {
     public function findById($id);
     public function all();

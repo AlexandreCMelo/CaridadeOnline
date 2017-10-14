@@ -49,24 +49,30 @@ class CategoryRepository implements ICategoryRepository
     }
 
     /**
-     * @param $name
-     * @param $description
-     * @return bool|Organization
+     * @param $organizationId
+     * @param $categories
+     * @return bool|Category
      */
-    public function addOrganization(
-        $name,
-        $description
+    public function addToOrganization(
+        $organizationId,
+        $categories
     ) {
 
-        $category = new Category();
-
-        $category->setName($name);
-
-        if($category->save()){
-            return $category;
+        if(empty($categories) || empty($organizationId)) {
+            return false;
         }
 
-        return false;
+        if(!is_array($categories)){
+            $categories = (array)$categories;
+        }
+
+        $organization = Organization::find($organizationId);
+
+        foreach ($categories as $category){
+            $organization->categories()->attach($category);
+        }
+
+        return true;
     }
 
 }

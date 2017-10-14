@@ -10,8 +10,10 @@ use Charis\Models\OrganizationRole;
 use Charis\Models\OrganizationRoleUser;
 use Charis\Models\Target;
 use Charis\Models\Timezone;
+use Charis\Repositories\Album\CategoryRepository;
 use Charis\Repositories\Comment\CommentRepository;
 use Auth;
+use Charis\Repositories\Target\TargetRepository;
 
 /**
  * Class OrganizationRepository
@@ -31,6 +33,21 @@ class OrganizationRepository implements IOrganizationRepository
      * @var CommentRepository
      */
     protected $commentsRepository = null;
+
+    /**
+     * @var TargetRepository
+     */
+    protected $targetRepository = null;
+
+    /**
+     * @var $activityRepository
+     */
+    protected $activityRepository = null;
+
+    /**
+     * @var $categoryRepository
+     */
+    protected $categoryRepository = null;
 
     /**
      * Get a paginated list of all users
@@ -191,7 +208,9 @@ class OrganizationRepository implements IOrganizationRepository
         return Organization::find($id)->delete();
     }
 
+
     /**
+     * Adds an organization
      * @param $name
      * @param $description
      * @param $shortDescription
@@ -200,11 +219,14 @@ class OrganizationRepository implements IOrganizationRepository
      * @param $website
      * @param $status
      * @param array $attributes
+     * @param array $categories
+     * @param array $targets
+     * @param array $activities
      * @param bool $idCountry
      * @param bool $idTimezone
      * @param bool $idLocale
      * @param bool $src
-     * @return bool|Organization
+     * @return bool
      */
     public function add(
         $name,
@@ -215,6 +237,9 @@ class OrganizationRepository implements IOrganizationRepository
         $website,
         $status,
         $attributes = [],
+        $categories = [],
+        $targets = [],
+        $activities = [],
         $idCountry = false,
         $idTimezone = false,
         $idLocale = false,
@@ -246,6 +271,11 @@ class OrganizationRepository implements IOrganizationRepository
         $organization->{Organization::ID_LOCALE} = $idLocale;
 
         if ($organization->save()) {
+
+            $this->getActivityRepository()->addToOrganization($organization->id, $activities);
+            $this->getTargetRepository()->addToOrganization($organization->id, $targets);
+            $this->getCategoryRepository()->addToOrganization($organization->id, $categories);
+
             return $organization->id;
         }
 
@@ -272,6 +302,39 @@ class OrganizationRepository implements IOrganizationRepository
             $this->commentsRepository = new CommentRepository();
         }
         return $this->commentsRepository;
+    }
+
+    /**
+     * @return TargetRepository
+     */
+    public function getTargetRepository()
+    {
+        if ($this->targetRepository == null) {
+            $this->targetRepository = new TargetRepository();
+        }
+        return $this->targetRepository;
+    }
+
+    /**
+     * @return ActivityRepository
+     */
+    public function getActivityRepository()
+    {
+        if ($this->activityRepository == null) {
+            $this->activityRepository = new ActivityRepository();
+        }
+        return $this->activityRepository;
+    }
+
+    /**
+     * @return CategoryRepository
+     */
+    public function getCategoryRepository()
+    {
+        if ($this->categoryRepository == null) {
+            $this->categoryRepository = new CategoryRepository();
+        }
+        return $this->categoryRepository;
     }
 
 
