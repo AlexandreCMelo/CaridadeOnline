@@ -31,7 +31,7 @@ class File extends Model
 
     const ID = 'id';
     const ID_FILE_OWNER = 'owner_id';
-    const ID_FILE_TYPE = 'tile_type_id';
+    const ID_FILE_TYPE = 'file_type_id';
     const FILE_OWNER = 'owner';
     const NAME = 'name';
     const PATH = 'path';
@@ -83,6 +83,9 @@ class File extends Model
         );
     }
 
+    public function album(){
+        return $this->hasOne(Album::class);
+    }
 
 
 }

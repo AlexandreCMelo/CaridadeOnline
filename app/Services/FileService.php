@@ -26,7 +26,6 @@ class FileService extends AbstractService
     protected $organizationId = null;
     protected $userId = null;
 
-
     /**
      * @var FileRepository
      */
@@ -45,62 +44,34 @@ class FileService extends AbstractService
         return false;
     }
 
-
     /**
-     * @param \Illuminate\Http\Request $request
-     * @param bool $createdById
-     * @param bool $ownerId
-     * @param bool $owner
-     * @return bool
+     * @param $id
+     * @param $owner
+     * @return bool|string
      */
-    public function addFileFromRequestProtoType(\Illuminate\Http\Request $request, $createdById = false, $ownerId = false, $owner = false)
+    public function getStorageDirectory($id, $owner = false)
     {
-        switch ($request->multipleselect) {
-            case 'usr':
-                $owner = 7;
-                $storagePath = $this->getStorageDirectory($ownerId, User::class);
-                $ownerType = User::class;
-                break;
-            case 'org':
-                $owner = 13;
-                $storagePath = $this->getStorageDirectory($ownerId, Organization::class);
-                $ownerType = Organization::class;
 
-                break;
-            case 'sys':
-                $storagePath = $this->getSystemStorageDirectory();
-                break;
+        $directory = $this->getDirectory($id, $owner);
+        $directoryDate = null;
+
+        if (empty($directory)) {
+            return false;
         }
 
-        $finalName = mt_rand(1,1000).'-'.$request->image->getClientOriginalName();
-        $mime = $request->image->getMimeType();
-        $size = $request->image->getSize();
-        $name = $request->name;
-        $fileTypeId = 30;
-        $attributes = null;
-
-        if($path = $request->image->storeAs($this->publicDefaultPath.$storagePath, $finalName)){
-            if(!$this->getFileRepository()->add(
-                $name,
-                $path,
-                $size,
-                $mime,
-                $attributes,
-                $fileTypeId,
-                $createdById,
-                $ownerId,
-                $ownerType
-            )){
-                Storage::delete($path);
-                return false;
-            }
-            return true;
+        if($owner) {
+            $directoryDate = (New \DateTime())->format(self::DIRECTORY_FORMAT);
         }
 
-        return false;
+
+        return $directory . $directoryDate;
+
     }
+    
     /**
-     * @param \Illuminate\Http\Request $request
+     * Adds a file to system using the request object
+     * @param Request $request
+     * @param $fileTypeId
      * @param bool $createdById
      * @param bool $ownerId
      * @param bool $owner
@@ -149,6 +120,7 @@ class FileService extends AbstractService
     }
 
     /**
+     * Search for a directory if no directory is found then one is created
      * @param $id
      * @param $owner
      * @return null|string
@@ -177,8 +149,8 @@ class FileService extends AbstractService
     }
 
     /**
-     * @param $request
-     * @param $userId
+     * Adds a file to system path
+     * @param Request $request
      * @param $fileTypeId
      * @param $createdBy
      * @return bool
@@ -278,31 +250,6 @@ class FileService extends AbstractService
         return $path ? $this->getDirectory() . $path : $this->getDirectory();
     }
 
-
-    /**
-     * @param $id
-     * @param $owner
-     * @return bool|string
-     */
-    public function getStorageDirectory($id, $owner = false)
-    {
-
-        $directory = $this->getDirectory($id, $owner);
-        $directoryDate = null;
-
-        if (empty($directory)) {
-            return false;
-        }
-
-        if($owner) {
-            $directoryDate = (New \DateTime())->format(self::DIRECTORY_FORMAT);
-        }
-
-
-        return $directory . $directoryDate;
-
-    }
-
     /**
      * @param $organizationId
      * @return null
@@ -320,6 +267,8 @@ class FileService extends AbstractService
     {
         return $this->createDirectory($this->organizationDefaultPath.$userId);
     }
+
+
 
     /**
      * @return FileRepository

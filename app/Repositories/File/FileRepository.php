@@ -1,7 +1,11 @@
 <?php namespace Charis\Repositories\File;
 
 use Auth;
+use Charis\Models\Album;
 use Charis\Models\File;
+use Charis\Models\FileType;
+use Charis\Models\Organization;
+use Charis\Models\User;
 
 /**
  * Class FileRepository
@@ -33,39 +37,84 @@ class FileRepository implements IFileRepository
         return false;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function remove($id)
     {
         return File::find($id)->delete();
     }
 
+    /**
+     * @param $name
+     * @param bool $path
+     * @param bool $mime
+     * @param bool $fileTypeId
+     * @param bool $ownerId
+     * @param bool $owner
+     */
+    public function find($name = false, $path = false, $mime = false, $fileTypeId = false, $ownerId = false, $owner = false){
+        $data = File::query();
+
+        if($name) {
+            $data->where(File::NAME, $name);
+        }
+
+        if($path) {
+            $data->where(File::PATH, $name);
+        }
+
+        if($mime) {
+            $data->where(File::MIME_TYPE, $name);
+        }
+
+        if($fileTypeId) {
+            $data->where(File::ID_FILE_TYPE, $name);
+        }
+
+        if($ownerId || $owner) {
+            $data->where(File::FILE_OWNER, $owner);
+            $data->where(File::ID_FILE_OWNER, $ownerId);
+        }
+
+        return $data->get();
+    }
+
+    /**
+     * @param $userId
+     * @return mixed
+     */
     public function getUserFiles($userId)
     {
-        // TODO: Implement getUserFiles() method.
+        return $this->find(false,false,false,false, $userId, User::class);
     }
 
+    /**
+     * @param $organizationId
+     * @return mixed
+     */
     public function getOrganizationLogo($organizationId)
     {
-        // TODO: Implement getOrganizationLogo() method.
+        return $this->find(false,false,false,FileType::LOGO, $organizationId, Organization::class);
     }
 
+    /**
+     * @param $organizationId
+     * @return mixed
+     */
     public function getOrganizationFiles($organizationId)
     {
-        // TODO: Implement getOrganizationFiles() method.
+        return $this->find(false,false,false,false, $organizationId, Organization::class);
     }
 
-    public function getOrganizationAlbums($organizationId)
-    {
-        // TODO: Implement getOrganizationAlbums() method.
-    }
-
-    public function getAlbumFiles($albumId)
-    {
-        // TODO: Implement getAlbumFiles() method.
-    }
-
+    /**
+     * @param $userId
+     * @return mixed
+     */
     public function getUserAvatar($userId)
     {
-        // TODO: Implement getUserAvatar() method.
+        return $this->find(false,false,false,FileType::AVATAR, $userId, User::class);
     }
 
 

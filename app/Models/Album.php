@@ -49,7 +49,7 @@ class Album extends Model
      */
     public function user()
     {
-        $this->hasOne(User::class, User::ID, self::ID_ORGANIZATION);
+        $this->hasOne(User::class, User::ID, self::CREATED_BY);
     }
 
     /**
@@ -57,6 +57,6 @@ class Album extends Model
      */
     public function files()
     {
-        return $this->hasMany(File::class, File::ID, self::ID);
+        return $this->hasMany(File::class);
     }
 }
