@@ -123,7 +123,15 @@ class User extends Authenticatable
      */
     public function organizations()
     {
-        return $this->belongsToMany(Organization::class, OrganizationRoleUser::TABLE_NAME,OrganizationRoleUser::ID_USER, self::ID)->firstOr([]);
+        return $this->belongsToMany(Organization::class, OrganizationRoleUser::TABLE_NAME);
+    }
+
+    /**
+     * @return Social
+     */
+    public function social()
+    {
+        return $this->hasOne(Social::class);
     }
 
 }

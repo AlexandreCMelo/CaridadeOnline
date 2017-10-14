@@ -55,9 +55,9 @@ return [
         'redirect'      => env('FB_REDIRECT'),
     ],
     'reddit' => [
-        'client_id'     => env('FB_ID'),
-        'client_secret' => env('FB_SECRET'),
-        'redirect'      => env('FB_REDIRECT'),
+        'client_id'     => env('REDDIT_ID'),
+        'client_secret' => env('REDDIT_SECRET'),
+        'redirect'      => env('REDDIT_REDIRECT'),
     ],
 
 ];
