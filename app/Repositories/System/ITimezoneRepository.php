@@ -1,4 +1,4 @@
-<?php
+<?php namespace Charis\Repositories\System;
 interface ITimezoneRepository
 {
     public function findById($id);

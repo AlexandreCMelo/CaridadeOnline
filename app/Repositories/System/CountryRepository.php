@@ -1,4 +1,6 @@
-<?php namespace Charis\Repositories\Country;
+<?php namespace Charis\Repositories\System;
+
+use Charis\Models\Country;
 
 class CountryRepository implements ICountryRepository
 {

@@ -1,7 +1,5 @@
 <?php
-namespace Charis\Repositories\Category;
-
-use Charis\Models\Category;
+namespace Charis\Repositories\Comment;
 
 /**
  * Interface CategoryRepository

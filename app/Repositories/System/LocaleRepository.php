@@ -1,4 +1,6 @@
-<?php namespace Charis\Repositories\Organization;
+<?php namespace Charis\Repositories\System;
+
+use Charis\Models\Locale;
 
 class LocaleRepository implements ILocaleRepository
 {

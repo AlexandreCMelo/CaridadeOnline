@@ -1,5 +1,7 @@
 <?php namespace Charis\Repositories\System;
 
+use Charis\Models\Timezone;
+
 class TimezoneRepository implements ITimezoneRepository
 {
 

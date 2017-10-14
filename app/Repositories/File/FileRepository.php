@@ -35,7 +35,7 @@ class FileRepository implements IFileRepository
 
     public function remove($id)
     {
-        // TODO: Implement remove() method.
+        return File::find($id)->delete();
     }
 
     public function getUserFiles($userId)
