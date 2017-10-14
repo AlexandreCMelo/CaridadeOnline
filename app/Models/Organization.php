@@ -90,7 +90,7 @@ class Organization extends Model
      */
     public function targets()
     {
-        return $this->hasMany(Target::class);
+        return $this->belongsToMany(Target::class);
     }
 
 

@@ -19,6 +19,6 @@ use Charis\Models\Target;
 $factory->define(OrganizationTarget::class, function (Faker $faker) {
     $organization = Charis\Models\Organization::inRandomOrder()->first();
     $target = Charis\Models\Target::inRandomOrder()->first();
-    $organization->categories()->attach($target->{Charis\Models\Target::ID});
+    $organization->targets()->attach($target->{Charis\Models\Target::ID});
     return [];
 });

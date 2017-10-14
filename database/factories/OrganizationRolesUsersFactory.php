@@ -11,7 +11,7 @@ $factory->define(OrganizationRoleUser::class, function (Faker $faker) {
     $organization = Organization::inRandomOrder()->first();
     $organizationRole = OrganizationRole::inRandomOrder()->first();
     $user = User::inRandomOrder()->first();
-    $organization->attach($user->{User::ID}, $organizationRole->{OrganizationRole::ID});
+    $organization->users()->attach($user->{User::ID}, [OrganizationRoleUser::ID_ROLE => $organizationRole->{OrganizationRole::ID}]);
     return [];
 });
 
