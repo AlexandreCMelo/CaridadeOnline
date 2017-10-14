@@ -8,15 +8,10 @@ use Charis\Models\OrganizationRole;
 
 
 $factory->define(OrganizationRoleUser::class, function (Faker $faker) {
-    $organizations = Organization::pluck(Organization::ID)->toArray();
-    $users = User::pluck(User::ID)->toArray();
-    $roles = OrganizationRole::pluck(OrganizationRole::ID)->toArray();
-
-
-    return [
-        OrganizationRoleUser::ID_ORGANIZATION => $faker->randomElement($organizations),
-        OrganizationRoleUser::ID_USER => $faker->randomElement($users),
-        OrganizationRoleUser::ID_ROLE => $faker->randomElement($roles)
-    ];
+    $organization = Organization::inRandomOrder()->first();
+    $organizationRole = OrganizationRole::inRandomOrder()->first();
+    $user = User::inRandomOrder()->first();
+    $organization->attach($user->{User::ID}, $organizationRole->{OrganizationRole::ID});
+    return [];
 });
 

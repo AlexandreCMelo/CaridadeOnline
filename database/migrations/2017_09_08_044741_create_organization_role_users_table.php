@@ -18,7 +18,6 @@ class CreateOrganizationRoleUsersTable extends Migration
     public function up()
     {
         Schema::create(OrganizationRoleUser::TABLE_NAME, function (Blueprint $table) {
-            $table->increments(OrganizationRoleUser::ID);
             $table->integer(OrganizationRoleUser::ID_USER)->unsigned();
             $table->integer(OrganizationRoleUser::ID_ROLE)->unsigned();
             $table->integer(OrganizationRoleUser::ID_ORGANIZATION)->unsigned();

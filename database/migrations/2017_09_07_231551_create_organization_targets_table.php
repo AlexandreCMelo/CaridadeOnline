@@ -17,7 +17,6 @@ class CreateOrganizationTargetsTable extends Migration
     public function up()
     {
         Schema::create(OrganizationTarget::TABLE_NAME, function (Blueprint $table) {
-            $table->increments(OrganizationTarget::ID);
             $table->integer(OrganizationTarget::ID_ORGANIZATION);
             $table->integer(OrganizationTarget::ID_TARGET);
 

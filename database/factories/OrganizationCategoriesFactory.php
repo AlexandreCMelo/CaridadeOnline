@@ -17,11 +17,8 @@ use Charis\Models\Category;
 */
 
 $factory->define(CategoryOrganization::class, function (Faker $faker) {
-    $organizations = Organization::pluck(Organization::ID)->toArray();
-    $categories = Category::pluck(CategoryOrganization::ID)->toArray();
-
-    return [
-        CategoryOrganization::ID_ORGANIZATION => $faker->randomElement($organizations),
-        CategoryOrganization::ID_CATEGORY => $faker->randomElement($categories)
-    ];
+    $organization = Organization::inRandomOrder()->first();
+    $categories = Category::inRandomOrder()->first();
+    $organization->categories()->attach($categories->{Charis\Models\Category::ID});
+    return [];
 });

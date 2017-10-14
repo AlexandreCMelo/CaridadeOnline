@@ -17,7 +17,6 @@ class CreateOrganizationActivitiesTable extends Migration
     public function up()
     {
         Schema::create(ActivityOrganization::TABLE_NAME, function (Blueprint $table) {
-            $table->increments(ActivityOrganization::ID);
             $table->integer(ActivityOrganization::ID_ORGANIZATION)->unsigned();
             $table->integer(ActivityOrganization::ID_ACTIVITY)->unsigned();
 

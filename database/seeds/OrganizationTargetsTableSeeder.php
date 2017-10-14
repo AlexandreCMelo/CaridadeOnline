@@ -13,6 +13,6 @@ class OrganizationTargetsTableSeeder extends Seeder
     public function run()
     {
         OrganizationTarget::truncate();
-        factory(OrganizationTarget::class, 100)->create();
+        factory(OrganizationTarget::class, 100)->make();
     }
 }

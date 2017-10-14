@@ -13,6 +13,6 @@ class OrganizationActivitiesTableSeeder extends Seeder
     public function run()
     {
         ActivityOrganization::truncate();
-        factory(ActivityOrganization::class, 100)->create();
+        factory(ActivityOrganization::class, 100)->make();
     }
 }

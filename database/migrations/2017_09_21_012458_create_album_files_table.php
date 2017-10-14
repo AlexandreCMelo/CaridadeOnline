@@ -17,7 +17,6 @@ class CreateAlbumFilesTable extends Migration
     public function up()
     {
         Schema::create(AlbumFile::TABLE_NAME, function (Blueprint $table) {
-            $table->increments(AlbumFile::ID);
             $table->integer(AlbumFile::ID_ALBUM)->unsigned();
             $table->integer(AlbumFile::ID_FILE)->unsigned();
             $table->integer(AlbumFile::CREATED_BY)->unsigned();

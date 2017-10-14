@@ -35,14 +35,7 @@ class OrganizationTarget extends Pivot
     const ID_ORGANIZATION = 'organization_id';
     const ID_TARGET = 'target_id';
 
-    /**
-     * The attributes that are not mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [
-        self::ID,
-    ];
+
 
 
 }

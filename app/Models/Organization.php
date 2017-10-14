@@ -95,11 +95,19 @@ class Organization extends Model
 
 
     /**
+     * Get organization activity collection
+     */
+    public function activities()
+    {
+        return $this->belongsToMany(Activity::class);
+    }
+
+    /**
      * Get organization category collection
      */
     public function categories()
     {
-        return $this->belongsToMany(Category::class, Category::TABLE_NAME, Category::ID, self::CA);
+        return $this->belongsToMany(Category::class);
     }
 
     /**
@@ -108,6 +116,14 @@ class Organization extends Model
     public function roles()
     {
         return $this->hasMany(Role::class);
+    }
+
+    /**
+     * Get organization category collection
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class, OrganizationRoleUser::TABLE_NAME);
     }
 
     /**

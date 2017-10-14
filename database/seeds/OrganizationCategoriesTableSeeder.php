@@ -13,6 +13,6 @@ class OrganizationCategoriesTableSeeder extends Seeder
     public function run()
     {
         CategoryOrganization::truncate();
-        factory(CategoryOrganization::class, 100)->create();
+        factory(CategoryOrganization::class, 100)->make();
     }
 }
