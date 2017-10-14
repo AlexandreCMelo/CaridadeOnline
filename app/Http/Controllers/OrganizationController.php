@@ -3,10 +3,21 @@
 namespace Charis\Http\Controllers;
 
 use Charis\Repositories\Category\CategoryRepository;
+use Charis\Repositories\Activity\ActivityRepository;
+use Charis\Repositories\Target\TargetRepository;
+use Charis\Repositories\Organization\OrganizationRepository;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
 {
+  protected $organizationRepository;
+
+  public function __construct(OrganizationRepository $organizationRepository) {
+    $this->organizationRepository = $organizationRepository;
+
+    $this->middleware('auth')->except(['index','show']);
+  }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,9 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-        //
+      return view('Organization.list', [
+        'organizations' => OrganizationRepository::all()
+      ]);
     }
 
     /**
@@ -22,12 +35,14 @@ class OrganizationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(CategoryRepository $eloquentCategoryRepository)
+    public function create()
     {
-        $categories = $eloquentCategoryRepository->buildList();
+      $categories = CategoryRepository::buildList();
+        $activities = ActivityRepository::buildList();
+        $targets = TargetRepository::buildList();
 
         return view('Organization.create',
-            compact('categories')
+            compact('categories', 'activities', 'targets')
         );
     }
 
@@ -44,7 +59,24 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd(request()->all());
+        //dd($request);
+
+        $this->organizationRepository->add(
+          request('name'),
+          request('description'),
+          request('shortDescription'),
+          request('email'),
+          request('phone'),
+          request('website'),
+          1,
+          [],
+          request('categories'),
+          request('targets'),
+          request('activities')
+        );
+
+        Redirect::to('organizations');
     }
 
     /**

@@ -126,7 +126,4 @@ class User extends Authenticatable
         return $this->belongsToMany(Organization::class, OrganizationRoleUser::TABLE_NAME,OrganizationRoleUser::ID_USER, self::ID)->firstOr([]);
     }
 
-
-
-
 }

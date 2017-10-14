@@ -14,7 +14,6 @@ use Charis\Repositories\Organization\RoleRepository;
  */
 class UserRepository implements IUserRepository
 {
-
     /**
      *
      */
@@ -28,9 +27,9 @@ class UserRepository implements IUserRepository
     /**
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function all()
+    public static function all()
     {
-        return User::All();
+        return User::all();
     }
 
     /**

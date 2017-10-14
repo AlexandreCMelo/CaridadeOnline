@@ -8,7 +8,7 @@ namespace Charis\Repositories\User;
  */
 interface IUserRepository
 {
-    public function all();
+    public static function all();
 
     public function add(
         $name,

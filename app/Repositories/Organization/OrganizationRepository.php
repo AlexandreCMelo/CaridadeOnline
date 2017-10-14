@@ -49,6 +49,12 @@ class OrganizationRepository implements IOrganizationRepository
      */
     protected $categoryRepository = null;
 
+
+    public static function all()
+    {
+      return Organization::all();
+    }
+
     /**
      * Get a paginated list of all users
      *

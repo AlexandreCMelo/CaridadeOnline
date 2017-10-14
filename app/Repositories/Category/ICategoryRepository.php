@@ -10,5 +10,5 @@ use Charis\Models\Category;
 interface ICategoryRepository
 {
     public function findById($id);
-    public function all();
+    public static function all();
 }

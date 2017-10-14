@@ -3,6 +3,7 @@
 namespace Charis\Http\Controllers;
 
 use Auth;
+use Charis\Repositories\User\UserRepository;
 
 class UserController extends \Charis\Http\Controllers\Controller
 {
@@ -21,12 +22,8 @@ class UserController extends \Charis\Http\Controllers\Controller
      */
     public function index()
     {
-        $user = Auth::user();
-
-        if ($user->isAdmin()) {
-            return view('pages.admin.home');
-        }
-
-        return view('pages.user.home');
+        return view('User.list', [
+          'users' => UserRepository::all()
+        ]);
     }
 }

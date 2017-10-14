@@ -1,5 +1,5 @@
 <?php
-namespace Charis\Repositories\Organization;
+namespace Charis\Repositories\Activity;
 
 use Charis\Models\Organization;
 
@@ -10,6 +10,6 @@ use Charis\Models\Organization;
 interface IActivityRepository
 {
     public function findById($id);
-    public function all();
+    public static function all();
 
 }
