@@ -1,6 +1,7 @@
 <?php
 
 namespace Charis\Models;
+use \Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
  * Class AlbumFile
@@ -12,12 +13,13 @@ namespace Charis\Models;
  * @method getCreatedAt()
  * @method getUpdatedAt()
  */
-class AlbumFile extends Model
+class AlbumFile extends Pivot
 {
 
-    const TABLE_NAME = 'album_files';
+    const TABLE_NAME = 'album_file';
 
     protected $table = self::TABLE_NAME;
+    public $timestamps = true;
 
     const ID_ALBUM = 'album_id';
     const ID_FILE = 'file_id';
@@ -26,20 +28,11 @@ class AlbumFile extends Model
     const UPDATED_AT = 'updated_at';
 
     /**
-     * The attributes that are not mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [
-        self::ID
-    ];
-
-    /**
      * @return Album
      */
     public function album()
     {
-        $this->hasOne(Album::class, Album::ID, self::ID_ALBUM);
+        $this->hasOne(Album::class);
     }
 
     /**
@@ -47,7 +40,7 @@ class AlbumFile extends Model
      */
     public function file()
     {
-        $this->hasOne(File::class, File::ID, self::ID_FILE);
+        $this->hasOne(File::class);
     }
 
 }

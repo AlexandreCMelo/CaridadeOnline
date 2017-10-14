@@ -32,24 +32,31 @@ class TargetRepository implements IUserRepository
     }
 
     /**
-     * @param $name
-     * @param $description
-     * @return bool|Organization
+     * @param $organizationId
+     * @param $targets
+     * @return bool|Category
      */
-    public function addOrganization(
-        $name,
-        $description
+    public function addToOrganization(
+        $organizationId,
+        $targets
     ) {
 
-        $target = new Target();
-
-        $target->setName($name);
-
-        if($target->save()){
-            return $target;
+        if(empty($targets) || empty($organizationId)) {
+            return false;
         }
 
-        return false;
+        if(!is_array($targets)){
+            $targets = (array)$targets;
+        }
+
+        $organization = Organization::find($organizationId);
+
+        foreach ($targets as $target){
+            $organization->targets()->attach($target);
+        }
+
+        return true;
     }
+
 
 }

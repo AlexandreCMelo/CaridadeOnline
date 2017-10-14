@@ -1,9 +1,10 @@
-<?php namespace Charis\Repositories\Category;
+<?php namespace Charis\Repositories\Album;
 
 use Charis\Models\Category;
 use Auth;
+use Charis\Models\Organization;
 
-class CategoryRepository implements ICategoryRepository
+class CategoryRepository implements IAlbumRepository
 {
 
     const DEFAULT_LIMIT = 10;
@@ -47,6 +48,28 @@ class CategoryRepository implements ICategoryRepository
 
         return $data;
     }
+
+    /**
+     * @param $name
+     * @param $description
+     * @return bool|Organization
+     */
+    public function addOrganization(
+        $name,
+        $description
+    ) {
+
+        $category = new Category();
+
+        $category->setName($name);
+
+        if($category->save()){
+            return $category;
+        }
+
+        return false;
+    }
+
 
     /**
      * @param $organizationId

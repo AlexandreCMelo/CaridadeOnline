@@ -13,9 +13,6 @@ interface IFileRepository
     public function getUserFiles($userId);
     public function getOrganizationLogo($organizationId);
     public function getOrganizationFiles($organizationId);
-    public function getOrganizationAlbums($organizationId);
-    public function getAlbumFiles($albumId);
     public function getUserAvatar($userId);
-
 
 }
