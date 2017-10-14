@@ -1,6 +1,9 @@
-<?php namespace Charis\Repositories\Activity;
+<?php
+
+namespace Charis\Repositories\Activity;
 
 use Charis\Models\Activity;
+use Charis\Models\Organization;
 use Auth;
 
 class ActivityRepository implements IActivityRepository

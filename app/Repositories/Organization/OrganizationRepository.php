@@ -1,4 +1,6 @@
-<?php namespace Charis\Repositories\Organization;
+<?php
+
+namespace Charis\Repositories\Organization;
 
 use Charis\Models\Activity;
 use Charis\Models\Category;
@@ -12,6 +14,7 @@ use Charis\Models\Target;
 use Charis\Models\Timezone;
 use Charis\Repositories\Album\CategoryRepository;
 use Charis\Repositories\Comment\CommentRepository;
+use Charis\Repositories\Activity\ActivityRepository;
 use Auth;
 use Charis\Repositories\Target\TargetRepository;
 

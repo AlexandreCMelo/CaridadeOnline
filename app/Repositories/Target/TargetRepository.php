@@ -3,6 +3,7 @@
 namespace Charis\Repositories\Target;
 
 use Charis\Models\Target;
+use Charis\Models\Organization;
 
 /**
  * Class TargetRepository
