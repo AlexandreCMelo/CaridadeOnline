@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Models\Organization;
-use Charis\Models\OrganizationCategory;
+use Charis\Models\CategoryOrganization;
 use Charis\Models\Category;
 
 class CreateOrganizationCategoriesTable extends Migration
@@ -16,16 +16,15 @@ class CreateOrganizationCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create(OrganizationCategory::TABLE_NAME, function (Blueprint $table) {
-            $table->increments(OrganizationCategory::ID);
-            $table->integer(OrganizationCategory::ID_ORGANIZATION)->unsinable();
-            $table->integer(OrganizationCategory::ID_CATEGORY)->unsinable();
+        Schema::create(CategoryOrganization::TABLE_NAME, function (Blueprint $table) {
+            $table->integer(CategoryOrganization::ID_ORGANIZATION)->unsigned();
+            $table->integer(CategoryOrganization::ID_CATEGORY)->unsigned();
 
-            $table->foreign(OrganizationCategory::ID_ORGANIZATION)
+            $table->foreign(CategoryOrganization::ID_ORGANIZATION)
                 ->references(Organization::ID)
                 ->on(Organization::TABLE_NAME);
 
-            $table->foreign(OrganizationCategory::ID_CATEGORY)
+            $table->foreign(CategoryOrganization::ID_CATEGORY)
                 ->references(Category::ID)
                 ->on(Category::TABLE_NAME);
 
@@ -39,6 +38,6 @@ class CreateOrganizationCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(OrganizationCategory::TABLE_NAME);
+        Schema::dropIfExists(CategoryOrganization::TABLE_NAME);
     }
 }

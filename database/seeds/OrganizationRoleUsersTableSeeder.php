@@ -13,6 +13,6 @@ class OrganizationRoleUsersTableSeeder extends Seeder
     public function run()
     {
         OrganizationRoleUser::truncate();
-        factory(OrganizationRoleUser::class, 100)->create();
+        factory(OrganizationRoleUser::class, 100)->make();
     }
 }

@@ -17,11 +17,8 @@ use Charis\Models\Target;
 */
 
 $factory->define(OrganizationTarget::class, function (Faker $faker) {
-    $entitys = Charis\Models\Organization::pluck(Organization::ID)->toArray();
-    $targets = Charis\Models\Target::pluck(Target::ID)->toArray();
-
-    return [
-        OrganizationTarget::ID_ORGANIZATION => $faker->randomElement($entitys),
-        OrganizationTarget::ID_TARGET => $faker->randomElement($targets)
-    ];
+    $organization = Charis\Models\Organization::inRandomOrder()->first();
+    $target = Charis\Models\Target::inRandomOrder()->first();
+    $organization->targets()->attach($target->{Charis\Models\Target::ID});
+    return [];
 });

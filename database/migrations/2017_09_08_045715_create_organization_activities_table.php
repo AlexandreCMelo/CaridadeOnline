@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Charis\Models\Organization;
-use Charis\Models\OrganizationActivity;
+use Charis\Models\ActivityOrganization;
 use Charis\Models\Activity;
 
 class CreateOrganizationActivitiesTable extends Migration
@@ -16,16 +16,15 @@ class CreateOrganizationActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create(OrganizationActivity::TABLE_NAME, function (Blueprint $table) {
-            $table->increments(OrganizationActivity::ID);
-            $table->integer(OrganizationActivity::ID_ORGANIZATION)->unsignable();
-            $table->integer(OrganizationActivity::ID_ACTIVITY)->unsignable();
+        Schema::create(ActivityOrganization::TABLE_NAME, function (Blueprint $table) {
+            $table->integer(ActivityOrganization::ID_ORGANIZATION)->unsigned();
+            $table->integer(ActivityOrganization::ID_ACTIVITY)->unsigned();
 
-            $table->foreign(OrganizationActivity::ID_ORGANIZATION)
+            $table->foreign(ActivityOrganization::ID_ORGANIZATION)
                 ->references(Organization::ID)
                 ->on(Organization::TABLE_NAME);
 
-            $table->foreign(OrganizationActivity::ID_ACTIVITY)
+            $table->foreign(ActivityOrganization::ID_ACTIVITY)
                 ->references(Activity::ID)
                 ->on(Activity::TABLE_NAME);
 
@@ -41,6 +40,6 @@ class CreateOrganizationActivitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(OrganizationActivity::TABLE_NAME);
+        Schema::dropIfExists(ActivityOrganization::TABLE_NAME);
     }
 }

@@ -37,9 +37,9 @@ class Organization extends Model
     protected $table = self::TABLE_NAME;
 
     const ID = 'id';
-    const ID_COUNTRY = 'fk_country';
-    const ID_TIMEZONE = 'fk_timezone';
-    const ID_LOCALE = 'fk_locale';
+    const ID_COUNTRY = 'country_id';
+    const ID_TIMEZONE = 'timezone_id';
+    const ID_LOCALE = 'locale_id';
     const SRC = 'origin_id';
     const NAME = 'name';
     const DESCRIPTION = 'description';
@@ -90,16 +90,24 @@ class Organization extends Model
      */
     public function targets()
     {
-        return $this->hasMany(Target::class);
+        return $this->belongsToMany(Target::class);
     }
 
+
+    /**
+     * Get organization activity collection
+     */
+    public function activities()
+    {
+        return $this->belongsToMany(Activity::class);
+    }
 
     /**
      * Get organization category collection
      */
     public function categories()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     /**
@@ -108,6 +116,14 @@ class Organization extends Model
     public function roles()
     {
         return $this->hasMany(Role::class);
+    }
+
+    /**
+     * Get organization category collection
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class, OrganizationRoleUser::TABLE_NAME);
     }
 
     /**

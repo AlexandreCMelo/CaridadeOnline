@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Charis\Models\OrganizationActivity;
+use Charis\Models\ActivityOrganization;
 
 class OrganizationActivitiesTableSeeder extends Seeder
 {
@@ -12,7 +12,7 @@ class OrganizationActivitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        OrganizationActivity::truncate();
-        factory(OrganizationActivity::class, 100)->create();
+        ActivityOrganization::truncate();
+        factory(ActivityOrganization::class, 100)->make();
     }
 }

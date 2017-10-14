@@ -36,7 +36,7 @@ class ActivityRepository implements IActivityRepository
      * @param $description
      * @return bool|Activity
      */
-    public function addOrganization(
+    public function add(
         $name,
         $description
     ) {

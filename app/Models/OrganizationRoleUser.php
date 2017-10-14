@@ -18,7 +18,7 @@ class OrganizationRoleUser extends Pivot
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'organization_role_users';
+    const TABLE_NAME = 'organization_role_user';
 
     /**
      * The table associated with the model.
@@ -34,21 +34,12 @@ class OrganizationRoleUser extends Pivot
      */
     public $timestamps = true;
 
-    const ID = 'id';
-    const ID_USER = 'fk_user';
-    const ID_ROLE = 'fk_role';
-    const ID_ORGANIZATION = 'fk_organization';
+    const ID_USER = 'user_id';
+    const ID_ROLE = 'role_id';
+    const ID_ORGANIZATION = 'organization_id';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-    /**
-     * The attributes that are not mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [
-        self::ID,
-    ];
 
     /**
      * @return User

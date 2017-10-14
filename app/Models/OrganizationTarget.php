@@ -1,6 +1,7 @@
 <?php
 
 namespace Charis\Models;
+use \Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
  * Class OrganizationTarget
@@ -10,12 +11,12 @@ namespace Charis\Models;
  * @method getOrganizationId()
  * @method getTargetId()
  */
-class OrganizationTarget extends Model
+class OrganizationTarget extends Pivot
 {
     /**
      * Table parameters
      */
-    const TABLE_NAME = 'organization_targets';
+    const TABLE_NAME = 'organization_target';
 
     /**
      * The table associated with the model.
@@ -31,18 +32,10 @@ class OrganizationTarget extends Model
      */
     public $timestamps = false;
 
-    const ID = 'id';
-    const ID_ORGANIZATION = 'fk_organization';
-    const ID_TARGET = 'fk_target';
+    const ID_ORGANIZATION = 'organization_id';
+    const ID_TARGET = 'target_id';
 
-    /**
-     * The attributes that are not mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [
-        self::ID,
-    ];
+
 
 
 }

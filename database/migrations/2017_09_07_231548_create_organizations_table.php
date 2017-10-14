@@ -19,9 +19,9 @@ class CreateOrganizationsTable extends Migration
     {
         Schema::create(Organization::TABLE_NAME, function (Blueprint $table) {
             $table->increments(Organization::ID);
-            $table->integer(Organization::ID_COUNTRY)->unsignable()->nullable();
-            $table->integer(Organization::ID_TIMEZONE)->unsignable()->nullable();
-            $table->string(Organization::ID_LOCALE, 8)->unsignable()->nullable();
+            $table->integer(Organization::ID_COUNTRY)->unsigned()->nullable();
+            $table->integer(Organization::ID_TIMEZONE)->unsigned()->nullable();
+            $table->string(Organization::ID_LOCALE, 8)->unsigned()->nullable();
             $table->string(Organization::SRC, 64)->nullable();
             $table->string(Organization::NAME);
             $table->string(Organization::EMAIL)->nullable();;

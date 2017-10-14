@@ -52,10 +52,10 @@ class User extends Authenticatable
     protected $dates = [self::DELETE_AT];
 
     const ID = 'id';
-    const ID_COUNTRY = 'fk_country';
-    const ID_TIMEZONE = 'fk_timezone';
-    const ID_LOCALE = 'fk_locale';
-    const ID_SYSTEM_ROLE = 'fk_system_role';
+    const ID_COUNTRY = 'country_id';
+    const ID_TIMEZONE = 'timezone_id';
+    const ID_LOCALE = 'locale_id';
+    const ID_SYSTEM_ROLE = 'system_role_id';
     const SRC = 'origin_id';
     const NAME = 'name';
     const EMAIL = 'email';

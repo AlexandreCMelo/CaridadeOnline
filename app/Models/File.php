@@ -30,8 +30,8 @@ class File extends Model
     protected $table = self::TABLE_NAME;
 
     const ID = 'id';
-    const ID_FILE_OWNER = 'fk_owner';
-    const ID_FILE_TYPE = 'fk_tile_type';
+    const ID_FILE_OWNER = 'owner_id';
+    const ID_FILE_TYPE = 'tile_type_id';
     const FILE_OWNER = 'owner';
     const NAME = 'name';
     const PATH = 'path';
