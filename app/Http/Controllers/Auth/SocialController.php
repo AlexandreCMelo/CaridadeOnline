@@ -5,6 +5,7 @@ namespace Charis\Http\Controllers\Auth;
 use Charis\Http\Controllers\Controller;
 use Charis\Models\Social;
 use Charis\Models\User;
+use Charis\Service\SocialService;
 use Charis\Traits\ActivationTrait;
 use Charis\Traits\CaptureIpTrait;
 use Illuminate\Support\Facades\Config;
@@ -15,6 +16,24 @@ class SocialController extends Controller
 {
     use ActivationTrait;
 
+    /**
+     * @var SocialService|null
+     */
+    protected $socialService = null;
+
+    /**
+     * SocialController constructor.
+     * @param SocialService $socialService
+     */
+    public function __construct(SocialService $socialService)
+    {
+        $this->socialService = $socialService;
+    }
+
+    /**
+     * @param $provider
+     * @return $this
+     */
     public function getSocialRedirect($provider)
     {
         $providerKey = Config::get('services.'.$provider);
@@ -27,6 +46,25 @@ class SocialController extends Controller
         return Socialite::driver($provider)->redirect();
     }
 
+    /**
+     * @param $provider
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function socialLogin($provider) {
+
+        if (Input::get('denied') != '') {
+            return redirect()->to('login')
+                ->with('status', 'danger')
+                ->with('message', trans('socials.denied'));
+        }
+
+        auth()->login($this->socialService->getSocialProviderUser($provider), true);
+
+        return $this->socialService->isNewAccount() ? redirect('home')->with('success', trans('socials.registerSuccess')) : redirect('home');
+
+
+    }
+
     public function getSocialHandle($provider)
     {
         if (Input::get('denied') != '') {
@@ -34,6 +72,10 @@ class SocialController extends Controller
                 ->with('status', 'danger')
                 ->with('message', trans('socials.denied'));
         }
+
+
+        die('a');
+
 
         $socialUserObject = Socialite::driver($provider)->user();
 
@@ -84,11 +126,13 @@ class SocialController extends Controller
 
                 $socialData->social_id = $socialUserObject->id;
                 $socialData->provider = $provider;
+
+
                 $user->social()->save($socialData);
                 $user->attachRole($role);
                 $user->activated = true;
 
-                $user->profile()->save($profile);
+                //$user->profile()->save($profile);
                 $user->save();
 
                 if ($socialData->provider == 'github') {

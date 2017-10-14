@@ -46,11 +46,6 @@ class OrganizationController extends Controller
         );
     }
 
-//    public function create()
-//    {
-//        return view('Organization.create');
-//    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -59,9 +54,6 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
-        //dd(request()->all());
-        //dd($request);
-
         $this->organizationRepository->add(
           request('name'),
           request('description'),
