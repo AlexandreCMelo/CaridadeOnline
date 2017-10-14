@@ -16,7 +16,19 @@
 // Homepage Route
 
 
-Route::resource('organizations', 'OrganizationController');
+Route::resource('organizations', 'OrganizationController', [
+  'names' => [
+    'store' => 'organization.store',
+    'index' => 'organization.list',
+  ]
+]);
+
+
+Route::resource('users', 'UserController', [
+  'names' => [
+    'index' => 'user.list'
+  ]
+]);
 
 
 // Authentication Routes
@@ -121,11 +133,5 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
             'as' => 'dashboard.upload.create',
             'uses' => 'HomeController@uploadCreate'
         ]);
-
-    Route::group(['prefix' => 'organization'], function() {
-        Route::get('new', [
-            'uses' => 'OrganizationController@create'
-        ]);
-    });
 
 });

@@ -12,16 +12,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">{{ __('views.user') }}</a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="#">{{ __('views.map') }}</a>
             </li>
 
             @auth
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('user.list') }}">{{ __('views.user') }}</a>
+              </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('organizations.create') }}">{{ __('views.new_organization') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('organization.list') }}">{{ __('views.organizations') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/messages">{{ __('views.messages') }} @include('Message.unread-count')</a>

@@ -24,7 +24,7 @@ class CategoryRepository implements ICategoryRepository
      * @param bool $asArray
      * @return mixed
      */
-    public function all($asArray = false)
+    public static function all($asArray = false)
     {
         $data = Category::all();
         if ($asArray) {
@@ -38,10 +38,10 @@ class CategoryRepository implements ICategoryRepository
      *
      * @return mixed
      */
-    public function buildList()
+    public static function buildList()
     {
         $data = [];
-        foreach($this->all(true) as $category) {
+        foreach(static::all(true) as $category) {
             $data[$category[category::ID]] = $category[category::NAME];
         };
 

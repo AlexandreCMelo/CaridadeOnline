@@ -1,10 +1,15 @@
-<?php namespace Charis\Repositories\Target;
+<?php
+
+namespace Charis\Repositories\Target;
+
+use Charis\Models\Target;
+use Charis\Models\Organization;
 
 /**
  * Class TargetRepository
  * @package Charis\Repositories\Target
  */
-class TargetRepository implements IUserRepository
+class TargetRepository implements ITargetRepository
 {
 
     const DEFAULT_LIMIT = 10;
@@ -21,12 +26,26 @@ class TargetRepository implements IUserRepository
         return Target::find($id);
     }
 
+
+    /**
+    *
+    */
+    public static function buildList()
+    {
+        $data = [];
+        foreach(static::all() as $target) {
+            $data[$target[target::ID]] = $target[target::NAME];
+        };
+
+        return $data;
+    }
+
     /**
      * Fetch a user by id
      *
      * @return mixed
      */
-    public function all()
+    public static function all()
     {
         return Target::all();
     }
@@ -57,6 +76,5 @@ class TargetRepository implements IUserRepository
 
         return true;
     }
-
 
 }

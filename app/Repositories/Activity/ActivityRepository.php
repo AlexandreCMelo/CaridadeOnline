@@ -1,11 +1,14 @@
-<?php namespace Charis\Repositories\Organization;
+<?php
+
+namespace Charis\Repositories\Activity;
 
 use Charis\Models\Activity;
+use Charis\Models\Organization;
 use Auth;
 
 class ActivityRepository implements IActivityRepository
 {
-    
+
     const DEFAULT_LIMIT = 10;
 
     /**
@@ -20,12 +23,26 @@ class ActivityRepository implements IActivityRepository
         return Activity::find($id);
     }
 
+
+    /**
+     * @return mixed
+     */
+    public static function buildList()
+    {
+        $data = [];
+        foreach(static::all() as $activity) {
+            $data[$activity[activity::ID]] = $activity[activity::NAME];
+        };
+
+        return $data;
+    }
+
     /**
      * Fetch a user by id
      *
      * @return mixed
      */
-    public function all()
+    public static function all()
     {
         return Activity::all();
     }

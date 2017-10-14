@@ -8,5 +8,5 @@ namespace Charis\Repositories\Target;
 interface ITargetRepository
 {
     public function findById($id);
-    public function all();
+    public static function all();
 }
