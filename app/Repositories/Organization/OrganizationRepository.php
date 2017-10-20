@@ -184,6 +184,8 @@ class OrganizationRepository implements IOrganizationRepository
         return $this->getCommentRepository()->findOrganizationComments($organizationId, $userId, $keyword);
     }
 
+
+
     /**
      * @param $organizationId
      * @return bool
@@ -192,6 +194,8 @@ class OrganizationRepository implements IOrganizationRepository
     {
         return $this->getOrganizationRoleRepository()->findUsersByOrganizationRole($organizationId, OrganizationRole::ID_ORGANIZATION_FOLLOWER);
     }
+
+
 
     /**
      * @param $organizationId
@@ -203,6 +207,7 @@ class OrganizationRepository implements IOrganizationRepository
     }
 
 
+
     /**
      * @param $organizationId
      * @return bool
@@ -212,10 +217,13 @@ class OrganizationRepository implements IOrganizationRepository
         return $this->getOrganizationRoleRepository()->findUsersByOrganizationRole($organizationId, OrganizationRole::ID_ORGANIZATION_MANAGER);
     }
 
+
+
     public function remove($id)
     {
         return Organization::find($id)->delete();
     }
+
 
 
     /**

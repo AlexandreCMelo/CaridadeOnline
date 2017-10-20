@@ -1,4 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*!
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.btn-line-height {
+  line-height: 38px;
+}
+
+/*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
  * Copyright 2011-2017 Twitter, Inc.
@@ -12599,5 +12603,9 @@ div[data-toggle="buttons"] label.active {
   left: 0;
   position: absolute;
   width: 40px;
+}
+
+.btn-line-height {
+  line-height: 38px;
 }
 

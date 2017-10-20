@@ -16,10 +16,12 @@
 // Homepage Route
 
 
+Route::get('organizations/{organization}/delete', 'OrganizationController@delete')->name('organization.delete');
 Route::resource('organizations', 'OrganizationController', [
   'names' => [
     'store' => 'organization.store',
     'index' => 'organization.list',
+    'destroy' => 'organization.destroy',
   ]
 ]);
 

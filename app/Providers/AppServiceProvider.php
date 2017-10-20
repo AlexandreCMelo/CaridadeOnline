@@ -144,11 +144,14 @@ class AppServiceProvider extends ServiceProvider
             UserRepository::class
         );
 
+<<<<<<< HEAD
+=======
         $this->app->bind(
             ISocialRepository::class,
             SocialRepository::class
         );
 
 
+>>>>>>> f28bfbb7bea00ed54d1f57bfc97b4e869693d5de
     }
 }

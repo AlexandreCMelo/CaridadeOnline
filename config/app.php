@@ -183,8 +183,6 @@ return [
         SocialiteProviders\Manager\ServiceProvider::class,
         SocialiteProviders\Generators\GeneratorsServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
-
-
     ],
 
     /*
