@@ -2,6 +2,7 @@
 
 namespace Charis\Http\Controllers;
 
+use Charis\Models\Organization;
 use Charis\Repositories\Category\CategoryRepository;
 use Charis\Repositories\Activity\ActivityRepository;
 use Charis\Repositories\Target\TargetRepository;
@@ -10,13 +11,18 @@ use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
 {
-  protected $organizationRepository;
+    protected $organizationRepository;
 
-  public function __construct(OrganizationRepository $organizationRepository) {
-    $this->organizationRepository = $organizationRepository;
 
-    $this->middleware('auth')->except(['index','show']);
-  }
+
+    public function __construct(OrganizationRepository $organizationRepository)
+    {
+        $this->organizationRepository = $organizationRepository;
+
+        $this->middleware('auth')->except(['index','show']);
+    }
+
+
 
     /**
      * Display a listing of the resource.
@@ -25,10 +31,12 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-      return view('Organization.list', [
+        return view('Organization.list', [
         'organizations' => OrganizationRepository::all()
-      ]);
+        ]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -37,7 +45,7 @@ class OrganizationController extends Controller
      */
     public function create()
     {
-      $categories = CategoryRepository::buildList();
+        $categories = CategoryRepository::buildList();
         $activities = ActivityRepository::buildList();
         $targets = TargetRepository::buildList();
 
@@ -46,10 +54,6 @@ class OrganizationController extends Controller
         );
     }
 
-//    public function create()
-//    {
-//        return view('Organization.create');
-//    }
 
     /**
      * Store a newly created resource in storage.
@@ -57,7 +61,7 @@ class OrganizationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //dd(request()->all());
         //dd($request);
@@ -76,7 +80,7 @@ class OrganizationController extends Controller
           request('activities')
         );
 
-        Redirect::to('organizations');
+        return redirect(route('organization.list'));
     }
 
     /**
@@ -113,14 +117,25 @@ class OrganizationController extends Controller
         //
     }
 
+
+
+    public function delete(Organization $organization)
+    {
+        return view('Organization.delete', [
+            'organization' => $organization
+        ]);
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Organization $organization)
     {
-        //
+      $this->organizationRepository->remove($organization->id);
+      return redirect(route('organizaton.list'));
     }
 }

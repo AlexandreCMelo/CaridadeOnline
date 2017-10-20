@@ -136,8 +136,5 @@ class AppServiceProvider extends ServiceProvider
             UserRepository::class
         );
 
-
-
-
     }
 }

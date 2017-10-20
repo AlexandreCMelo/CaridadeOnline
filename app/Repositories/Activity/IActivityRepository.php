@@ -11,5 +11,4 @@ interface IActivityRepository
 {
     public function findById($id);
     public static function all();
-
 }
