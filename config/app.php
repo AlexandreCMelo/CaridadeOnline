@@ -173,12 +173,13 @@ return [
         /*
          * Application Service Providers...
          */
+        // Charis\Providers\BroadcastServiceProvider::class,
         Charis\Providers\AppServiceProvider::class,
         Charis\Providers\AuthServiceProvider::class,
-        // Charis\Providers\BroadcastServiceProvider::class,
         Charis\Providers\EventServiceProvider::class,
         Charis\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
         SocialiteProviders\Generators\GeneratorsServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,

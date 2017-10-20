@@ -54,7 +54,10 @@ class OrganizationController extends Controller
         );
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f28bfbb7bea00ed54d1f57bfc97b4e869693d5de
     /**
      * Store a newly created resource in storage.
      *
@@ -63,9 +66,6 @@ class OrganizationController extends Controller
      */
     public function store()
     {
-        //dd(request()->all());
-        //dd($request);
-
         $this->organizationRepository->add(
           request('name'),
           request('description'),

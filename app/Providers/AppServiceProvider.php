@@ -5,6 +5,8 @@ namespace Charis\Providers;
 use Charis\Http\ViewComposers\MenuComposer;
 use Charis\Models\Country;
 use Charis\Models\OrganizationRole;
+use Charis\Repositories\Activity\ActivityRepository;
+use Charis\Repositories\Activity\IActivityRepository;
 use Charis\Repositories\Category\CategoryRepository;
 use Charis\Repositories\Comment\ICommentRepository;
 use Charis\Repositories\Comment\ICommentTypeRepository;
@@ -14,8 +16,6 @@ use Charis\Repositories\Document\IDocumentRepository;
 use Charis\Repositories\Document\IDocumentTypeRepository;
 use Charis\Repositories\File\FileRepository;
 use Charis\Repositories\File\IFileRepository;
-use Charis\Repositories\Organization\ActivityRepository;
-use Charis\Repositories\Organization\IActivityRepository;
 use Charis\Repositories\Organization\IOrganizationRepository;
 use Charis\Repositories\Organization\IRoleRepository;
 use Charis\Repositories\Organization\RoleRepository;
@@ -26,10 +26,13 @@ use Charis\Repositories\System\LocaleRepository;
 use Charis\Repositories\System\TimezoneRepository;
 use Charis\Repositories\Target\ITargetRepository;
 use Charis\Repositories\Target\TargetRepository;
+use Charis\Repositories\User\ISocialRepository;
 use Charis\Repositories\User\IUserRepository;
+use Charis\Repositories\User\SocialRepository;
 use Charis\Repositories\User\UserRepository;
 use Charis\Service\AbstractService;
 use Charis\Service\FileService;
+use Charis\Service\SocialService;
 use Illuminate\Support\ServiceProvider;
 use \Charis\Repositories\Comment\CommentRepository;
 use Charis\Repositories\Category\ICategoryRepository;
@@ -59,6 +62,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             AbstractService::class,
             FileService::class
+        );
+
+        $this->app->bind(
+            AbstractService::class,
+            SocialService::class
         );
 
         $this->app->bind(
@@ -136,5 +144,14 @@ class AppServiceProvider extends ServiceProvider
             UserRepository::class
         );
 
+<<<<<<< HEAD
+=======
+        $this->app->bind(
+            ISocialRepository::class,
+            SocialRepository::class
+        );
+
+
+>>>>>>> f28bfbb7bea00ed54d1f57bfc97b4e869693d5de
     }
 }

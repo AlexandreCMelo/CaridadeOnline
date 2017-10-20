@@ -98,7 +98,7 @@ class UserRepository implements IUserRepository
                     $user->id, $organizationId, $organizationRole
                 );
             }
-            return $user;
+            return $user->id;
         }
 
         return false;
