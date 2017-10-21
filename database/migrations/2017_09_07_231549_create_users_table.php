@@ -41,7 +41,7 @@ class CreateUsersTable extends Migration
             $table->ipAddress('updated_ip_address')->nullable();
             $table->ipAddress('deleted_ip_address')->nullable();
             $table->softDeletes();
-            $table->timestampsTz();
+            $table->timestamps();
             $table->rememberToken();
 
             $table->foreign(User::ID_COUNTRY)

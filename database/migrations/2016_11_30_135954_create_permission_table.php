@@ -19,7 +19,7 @@ class CreatePermissionTable extends Migration
             $table->increments(Permission::ID);
             $table->string(Permission::CODE)->index();
             $table->string(Permission::DESCRIPTION);
-            $table->timestampsTz();
+            $table->timestamps();
         });
 
 

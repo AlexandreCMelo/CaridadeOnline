@@ -17,7 +17,7 @@ class CreateFileTypesTable extends Migration
         Schema::create(FileType::TABLE_NAME, function (Blueprint $table) {
             $table->increments(FileType::ID);
             $table->string(FileType::NAME);
-            $table->timestampsTz();
+            $table->timestamps();
         });
 
         DB::table(FileType::TABLE_NAME)->insert(

@@ -20,8 +20,8 @@ class Social extends Model
      */
     const ID = 'id';
     const USER_ID = 'user_id';
-    const PROVIDER = 'provider';
     const SOCIAL_ID = 'social_id';
+    const PROVIDER = 'provider';
 
     public function user()
     {

@@ -2,6 +2,7 @@
 
 namespace Charis\Models;
 
+use Charis\Service\FileService;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -32,6 +33,7 @@ class User extends Authenticatable
     use Notifiable;
     use SoftDeletes;
     use Messagable;
+
     /**
      * Table parameters
      */
@@ -93,6 +95,19 @@ class User extends Authenticatable
     ];
 
     /**
+     * @var FileService
+     */
+    protected $fileService;
+
+    /**
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->{self::ID_SYSTEM_ROLE} == Role::ID_SYSTEM_ADMIN_USER;
+    }
+
+    /**
      * @return mixed
      */
     public function address()
@@ -132,6 +147,24 @@ class User extends Authenticatable
     public function social()
     {
         return $this->hasOne(Social::class);
+    }
+
+
+    public function avatar()
+    {
+        return $this->getFileService()->getUserAvatar($this->{self::ID});
+    }
+
+    /**
+     * @return FileService
+     */
+    public function getFileService()
+    {
+        if ($this->fileService == null) {
+            $this->fileService = new FileService();
+        }
+
+        return $this->fileService;
     }
 
 }

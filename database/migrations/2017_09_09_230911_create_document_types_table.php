@@ -18,7 +18,7 @@ class CreateDocumentTypesTable extends Migration
             $table->increments(DocumentType::ID);
             $table->string(DocumentType::NAME, 128);
             $table->string(DocumentType::DESCRIPTION);
-            $table->timestampsTz();
+            $table->timestamps();
         });
 
         DB::table(DocumentType::TABLE_NAME)->insert(

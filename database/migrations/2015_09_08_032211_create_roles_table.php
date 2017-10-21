@@ -19,7 +19,7 @@ class CreateRolesTable extends Migration
             $table->increments(Role::ID);
             $table->string(Role::NAME)->unique();
             $table->string(Role::DESCRIPTION)->nullable();
-            $table->timestampsTz();
+            $table->timestamps();
         });
 
         DB::table(Role::TABLE_NAME)->insert(

@@ -21,7 +21,7 @@ class CreateOrganizationRoleUsersTable extends Migration
             $table->integer(OrganizationRoleUser::ID_USER)->unsigned();
             $table->integer(OrganizationRoleUser::ID_ROLE)->unsigned();
             $table->integer(OrganizationRoleUser::ID_ORGANIZATION)->unsigned();
-            $table->timestampsTz();
+            $table->timestamps();
 
 
             $table->foreign(OrganizationRoleUser::ID_USER)

@@ -19,7 +19,7 @@ class CreateAlbumsTable extends Migration
             $table->integer(Album::ID_ORGANIZATION)->unsigned();
             $table->string(Album::NAME);
             $table->integer(Album::CREATED_BY)->unsigned();
-            $table->timestampsTz();
+            $table->timestamps();
         });
     }
 

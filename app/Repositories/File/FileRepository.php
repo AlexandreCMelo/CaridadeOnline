@@ -62,15 +62,15 @@ class FileRepository implements IFileRepository
         }
 
         if($path) {
-            $data->where(File::PATH, $name);
+            $data->where(File::PATH, $path);
         }
 
         if($mime) {
-            $data->where(File::MIME_TYPE, $name);
+            $data->where(File::MIME_TYPE, $mime);
         }
 
         if($fileTypeId) {
-            $data->where(File::ID_FILE_TYPE, $name);
+            $data->where(File::ID_FILE_TYPE, $fileTypeId);
         }
 
         if($ownerId || $owner) {
@@ -78,7 +78,7 @@ class FileRepository implements IFileRepository
             $data->where(File::ID_FILE_OWNER, $ownerId);
         }
 
-        return $data->get();
+        return $data;
     }
 
     /**
@@ -114,7 +114,14 @@ class FileRepository implements IFileRepository
      */
     public function getUserAvatar($userId)
     {
-        return $this->find(false,false,false,FileType::AVATAR, $userId, User::class);
+        return $this->find(
+            false,
+            false,
+            false,
+            FileType::AVATAR,
+            $userId,
+            User::class
+        )->first();
     }
 
 

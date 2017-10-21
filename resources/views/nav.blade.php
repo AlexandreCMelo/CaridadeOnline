@@ -53,7 +53,7 @@
                             {{ auth()->user()->name }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropDownUser">
-                            <a class="dropdown-item" href="#">{{ __('views.profile') }}</a>
+                            <a class="dropdown-item" href="{{ route('users.show', Auth::user()) }}">{{ __('views.profile') }}</a>
                             <a class="dropdown-item" href="{{ route('logout')  }}">Logout</a>
                         </div>
                     </li>

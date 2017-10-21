@@ -7,6 +7,7 @@ use Charis\Models\Locale;
 use Charis\Models\Timezone;
 use Charis\Models\Address;
 use Charis\Repositories\Organization\RoleRepository;
+use Charis\Service\FileService;
 
 /**
  * Class TargetRepository
@@ -25,6 +26,13 @@ class UserRepository implements IUserRepository
     protected $organizationRoleRepository = null;
 
     /**
+     * @var FileService
+     */
+    protected $fileService = null;
+
+    /**
+     * List all users
+     *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public static function all()
@@ -33,6 +41,8 @@ class UserRepository implements IUserRepository
     }
 
     /**
+     * Add a user
+     *
      * @param $name
      * @param $email
      * @param $enabled
@@ -102,10 +112,64 @@ class UserRepository implements IUserRepository
         }
 
         return false;
+    }
 
+    public function edit(
+        $id,
+        $name = false,
+        $email = false,
+        $enabled = false,
+        $systemRole = false,
+        $phone = false,
+        $countryId = false,
+        $timezoneId = false,
+        $localeId = false,
+        $origin = false
+    ) {
+        $user = User::find($id);
+
+        if ($name) {
+            $user->name = $name;
+        }
+
+        if ($email) {
+            $user->email = $email;
+        }
+
+        if ($enabled) {
+            $user->enabled = $enabled;
+        }
+
+        if ($systemRole) {
+            $user->systemRole = $systemRole;
+        }
+
+        if ($phone) {
+            $user->phone = $phone;
+        }
+
+        if ($countryId) {
+            $user->countryId = $countryId;
+        }
+
+        if ($timezoneId) {
+            $user->timezoneId = $timezoneId;
+        }
+
+        if ($localeId) {
+            $user->localeId = $localeId;
+        }
+
+        if ($origin) {
+            $user->origin = $origin;
+        }
+
+        return $user->save();
     }
 
     /**
+     * Remove a user
+     *
      * @param $id
      * @return mixed
      */
@@ -115,6 +179,8 @@ class UserRepository implements IUserRepository
     }
 
     /**
+     * Find a user
+     *
      * @param bool $name
      * @param bool $email
      * @param bool $countryId
@@ -175,24 +241,33 @@ class UserRepository implements IUserRepository
     }
 
     /**
+     * Find users nearby
+     *
      * @param $userId
      * @return bool
      */
-    public function findNearbyOrganizations($userId){
+    public function findNearbyOrganizations($userId)
+    {
         $location = $this->location()->get()->first();
-        if (!$location) return false;
+        if (!$location) {
+            return false;
+        }
         $lat = $location->latitud;
         $long = $location->longitud;
-        if (empty($lat) || empty($long)) return false;
-        $raw = '111.045 * DEGREES(ACOS(COS(RADIANS('.$lat.')) * COS(RADIANS(latitud)) * COS(RADIANS(longitud) - RADIANS('.$long.')) + SIN(RADIANS('.$lat.')) * SIN(RADIANS(latitud))))';
+        if (empty($lat) || empty($long)) {
+            return false;
+        }
+        $raw = '111.045 * DEGREES(ACOS(COS(RADIANS(' . $lat . ')) * COS(RADIANS(latitud)) * COS(RADIANS(longitud) - RADIANS(' . $long . ')) + SIN(RADIANS(' . $lat . ')) * SIN(RADIANS(latitud))))';
         $users = UserLocation::select('user_id', 'latitud', 'longitud', 'address',
-            DB::raw($raw.' AS distance'))->with('user')->where('user_id', '!=', $this->id)
+            DB::raw($raw . ' AS distance'))->with('user')->where('user_id', '!=', $this->id)
             ->havingRaw('distance < 50')->orderBy('distance', 'ASC')->get();
         return $users;
     }
 
 
     /**
+     * Find a user by Id
+     *
      * @param $id
      * @return mixed
      */
@@ -202,24 +277,30 @@ class UserRepository implements IUserRepository
     }
 
     /**
+     * Find user by e-mail
+     *
      * @param $email
      * @return mixed
      */
     public function findByEmail($email)
     {
-       return $this->findUser(false, $email);
+        return $this->findUser(false, $email);
     }
 
     /**
+     * Find users byt city
+     *
      * @param $cityName
      * @return mixed
      */
     public function findByCity($cityName)
     {
-        return $this->findUser(false, false,false, $cityName);
+        return $this->findUser(false, false, false, $cityName);
     }
 
     /**
+     * Find users by country
+     *
      * @param $countryId
      * @return mixed
      */
@@ -229,6 +310,8 @@ class UserRepository implements IUserRepository
     }
 
     /**
+     * Find users by system role
+     *
      * @param $systemRole
      * @return mixed
      */
@@ -238,15 +321,19 @@ class UserRepository implements IUserRepository
     }
 
     /**
+     * Find user by name
+     *
      * @param $name
      * @return mixed
      */
     public function findByName($name)
     {
-       return $this->findUser($name);
+        return $this->findUser($name);
     }
 
     /**
+     * Lists the deleted users
+     *
      * @return mixed
      */
     public function findDeletedUsers()
@@ -255,6 +342,8 @@ class UserRepository implements IUserRepository
     }
 
     /**
+     *
+     *
      * @param $userId
      * @param $organizationId
      * @param $roleId
@@ -264,6 +353,7 @@ class UserRepository implements IUserRepository
     {
         return $this->getOrganizationRoleRepository()->addUserToOrganization($userId, $organizationId, $roleId);
     }
+
 
 
     /**
@@ -277,5 +367,6 @@ class UserRepository implements IUserRepository
 
         return $this->organizationRoleRepository;
     }
+
 
 }

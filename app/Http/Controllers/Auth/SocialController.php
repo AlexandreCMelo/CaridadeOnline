@@ -73,10 +73,6 @@ class SocialController extends Controller
                 ->with('message', trans('socials.denied'));
         }
 
-
-        die('a');
-
-
         $socialUserObject = Socialite::driver($provider)->user();
 
         $socialUser = null;

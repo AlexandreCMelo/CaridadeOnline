@@ -84,7 +84,7 @@ class HomeController extends \Charis\Http\Controllers\Controller
 
             $fileService = new FileService();
 
-            $addFileProtoType = $fileService->addFileFromRequestProtoType($request, Auth::id());
+            $addFileProtoType = $fileService->addFileFromRequest($request, Auth::id());
             $organizationId = 56;
             $userId = 13;
             //$addFileToOrganization = $fileService->addFileFromRequest($request, FileType::IMAGE, Auth::id(), $organizationId, Organization::class);

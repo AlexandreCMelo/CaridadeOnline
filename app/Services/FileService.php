@@ -6,9 +6,11 @@ use Charis\Models\File;
 use Charis\Models\FileType;
 use Charis\Models\Organization;
 use Charis\Models\User;
+use Charis\Repositories\User\UserRepository;
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Charis\Repositories\File\FileRepository;
@@ -19,12 +21,22 @@ class FileService extends AbstractService
     const DIRECTORY_FORMAT = '/y/m/d';
     const APP_PATH = 'app/';
 
+    const DEFAULT_SIZE_SMALL = 'small';
+    const DEFAULT_SIZE_NORMAL = 'normal';
+    const DEFAULT_SIZE_LARGE = 'large';
+
     protected $organizationDefaultPath = 'organization';
     protected $userDefaultPath = 'users';
     protected $systemDefaultPath = 'system/';
     protected $publicDefaultPath = 'public/';
     protected $organizationId = null;
     protected $userId = null;
+
+
+    /**
+     * @var UserRepository
+     */
+    protected $userRepository;
 
     /**
      * @var FileRepository
@@ -59,7 +71,7 @@ class FileService extends AbstractService
             return false;
         }
 
-        if($owner) {
+        if ($owner) {
             $directoryDate = (New \DateTime())->format(self::DIRECTORY_FORMAT);
         }
 
@@ -67,7 +79,7 @@ class FileService extends AbstractService
         return $directory . $directoryDate;
 
     }
-    
+
     /**
      * Adds a file to system using the request object
      * @param Request $request
@@ -77,7 +89,7 @@ class FileService extends AbstractService
      * @param bool $owner
      * @return bool
      */
-    public function addFileFromRequest(\Illuminate\Http\Request $request, $fileTypeId, $createdById = false, $ownerId = false, $owner = false)
+    public function addFile($request, $fileTypeId, $createdById = false, $ownerId = false, $owner = false)
     {
 
         switch ($owner) {
@@ -92,16 +104,16 @@ class FileService extends AbstractService
                 break;
         }
 
-        $fileName = mt_rand(1,1000).'-'.$request->image->getClientOriginalName();
+        $fileName = mt_rand(1, 1000) . '-' . $request->image->getClientOriginalName();
         $name = $request->name ? $request->name : $fileName;
         $size = $request->image->getSize();
         $mime = $request->image->getMimeType();
         $attributes = null;
 
-        if($path = $request->image->storeAs($this->publicDefaultPath.$storagePath, $fileName)){
-            if(!$this->getFileRepository()->add(
+        if ($path = $request->image->storeAs($this->publicDefaultPath . $storagePath, $fileName)) {
+            if (!$this->getFileRepository()->add(
                 $name,
-                $storagePath.$fileName,
+                $storagePath . $fileName,
                 $size,
                 $mime,
                 $attributes,
@@ -109,7 +121,63 @@ class FileService extends AbstractService
                 $createdById,
                 $ownerId,
                 $owner
-            )){
+            )) {
+                Storage::delete($path);
+                return false;
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Adds a file to system using the request object
+     * @param Request $request
+     * @param $fileTypeId
+     * @param bool $createdById
+     * @param bool $ownerId
+     * @param bool $owner
+     * @return bool
+     */
+    public function addFileFromRequest(
+        UploadedFile $request,
+        $fileTypeId,
+        $createdById = false,
+        $ownerId = false,
+        $owner = false
+    ) {
+
+        switch ($owner) {
+            case User::class:
+                $storagePath = $this->getStorageDirectory($ownerId, User::class);
+                break;
+            case Organization::class:
+                $storagePath = $this->getStorageDirectory($ownerId, Organization::class);
+                break;
+            default:
+                $storagePath = $this->getSystemStorageDirectory();
+                break;
+        }
+
+        $fileName = mt_rand(1, 1000) . '-' . $request->getClientOriginalName();
+        $name = $fileName;
+        $size = $request->getSize();
+        $mime = $request->getMimeType();
+        $attributes = null;
+
+        if ($path = $request->storeAs($this->publicDefaultPath . $storagePath, $fileName)) {
+            if (!$this->getFileRepository()->add(
+                $name,
+                $storagePath . DIRECTORY_SEPARATOR . $fileName,
+                $size,
+                $mime,
+                $attributes,
+                $fileTypeId,
+                $createdById,
+                $ownerId,
+                $owner
+            )) {
                 Storage::delete($path);
                 return false;
             }
@@ -139,8 +207,8 @@ class FileService extends AbstractService
             $path = $this->organizationDefaultPath;
         }
 
-        if($id) {
-            $path = $path .'/'. $id;
+        if ($id) {
+            $path = $path . '/' . $id;
         }
 
         $this->createDirectory($path);
@@ -155,9 +223,9 @@ class FileService extends AbstractService
      * @param $createdBy
      * @return bool
      */
-    public function addFileToSystemFromRequest(Request $request, $fileTypeId, $createdBy)
+    public function addFileToSystemFromRequest($request, $fileTypeId, $createdBy)
     {
-       return $this->addFileFromRequest($request, $fileTypeId, $createdBy);
+        return $this->addFileFromRequest($request, $fileTypeId, $createdBy);
     }
 
     /**
@@ -167,9 +235,9 @@ class FileService extends AbstractService
      * @param $createdBy
      * @return bool
      */
-    public function addFileToUserFromRequest(Request $request, $userId, $fileTypeId, $createdBy)
+    public function addFileToUserFromRequest($request, $userId, $fileTypeId, $createdBy)
     {
-       return $this->addFileFromRequest($request, $fileTypeId, $createdBy, $userId, User::class);
+        return $this->addFileFromRequest($request, $fileTypeId, $createdBy, $userId, User::class);
     }
 
 
@@ -179,9 +247,9 @@ class FileService extends AbstractService
      * @param $createdBy
      * @return bool
      */
-    public function addImageToUserFromRequest(Request $request, $userId, $createdBy)
+    public function addImageToUserFromRequest($request, $userId, $createdBy)
     {
-       return $this->addFileToUserFromRequest($request,$userId,FileType::IMAGE, $createdBy);
+        return $this->addFileToUserFromRequest($request, $userId, FileType::IMAGE, $createdBy);
     }
 
     /**
@@ -190,9 +258,9 @@ class FileService extends AbstractService
      * @param $createdBy
      * @return bool
      */
-    public function addAvatarToUserFromRequest(Request $request, $userId, $createdBy)
+    public function addAvatarToUserFromRequest($request, $userId, $createdBy)
     {
-       return $this->addFileToUserFromRequest($request,$userId, FileType::AVATAR, $createdBy);
+        return $this->addFileToUserFromRequest($request, $userId, FileType::AVATAR, $createdBy);
     }
 
 
@@ -203,7 +271,7 @@ class FileService extends AbstractService
      * @param $createdBy
      * @return bool
      */
-    public function addFileToOrganizationFromRequest(Request $request, $organizationId, $fileTypeId, $createdBy)
+    public function addFileToOrganizationFromRequest($request, $organizationId, $fileTypeId, $createdBy)
     {
         return $this->addFileFromRequest($request, $fileTypeId, $createdBy, $organizationId, Organization::class);
     }
@@ -214,9 +282,9 @@ class FileService extends AbstractService
      * @param $createdBy
      * @return bool
      */
-    public function addImageToOrganizationFromRequest(Request $request, $organizationId, $createdBy)
+    public function addImageToOrganizationFromRequest($request, $organizationId, $createdBy)
     {
-       return $this->addFileFromRequest($request, $organizationId, FileType::IMAGE, $createdBy);
+        return $this->addFileFromRequest($request, $organizationId, FileType::IMAGE, $createdBy);
     }
 
     /**
@@ -225,9 +293,9 @@ class FileService extends AbstractService
      * @param $createdBy
      * @return bool
      */
-    public function addLogoToOrganizationFromRequest(Request $request, $organizationId, $createdBy)
+    public function addLogoToOrganizationFromRequest($request, $organizationId, $createdBy)
     {
-       return $this->addFileFromRequest($request, $organizationId, FileType::LOGO, $createdBy);
+        return $this->addFileFromRequest($request, $organizationId, FileType::LOGO, $createdBy);
     }
 
     /**
@@ -236,9 +304,9 @@ class FileService extends AbstractService
      * @param $createdBy
      * @return bool
      */
-    public function addVideoToOrganizationFromRequest(Request $request, $organizationId, $createdBy)
+    public function addVideoToOrganizationFromRequest($request, $organizationId, $createdBy)
     {
-       return $this->addFileFromRequest($request, $organizationId, FileType::VIDEO, $createdBy);
+        return $this->addFileFromRequest($request, $organizationId, FileType::VIDEO, $createdBy);
     }
 
     /**
@@ -256,7 +324,7 @@ class FileService extends AbstractService
      */
     protected function createOrganizationDirectory($organizationId)
     {
-        return $this->createDirectory($this->organizationDefaultPath.$organizationId);
+        return $this->createDirectory($this->organizationDefaultPath . $organizationId);
     }
 
     /**
@@ -265,10 +333,14 @@ class FileService extends AbstractService
      */
     protected function createUserDirectory($userId)
     {
-        return $this->createDirectory($this->organizationDefaultPath.$userId);
+        return $this->createDirectory($this->organizationDefaultPath . $userId);
     }
 
+    public function getUserAvatar($id)
+    {
 
+        return isset($this->getFileRepository()->getUserAvatar($id)->path) ? $this->getFileRepository()->getUserAvatar($id)->path : false;
+    }
 
     /**
      * @return FileRepository
@@ -279,6 +351,17 @@ class FileService extends AbstractService
             $this->fileRepository = new FileRepository();
         }
         return $this->fileRepository;
+    }
+
+    /**
+     * @return UserRepository
+     */
+    protected function getUserRepository()
+    {
+        if (null == $this->userRepository) {
+            $this->userRepository = new UserRepository();
+        }
+        return $this->userRepository;
     }
 
 

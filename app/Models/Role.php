@@ -39,9 +39,9 @@ class Role extends Model
     /**
      * Default Roles
      */
-    const ID_SYSTEM_ADMIN_USER = 100;
     const ID_REGISTERED_USER = 20;
     const ID_UNSUPERVISED_USER= 10;
+    const ID_SYSTEM_ADMIN_USER = 30;
 
     /**
      * The attributes that are not mass assignable.

@@ -19,7 +19,7 @@ class CreateOrganizationRolesTable extends Migration
             $table->increments(OrganizationRole::ID);
             $table->string(OrganizationRole::NAME, 128);
             $table->text(OrganizationRole::DESCRIPTION);
-            $table->timestampsTz();
+            $table->timestamps();
         });
 
         DB::table(OrganizationRole::TABLE_NAME)->insert(
