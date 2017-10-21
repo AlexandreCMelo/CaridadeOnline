@@ -54,10 +54,6 @@ class OrganizationController extends Controller
         );
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f28bfbb7bea00ed54d1f57bfc97b4e869693d5de
     /**
      * Store a newly created resource in storage.
      *
