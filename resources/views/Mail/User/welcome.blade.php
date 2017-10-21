@@ -1,6 +1,6 @@
 @component('mail::message')
 
-    {{ __('user_welcome_message') }}
+    {{ Lang::get('user_welcome_message', ['name' => $username]) }}
 
     @component('mail::button', ['url' => ''])
         {{ __('user_activate_button') }}
