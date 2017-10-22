@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'contato@caridadeonline.com.br'),
+        'address' => env('MAIL_FROM_ADDRESS', '7d88cb2822-9842aa@inbox.mailtrap.io'),
         'name' => env('MAIL_FROM_NAME', 'Equipe Caridade Online'),
     ],
 

@@ -4,11 +4,13 @@ namespace Charis\Http\Controllers\Auth;
 
 use Charis\Models\User;
 use Charis\Http\Controllers\Controller;
+use Charis\Service\MailService;
 use Charis\Traits\ActivationTrait;
 use Charis\Traits\CaptureIpTrait;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Charis\Models\Role;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -33,13 +35,21 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/dashboard';
 
+    /**
+     * Mail service
+     *
+     * @var MailService
+     */
+    protected $mailService = null;
 
     /**
      * RegisterController constructor.
+     * @param MailService $maiLService
      */
-    public function __construct()
+    public function __construct(MailService $maiLService)
     {
         $this->middleware('guest');
+        $this->mailService = $maiLService;
     }
 
     /**
@@ -75,6 +85,10 @@ class RegisterController extends Controller
             'system_role_id'    => \Charis\Models\Role::ID_REGISTERED_USER,
             'signup_ip_address' => $ipAddress->getClientIp()
         ]);
+
+        if(!empty($user)){
+            $this->mailService->sendUserWelcomeMail($user);
+        }
 
         return $user;
     }

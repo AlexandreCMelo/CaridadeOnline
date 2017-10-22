@@ -4,6 +4,7 @@ namespace Charis\Providers;
 
 use Charis\Http\ViewComposers\MenuComposer;
 use Charis\Models\Country;
+use Charis\Models\File;
 use Charis\Models\OrganizationRole;
 use Charis\Repositories\Activity\ActivityRepository;
 use Charis\Repositories\Activity\IActivityRepository;
@@ -144,14 +145,15 @@ class AppServiceProvider extends ServiceProvider
             UserRepository::class
         );
 
-<<<<<<< HEAD
-=======
         $this->app->bind(
             ISocialRepository::class,
             SocialRepository::class
         );
 
+        $this->app->bind(
+            AbstractService::class,
+            FileService::class
+        );
 
->>>>>>> f28bfbb7bea00ed54d1f57bfc97b4e869693d5de
     }
 }

@@ -247,6 +247,15 @@ class UserRepository implements IUserRepository
     }
 
     /**
+     * @param array $userIds
+     * @return mixed
+     */
+    public function findMany($userIds = [])
+    {
+        return User::findMany($userIds);
+    }
+
+    /**
      * @return mixed
      */
     public function findDeletedUsers()

@@ -7,6 +7,7 @@ use Auth;
 use Charis\Models\OrganizationRole;
 use Charis\Models\OrganizationRoleUser;
 use Charis\Models\Timezone;
+use Charis\Models\User;
 
 class RoleRepository implements IRoleRepository
 {
@@ -75,7 +76,7 @@ class RoleRepository implements IRoleRepository
     public function findUsersByOrganizationRole($organizationId, $roleId)
     {
         $data = OrganizationRoleUser::where(OrganizationRoleUser::ID_ROLE, $roleId)
-            ->where(OrganizationRoleUser::ID_ORGANIZATION, $organizationId)->get();
+            ->where(OrganizationRoleUser::ID_ORGANIZATION, $organizationId)->pluck(OrganizationRoleUser::ID_USER);
 
         if($data->count()){
             return $data;

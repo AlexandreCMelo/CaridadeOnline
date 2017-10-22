@@ -302,7 +302,7 @@ class OrganizationRepository implements IOrganizationRepository
     /**
      * @return RoleRepository
      */
-    public function getOrganizationRoleRepository()
+    protected function getOrganizationRoleRepository()
     {
         if ($this->organizationRoleRepository == null) {
             $this->organizationRoleRepository = new RoleRepository();
@@ -313,7 +313,7 @@ class OrganizationRepository implements IOrganizationRepository
     /**
      * @return CommentRepository
      */
-    public function getCommentRepository()
+    protected function getCommentRepository()
     {
         if ($this->commentsRepository == null) {
             $this->commentsRepository = new CommentRepository();
@@ -324,7 +324,7 @@ class OrganizationRepository implements IOrganizationRepository
     /**
      * @return TargetRepository
      */
-    public function getTargetRepository()
+    protected function getTargetRepository()
     {
         if ($this->targetRepository == null) {
             $this->targetRepository = new TargetRepository();
@@ -335,7 +335,7 @@ class OrganizationRepository implements IOrganizationRepository
     /**
      * @return ActivityRepository
      */
-    public function getActivityRepository()
+    protected function getActivityRepository()
     {
         if ($this->activityRepository == null) {
             $this->activityRepository = new ActivityRepository();
@@ -346,7 +346,7 @@ class OrganizationRepository implements IOrganizationRepository
     /**
      * @return CategoryRepository
      */
-    public function getCategoryRepository()
+    protected function getCategoryRepository()
     {
         if ($this->categoryRepository == null) {
             $this->categoryRepository = new CategoryRepository();

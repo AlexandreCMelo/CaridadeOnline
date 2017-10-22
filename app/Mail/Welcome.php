@@ -1,23 +1,23 @@
 <?php
 
-namespace Charis\Mail\System;
+namespace Charis\Mail;
 
 use Charis\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Charis\Mail\MailSettings;
 
-class ResetPass extends Mailable
+class Welcome extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
-     * The user instance.
-     *
-     * @var User
+     * @var
      */
     public $user;
+
 
     /**
      * Welcome constructor.
@@ -35,10 +35,6 @@ class ResetPass extends Mailable
      */
     public function build()
     {
-        return $this->from(MailSettings::SYSTEM_TEAM_MAIL)
-            ->markdown(MailSettings::SYSTEM_VIEW_RESET_PASS_VIEW,
-                [
-                    MailSettings::USER_PLACEHOLDER_NAME => $this->user->name
-                ]);
+        return $this->subject(trans(MailSettings::USER_VIEW_WELCOME_SUBJECT))->markdown(MailSettings::USER_VIEW_WELCOME);
     }
 }
