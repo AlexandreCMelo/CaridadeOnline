@@ -134,6 +134,29 @@ class Organization extends Model
         return $this->hasMany(Comment::class, Comment::ID_ORGANIZATION, self::ID);
     }
 
+    /**
+     * @return mixed
+     */
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, OrganizationRoleUser::TABLE_NAME)->where(OrganizationRoleUser::ID_ROLE, OrganizationRole::ID_ORGANIZATION_FOLLOWER)->get();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function managers()
+    {
+        return $this->belongsToMany(User::class, OrganizationRoleUser::TABLE_NAME)->where(OrganizationRoleUser::ID_ROLE, OrganizationRole::ID_ORGANIZATION_MANAGER)->get();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function partners()
+    {
+        return $this->belongsToMany(User::class, OrganizationRoleUser::TABLE_NAME)->where(OrganizationRoleUser::ID_ROLE, OrganizationRole::ID_ORGANIZATION_PARTNER)->get();
+    }
 
 
 }

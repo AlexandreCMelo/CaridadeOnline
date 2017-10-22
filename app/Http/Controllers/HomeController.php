@@ -124,7 +124,6 @@ class HomeController extends \Charis\Http\Controllers\Controller
 
     {
 
-
         $imageName = time() . '.' . request()->image->getClientOriginalExtension();
 
         request()->image->move(public_path('images'), $imageName);
