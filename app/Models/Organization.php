@@ -3,6 +3,7 @@
 namespace Charis\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use MAbadir\ElasticLaravel\ElasticEloquent;
 
 /**
  * Class Organization
@@ -22,7 +23,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Organization extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, ElasticEloquent;
 
     /**
      * Table parameters
@@ -76,6 +77,22 @@ class Organization extends Model
      * @var array
      */
     protected $dates = [self::DELETED_AT];
+
+    /**
+     * Returns the DB name
+     * @return mixed
+     */
+    public function getTable(){
+        return self::TABLE_NAME;
+    }
+
+    /**
+     * Returns the model primary key
+     * @return mixed
+     */
+    public function getKey(){
+        return $this->id;
+    }
 
     /**
      * Get organization address collection

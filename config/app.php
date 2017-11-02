@@ -163,12 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
-        Cmgmyr\Messenger\MessengerServiceProvider::class,
-
-        /*
-         * Package Service Providers...
-         */
+        Illuminate\Notifications\NotificationServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -182,7 +177,9 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
         SocialiteProviders\Generators\GeneratorsServiceProvider::class,
-        Illuminate\Notifications\NotificationServiceProvider::class,
+        MAbadir\ElasticLaravel\ElasticLaravelServiceProvider::class,
+        Cmgmyr\Messenger\MessengerServiceProvider::class,
+
     ],
 
     /*
@@ -235,6 +232,7 @@ return [
         'HTML' => \Collective\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+        'ElasticSearcher' => MAbadir\ElasticLaravel\ElasticSearcher::class,
     ],
 
 ];
