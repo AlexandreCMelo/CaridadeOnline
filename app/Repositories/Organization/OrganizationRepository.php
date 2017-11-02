@@ -15,8 +15,9 @@ use Charis\Models\Timezone;
 use Charis\Repositories\Album\CategoryRepository;
 use Charis\Repositories\Comment\CommentRepository;
 use Charis\Repositories\Activity\ActivityRepository;
-use Auth;
 use Charis\Repositories\Target\TargetRepository;
+use MAbadir\ElasticLaravel\ElasticSearcher;
+use Auth;
 
 /**
  * Class OrganizationRepository
@@ -89,6 +90,23 @@ class OrganizationRepository implements IOrganizationRepository
     public function findById($id)
     {
         return Organization::find($id);
+    }
+
+    /**
+     * Fetch a user by id
+     *
+     * @param int $id
+     *
+     * @return mixed
+     */
+    public function findAll()
+    {
+        return Organization::all();
+    }
+
+    public function findByKeyword($keyword)
+    {
+        return ElasticSearcher::search($keyword, Organization::class);
     }
 
     /**
