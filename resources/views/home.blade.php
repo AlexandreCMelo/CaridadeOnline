@@ -1,7 +1,8 @@
 @extends('master')
 
 @section('content')
-    <section>
+
+    <!--<section>
         <div class="container">
 
             <div class="row">
@@ -22,7 +23,7 @@
 
 
                 <div class="col-md-4">
-                    <!--<h3 class="text-center mb-5">Organização do mês</h3>-->
+
                     <div class="card card-01">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner" role="listbox">
@@ -160,6 +161,6 @@
             </div>
         </div>
         </div>
-    </section>
+    </section>-->
 
 @endsection

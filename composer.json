@@ -24,17 +24,18 @@
     "fideloper/proxy": "~3.3",
     "guzzlehttp/guzzle": "^6.3",
     "laravel/framework": "5.5.*",
+    "laravel/scout": "^3.0",
     "laravel/socialite": "^3.0",
     "laravel/tinker": "~1.0",
     "laravelcollective/html": "^5.5",
-    "mabadir/elastic-laravel": "^1.1",
     "pusher/pusher-php-server": "~3.0",
     "socialiteproviders/generators": "^2.0",
     "socialiteproviders/instagram": "^3.0",
     "socialiteproviders/linkedin": "^3.0",
     "socialiteproviders/reddit": "^3.0",
     "symfony/dom-crawler": "^3.3",
-    "symfony/psr-http-message-bridge": "^1.0"
+    "symfony/psr-http-message-bridge": "^1.0",
+    "tamayo/laravel-scout-elastic": "^3.0"
   },
   "require-dev": {
     "filp/whoops": "~2.0",

@@ -104,11 +104,6 @@ class OrganizationRepository implements IOrganizationRepository
         return Organization::all();
     }
 
-    public function findByKeyword($keyword)
-    {
-        return ElasticSearcher::search($keyword, Organization::class);
-    }
-
     /**
      * Fetch many users by id
      *

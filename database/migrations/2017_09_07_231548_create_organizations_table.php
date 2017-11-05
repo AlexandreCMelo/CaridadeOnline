@@ -30,7 +30,7 @@ class CreateOrganizationsTable extends Migration
             $table->string(Organization::PHONE, 128)->nullable();;
             $table->string(Organization::WEBSITE, 255)->nullable();;
             $table->softDeletes();
-            $table->timestampsTz();
+            $table->timestamps();
 
             $table->foreign(Organization::ID_COUNTRY)
                 ->references(Country::ID)

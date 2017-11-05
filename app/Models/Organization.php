@@ -2,8 +2,9 @@
 
 namespace Charis\Models;
 
+use Charis\Traits\TimezoneAccessor;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use MAbadir\ElasticLaravel\ElasticEloquent;
+use Laravel\Scout\Searchable;
 
 /**
  * Class Organization
@@ -23,7 +24,7 @@ use MAbadir\ElasticLaravel\ElasticEloquent;
  */
 class Organization extends Model
 {
-    use SoftDeletes, ElasticEloquent;
+    use SoftDeletes, Searchable;
 
     /**
      * Table parameters
@@ -77,6 +78,15 @@ class Organization extends Model
      * @var array
      */
     protected $dates = [self::DELETED_AT];
+
+    /**
+     * ElasticSearch Scout search index
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return self::TABLE_NAME.self::SEARCH_INDEX_SUFFIX;
+    }
 
     /**
      * Returns the DB name
