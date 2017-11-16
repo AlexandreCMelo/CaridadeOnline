@@ -163,12 +163,4 @@ Route::group(['prefix' => 'login'], function() {
 
     });
 
-    Route::group(['prefix' => 'github'], function() {
-
-        Route::get('/', ['as' => 'github.login', 'uses' => 'Auth\Social\SocialAuthGithub@getPermission']);
-
-        Route::get('callback', ['as' => 'github.callback', 'uses' => 'Auth\Social\SocialAuthGithub@callback']);
-
-    });
-
 });

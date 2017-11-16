@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Social;
+namespace Charis\Http\Controllers\Auth\Social;
 
 
 interface ISocialAuth

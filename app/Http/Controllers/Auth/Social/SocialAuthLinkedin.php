@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Social;
+namespace Charis\Http\Controllers\Auth\Social;
 
-use App\Http\Controllers\Controller;
-use App\SocialLogin\SocialLoginLinkedin;
+use Charis\Http\Controllers\Controller;
+use Charis\SocialLogin\SocialLoginLinkedin;
 use Illuminate\Http\Request;
 
 class SocialAuthLinkedin extends Controller implements ISocialAuth
 {
 
     /**
-     * @var App\SocialLogin\SocialLoginLinkedin 
+     * @var App\SocialLogin\SocialLoginLinkedin
      */
     private $provider;
 
@@ -26,7 +26,7 @@ class SocialAuthLinkedin extends Controller implements ISocialAuth
         return $this->provider->getPermission();
     }
 
-    
+
     public function callback()
     {
         return $this->provider->callback();

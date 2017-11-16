@@ -1,6 +1,6 @@
 <?php
 
-namespace App\SocialLogin;
+namespace Charis\SocialLogin;
 
 interface ISocialLogin
 {

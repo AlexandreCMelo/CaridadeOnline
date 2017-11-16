@@ -1,6 +1,6 @@
 <?php
 
-namespace App\SocialLogin;
+namespace Charis\SocialLogin;
 
 class SocialLoginFacebook implements ISocialLogin
 {
@@ -13,7 +13,7 @@ class SocialLoginFacebook implements ISocialLogin
         return \Socialite::with($this::PROVIDER)->redirect();
     }
 
-    
+
     public function callback()
     {
         $user = \Socialite::with($this::PROVIDER)->user();
