@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Social;
+namespace Charis\Http\Controllers\Auth\Social;
 
-use App\Http\Controllers\Controller;
-use App\SocialLogin\SocialLoginFacebook;
+use Charis\Http\Controllers\Controller;
+use Charis\SocialLogin\SocialLoginFacebook;
 use Illuminate\Http\Request;
 
 class SocialAuthFacebook extends Controller implements ISocialAuth
