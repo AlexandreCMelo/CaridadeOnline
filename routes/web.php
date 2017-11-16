@@ -16,7 +16,7 @@
 // Homepage Route
 
 
-Route::get('organizations/{organization}/delete', 'OrganizationController@delete')->name('organization.delete');
+
 Route::resource('organizations', 'OrganizationController', [
   'names' => [
     'store' => 'organization.store',
@@ -25,18 +25,16 @@ Route::resource('organizations', 'OrganizationController', [
   ]
 ]);
 
-
 Route::resource('users', 'UserController', [
   'names' => [
     'index' => 'user.list'
   ]
 ]);
 
-
 // Authentication Routes
 Auth::routes();
 
-
+// Messages
 Route::group(['prefix' => 'messages'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
     Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
@@ -135,5 +133,42 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
             'as' => 'dashboard.upload.create',
             'uses' => 'HomeController@uploadCreate'
         ]);
+
+});
+
+// Login social
+Route::group(['prefix' => 'login'], function() {
+
+    Route::group(['prefix' => 'facebook'], function() {
+
+        Route::get('/', ['as' => 'facebook.login', 'uses' => 'Auth\Social\SocialAuthFacebook@getPermission']);
+
+        Route::get('callback', ['as' => 'facebook.callback', 'uses' => 'Auth\Social\SocialAuthFacebook@callback']);
+
+    });
+
+    Route::group(['prefix' => 'google'], function() {
+
+        Route::get('/', ['as' => 'google.login', 'uses' => 'Auth\Social\SocialAuthGoogle@getPermission']);
+
+        Route::get('callback', ['as' => 'google.callback', 'uses' => 'Auth\Social\SocialAuthGoogle@callback']);
+
+    });
+
+    Route::group(['prefix' => 'linkedin'], function() {
+
+        Route::get('/', ['as' => 'linkedin.login', 'uses' => 'Auth\Social\SocialAuthLinkedin@getPermission']);
+
+        Route::get('callback', ['as' => 'linkedin.callback', 'uses' => 'Auth\Social\SocialAuthLinkedin@callback']);
+
+    });
+
+    Route::group(['prefix' => 'github'], function() {
+
+        Route::get('/', ['as' => 'github.login', 'uses' => 'Auth\Social\SocialAuthGithub@getPermission']);
+
+        Route::get('callback', ['as' => 'github.callback', 'uses' => 'Auth\Social\SocialAuthGithub@callback']);
+
+    });
 
 });
