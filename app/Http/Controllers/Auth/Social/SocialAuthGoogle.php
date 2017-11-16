@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Social;
+namespace Charis\Http\Controllers\Auth\Social;
 
-use App\Http\Controllers\Controller;
-use App\SocialLogin\SocialLoginGoogle;
+use Charis\Http\Controllers\Controller;
+use Charis\SocialLogin\SocialLoginGoogle;
 use Illuminate\Http\Request;
 
 class SocialAuthGoogle extends Controller
@@ -26,7 +26,7 @@ class SocialAuthGoogle extends Controller
         return $this->provider->getPermission();
     }
 
-    
+
     public function callback()
     {
         return $this->provider->callback();
