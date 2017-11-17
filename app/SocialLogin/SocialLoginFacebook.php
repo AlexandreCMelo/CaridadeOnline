@@ -3,6 +3,7 @@
 namespace Charis\SocialLogin;
 
 use Illuminate\Contracts\Auth\Guard as Authenticator;
+use Charis\Models\User;
 
 class SocialLoginFacebook implements ISocialLogin
 {
@@ -27,7 +28,8 @@ class SocialLoginFacebook implements ISocialLogin
 
     public function callback()
     {
-        $user = \Socialite::with($this::PROVIDER)->user();
+        $userData = \Socialite::with($this::PROVIDER)->user();
+        $user = $this->saveOrRecover($userData);
         $this->auth->login($user, true);
         return redirect(route('home'));
     }
@@ -36,7 +38,7 @@ class SocialLoginFacebook implements ISocialLogin
     public function saveOrRecover($userData)
     {
         return User::firstOrCreate(
-            ['name' => $userData->name, 'email' => $userData->email]
+            ['name' => "$userData->name", 'email' => "$userData->email"]
         );
     }
 

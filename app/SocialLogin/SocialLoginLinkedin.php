@@ -15,8 +15,17 @@ class SocialLoginLinkedin implements ISocialLogin
 
     public function callback()
     {
-        $user = \Socialite::with($this::PROVIDER)->user();
+        $userData = \Socialite::with($this::PROVIDER)->user();
+        $user = $this->saveOrRecover($userData);
+        $this->auth->login($user, true);
+        return redirect(route('home'));
+    }
 
-        dd($user);
+
+    public function saveOrRecover($userData)
+    {
+        return User::firstOrCreate(
+            ['name' => "$userData->name", 'email' => "$userData->email"]
+        );
     }
 }
