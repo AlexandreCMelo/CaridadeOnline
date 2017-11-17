@@ -9,7 +9,7 @@
 @if (count($users))
   <ul class="list-group">
     @foreach($users as $user)
-      <li class="list-group-item">{{ $user->name }}</li>
+      <li class="list-group-item">{{ $user->email }}</li>
     @endforeach
   </ul>
 @else
