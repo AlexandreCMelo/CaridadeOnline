@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->integer(User::ID_SYSTEM_ROLE)->nullable();
             $table->string(User::NAME);
             $table->string(User::EMAIL)->unique();
-            $table->string(User::PASSWORD);
+            $table->string(User::PASSWORD)->nullable();
             $table->string(User::PHONE)->nullable();
             $table->boolean(User::ACTIVATED)->default(true);
             $table->string('token');
