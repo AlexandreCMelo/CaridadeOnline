@@ -4,7 +4,6 @@ namespace Charis\SocialLogin;
 
 class SocialLoginLinkedin implements ISocialLogin
 {
-
     const PROVIDER = 'linkedin';
 
 
@@ -12,6 +11,7 @@ class SocialLoginLinkedin implements ISocialLogin
     {
         return \Socialite::with($this::PROVIDER)->redirect();
     }
+
 
     public function callback()
     {
