@@ -2,10 +2,19 @@
 
 namespace Charis\SocialLogin;
 
+use Illuminate\Contracts\Auth\Guard as Authenticator;
+use Charis\Models\User;
+
 class SocialLoginGoogle implements ISocialLogin
 {
 
     const PROVIDER = 'google';
+
+
+    public function __construct(Authenticator $auth)
+    {
+        $this->auth = $auth;
+    }
 
 
     public function getPermission()
