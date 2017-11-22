@@ -23,9 +23,9 @@ class CreateUsersTable extends Migration
         Schema::create(User::TABLE_NAME, function (Blueprint $table) {
 
             $table->bigIncrements(User::ID);
-            $table->integer(User::ID_COUNTRY)->unsigned()->nullable();;
-            $table->integer(User::ID_TIMEZONE)->unsigned()->nullable();;
-            $table->string(User::ID_LOCALE, 8)->unsigned()->nullable();;
+            $table->integer(User::ID_COUNTRY)->unsigned()->nullable();
+            $table->integer(User::ID_TIMEZONE)->unsigned()->nullable();
+            $table->string(User::ID_LOCALE, 8)->unsigned()->nullable();
             $table->bigInteger(User::SRC)->nullable();
             $table->integer(User::ID_SYSTEM_ROLE)->nullable();
             $table->string(User::NAME);
