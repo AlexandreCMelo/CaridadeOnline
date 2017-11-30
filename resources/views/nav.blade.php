@@ -41,22 +41,25 @@
 
         <ul class="navbar-nav ml-auto">
             @guest
-            <li class="nav-item">
-                <a class="nav-link" href="/register">Cadastro</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-            </li>
-                @else
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropDownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ auth()->user()->name }}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropDownUser">
-                            <a class="dropdown-item" href="#">{{ __('views.profile') }}</a>
-                            <a class="dropdown-item" href="{{ route('logout')  }}">Logout</a>
-                        </div>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('register')}}">Cadastro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('login')}}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('charislogin')}}">Charis Login</a>
+                </li>
+            @else
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropDownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">,
+                        {{ auth()->user()->name }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropDownUser">
+                        <a class="dropdown-item" href="#">{{ __('views.profile') }}</a>
+                        <a class="dropdown-item" href="{{ route('logout')  }}">Logout</a>
+                    </div>
+                </li>
             @endguest
         </ul>
 

@@ -2,7 +2,7 @@
 
 namespace Charis\SocialLogin;
 
-class SocialLoginLinkedin implements ISocialLogin
+class SocialLoginLinkedin extends ASocialLogin
 {
     const PROVIDER = 'linkedin';
 }

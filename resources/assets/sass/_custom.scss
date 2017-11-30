@@ -6,4 +6,30 @@
 
 body {
   font-family: 'Lato';
+  color: #767778;
+
+  .charis-panel {
+
+    h2 {
+      font-size: 150%;
+      padding: 1em 0;
+    }
+
+    padding: 1em;
+
+  }
+
+  @media (min-width: 767px) {
+    .charis-panel {
+      margin: 3em 0;
+      padding: 1.5em;
+    }
+  }
+
 }
+
+// @include media-breakpoint-up(sm) {
+//   .some-class {
+//     display: block;
+//   }
+// }

@@ -4,6 +4,23 @@
 
 body {
   font-family: 'Lato';
+  color: #767778;
+}
+
+body .charis-panel {
+  padding: 1em;
+}
+
+body .charis-panel h2 {
+  font-size: 150%;
+  padding: 1em 0;
+}
+
+@media (min-width: 767px) {
+  body .charis-panel {
+    margin: 3em 0;
+    padding: 1.5em;
+  }
 }
 
 /*!
@@ -12254,16 +12271,6 @@ a.text-dark:hover {
 
 /*flipper-card*/
 
-h2 {
-  float: left;
-  width: 100%;
-  color: #14594d;
-  margin-bottom: 60px;
-  font-size: 14px;
-  position: relative;
-  z-index: 3;
-}
-
 h2 span {
   font-family: "Kumar One", cursive;
   display: block;
@@ -12524,5 +12531,22 @@ h3 {
 
 body {
   font-family: 'Lato';
+  color: #767778;
+}
+
+body .charis-panel {
+  padding: 1em;
+}
+
+body .charis-panel h2 {
+  font-size: 150%;
+  padding: 1em 0;
+}
+
+@media (min-width: 767px) {
+  body .charis-panel {
+    margin: 3em 0;
+    padding: 1.5em;
+  }
 }
 

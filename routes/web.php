@@ -85,19 +85,21 @@ Route::group(['middleware' => 'web'], function () {
         ]
     );
 
+    Route::get('charis/login', 'Auth\CharisLoginController@login')->name('charislogin');
+
     // Socialite Register Routes
-    Route::get('/social/redirect/{provider}',
-        [
-            'as' => 'social.redirect',
-            'uses' => 'Auth\SocialController@getSocialRedirect'
-        ]
-    );
-    Route::get('/social/handle/{provider}',
-        [
-            'as' => 'social.handle',
-            'uses' => 'Auth\SocialController@getSocialHandle'
-        ]
-    );
+    // Route::get('/social/redirect/{provider}',
+    //     [
+    //         'as' => 'social.redirect',
+    //         'uses' => 'Auth\SocialController@getSocialRedirect'
+    //     ]
+    // );
+    // Route::get('/social/handle/{provider}',
+    //     [
+    //         'as' => 'social.handle',
+    //         'uses' => 'Auth\SocialController@getSocialHandle'
+    //     ]
+    // );
 
 });
 
