@@ -8,28 +8,40 @@ body {
   font-family: 'Lato';
   color: #767778;
 
+  a {
+    color: #EA502A;
+    &:hover {
+      color: #EA502A;
+    }
+  }
+
   .charis-panel {
+    padding: 1em;
 
     h2 {
       font-size: 150%;
       padding: 1em 0;
     }
 
-    padding: 1em;
+    .form-group {
+      margin-top: 0.8em;
+      margin-bottom: 0.4em;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
 
-  }
+    .extra-padding {
+      padding-top: 17px;
+    }
 
-  @media (min-width: 767px) {
-    .charis-panel {
-      margin: 3em 0;
-      padding: 1.5em;
+    .mobile-separator {
+      margin-top: 2em;
     }
   }
 
-}
+  .text-align-right {
+    text-align: right;
+  }
 
-// @include media-breakpoint-up(sm) {
-//   .some-class {
-//     display: block;
-//   }
-// }
+}

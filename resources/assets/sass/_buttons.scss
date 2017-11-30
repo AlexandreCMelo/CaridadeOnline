@@ -2,17 +2,17 @@
     @include transitions();
 }
 
-.btn-youtube {
-	@include btn-social(#e52d27);
-}
-
-.btn-twitch {
-	@include btn-social(#6441A4);
-}
-
-.btn-basecamp {
-	@include btn-social(#3cb371);
-}
+// .btn-youtube {
+// 	@include btn-social(#e52d27);
+// }
+//
+// .btn-twitch {
+// 	@include btn-social(#6441A4);
+// }
+//
+// .btn-basecamp {
+// 	@include btn-social(#3cb371);
+// }
 
 [data-toggle="buttons"] >div .btn input[type="radio"] {
     position: absolute;
@@ -102,4 +102,47 @@
     color: $white;
     background-color: $brand-danger;
   }
+}
+
+.btn-charis-color {
+  background-color: #EA502A;
+  color: white;
+}
+
+.btn-charis {
+  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: normal;
+  i {
+    margin-right: 5px;
+    vertical-align: middle;
+    font-size: 150%;
+  }
+}
+
+.btn-charis-left {
+  text-align: left;
+}
+
+.btn-charis-facebook {
+  background-color: #365397;
+}
+
+.btn-charis-linkedin {
+  background-color: #306fea;
+  i.fa.fa-linkedin {
+    margin-top: -2px;
+    margin-bottom: 2px;
+  }
+}
+
+.btn-charis-google {
+  background-color: #dd352e;
+}
+
+.btn-caridadeonline.btn-primary {
+    background-color: #EA502A;
+    border: none;
+    padding: 10px 15px;
+    font-size: 13px;
 }

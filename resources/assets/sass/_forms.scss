@@ -1,7 +1,7 @@
 
 .form-group {
     input {
-        &.form-control {
+        &.form-control-charis {
             border-radius: 5px;
             border-width: 2px;
             border-color: #DFDFDF;
@@ -9,6 +9,9 @@
             font-size: 13px;
             color: #575757;
         }
+        // &.form-control-charis {
+        //     font-size: 13px;
+        // }
     }
 
     &.has-error {
@@ -20,11 +23,4 @@
             color: #EA502A;
         }
     }
-}
-
-.btn-caridadeonline.btn-primary {
-    background-color: #EA502A;
-    border: none;
-    padding: 10px 15px;
-    font-size: 13px;
 }
