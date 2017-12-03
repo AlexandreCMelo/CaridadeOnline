@@ -42,14 +42,40 @@
     </div>
 
     <div class="col-xl-8 text-align-right mobile-separator">
-      <form class="" action="index.html" method="post">
+      <form class="" action="{{ route('login') }}" method="post">
+      {{ csrf_field() }}
 
         <div class="form-group">
-          <input type="text" class="form-control form-control-charis" id="" placeholder="Email">
+          <input type="text"
+                 class="form-control form-control-charis"
+                 id="email"
+                 name="email"
+                 placeholder="Email"
+                 value="{{ old('email') }}"
+                 required>
+
+          @if ($errors->has('email'))
+            <span class="help-block">
+              <strong>{{ $errors->first('email') }}</strong>
+            </span>
+          @endif
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control form-control-charis" id="" placeholder="Senha">
+          <input type="password"
+                 class="form-control form-control-charis"
+                 id="password"
+                 name="password"
+                 placeholder="Senha"
+                 value="{{ old('password') }}"
+                 required>
+
+          @if ($errors->has('password'))
+            <span class="help-block">
+              <strong>{{ $errors->first('password') }}</strong>
+            </span>
+          @endif
+              
         </div>
 
         <small><a href="#" class="right">Esqueci minha senha</a></small>
