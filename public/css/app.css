@@ -25,8 +25,8 @@ body .charis-panel h2 {
 }
 
 body .charis-panel .form-group {
-  margin-top: 0.8em;
-  margin-bottom: 0.4em;
+  margin-top: 12px;
+  margin-bottom: 0;
 }
 
 body .charis-panel .form-group:first-child {
@@ -34,11 +34,19 @@ body .charis-panel .form-group:first-child {
 }
 
 body .charis-panel .extra-padding {
-  padding-top: 17px;
+  padding-top: 14px;
+}
+
+body .charis-panel .gutter-left-plus {
+  padding-left: 1.8em;
 }
 
 body .charis-panel .mobile-separator {
   margin-top: 2em;
+}
+
+body .charis-panel .btn-block + .btn-block {
+  margin-top: 12px;
 }
 
 body .text-align-right {
@@ -12516,7 +12524,7 @@ h3 {
   transform: rotateY(0);
 }
 
-.form-group input.form-control-charis {
+body .form-group input.form-control-charis {
   border-radius: 5px;
   border-width: 2px;
   border-color: #DFDFDF;
@@ -12524,14 +12532,16 @@ h3 {
           box-shadow: -10px 10px 30px -5px rgba(0, 0, 0, 0.3);
   font-size: 13px;
   color: #575757;
+  padding-top: 11px;
+  padding-bottom: 10px;
 }
 
-.form-group.has-error input {
+body .form-group.has-error input {
   border-color: #EA502A;
   color: #EA502A;
 }
 
-.form-group.has-error .help-block {
+body .form-group.has-error .help-block {
   color: #EA502A;
 }
 
@@ -12562,8 +12572,8 @@ body .charis-panel h2 {
 }
 
 body .charis-panel .form-group {
-  margin-top: 0.8em;
-  margin-bottom: 0.4em;
+  margin-top: 12px;
+  margin-bottom: 0;
 }
 
 body .charis-panel .form-group:first-child {
@@ -12571,11 +12581,19 @@ body .charis-panel .form-group:first-child {
 }
 
 body .charis-panel .extra-padding {
-  padding-top: 17px;
+  padding-top: 14px;
+}
+
+body .charis-panel .gutter-left-plus {
+  padding-left: 1.8em;
 }
 
 body .charis-panel .mobile-separator {
   margin-top: 2em;
+}
+
+body .charis-panel .btn-block + .btn-block {
+  margin-top: 12px;
 }
 
 body .text-align-right {
@@ -12590,6 +12608,10 @@ body .text-align-right {
 
   body .charis-panel .mobile-separator {
     margin-top: 0;
+  }
+
+  body .charis-panel .padding-right-zero {
+    padding-right: 0;
   }
 }
 
@@ -12665,6 +12687,10 @@ body .text-align-right {
   padding: 10px 15px;
   font-size: 13px;
   font-weight: normal;
+}
+
+.btn-charis:hover {
+  color: white;
 }
 
 .btn-charis i {

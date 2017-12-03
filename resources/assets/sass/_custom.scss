@@ -16,6 +16,7 @@ body {
   }
 
   .charis-panel {
+
     padding: 1em;
 
     h2 {
@@ -24,20 +25,29 @@ body {
     }
 
     .form-group {
-      margin-top: 0.8em;
-      margin-bottom: 0.4em;
+      margin-top: 12px;
+      margin-bottom: 0;
       &:first-child {
         margin-top: 0;
       }
     }
 
     .extra-padding {
-      padding-top: 17px;
+      padding-top: 14px;
+    }
+
+    .gutter-left-plus {
+      padding-left: 1.8em;
     }
 
     .mobile-separator {
       margin-top: 2em;
     }
+
+    .btn-block + .btn-block {
+      margin-top: 12px;
+    }
+
   }
 
   .text-align-right {

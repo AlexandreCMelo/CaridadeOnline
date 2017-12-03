@@ -7,7 +7,7 @@
 
   <div class="row extra-padding">
 
-    <div class="col-xl-4">
+    <div class="col-xl-4 extra-padding padding-right-zero">
 
       <a href="{{ route('facebook.login') }}" class="btn
                         btn-default
@@ -41,9 +41,9 @@
 
     </div>
 
-    <div class="col-xl-8 text-align-right mobile-separator">
+    <div class="col-xl-8 text-align-right mobile-separator gutter-left-plus extra-padding">
       <form class="" action="{{ route('login') }}" method="post">
-      {{ csrf_field() }}
+
 
         <div class="form-group">
           <input type="text"
@@ -83,6 +83,9 @@
         <div class="form-group">
           <input type="submit" class="btn btn-charis-color" id="" value="Acessar">
         </div>
+
+        {{ csrf_field() }}
+        
 
       </form>
     </div>
