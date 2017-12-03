@@ -32,7 +32,7 @@ class OrganizationController extends Controller
     public function index()
     {
         return view('Organization.list', [
-        'organizations' => OrganizationRepository::all()
+            'organizations' => OrganizationRepository::all()
         ]);
     }
 

@@ -9,7 +9,7 @@
 
     <div class="col-xl-4">
 
-      <a href="#" class="btn
+      <a href="{{ route('facebook.login') }}" class="btn
                         btn-default
                         btn-block
                         btn-charis
@@ -19,7 +19,7 @@
         Login com Facebook
       </a>
 
-      <a href="#" class="btn
+      <a href="{{ route('linkedin.login') }}" class="btn
                          btn-default
                          btn-block
                          btn-charis
@@ -29,7 +29,7 @@
         Login com Linkedin
       </a>
 
-      <a href="#" class="btn
+      <a href="{{ route('google.login') }}" class="btn
                          btn-default
                          btn-block
                          btn-charis
