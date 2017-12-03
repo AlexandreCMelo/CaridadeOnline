@@ -2,13 +2,12 @@
 
 namespace Charis\Http\Controllers\Auth;
 
-class CharisLoginController
+use Charis\Http\Controllers\Controller;
+
+class CharisLoginController extends Controller
 {
 
-    protected $redirectTo = '/dashboard';
-
-
-    public function __controller()
+    public function __construct()
     {
         $this->middleware('guest');
     }
@@ -17,7 +16,6 @@ class CharisLoginController
 
     public function login()
     {
-        $var = 1;
         return view('Auth.charislogin');
     }
 }
