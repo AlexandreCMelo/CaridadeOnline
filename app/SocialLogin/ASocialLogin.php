@@ -7,7 +7,6 @@ use Charis\Models\User;
 
 abstract class ASocialLogin
 {
-
     public $auth;
 
 
@@ -16,7 +15,7 @@ abstract class ASocialLogin
         $this->auth = $auth;
     }
 
-    
+
     public function getPermission()
     {
         return \Socialite::with($this::PROVIDER)->redirect();

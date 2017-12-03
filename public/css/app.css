@@ -37,10 +37,6 @@ body .charis-panel .extra-padding {
   padding-top: 14px;
 }
 
-body .charis-panel .gutter-left-plus {
-  padding-left: 1.8em;
-}
-
 body .charis-panel .mobile-separator {
   margin-top: 2em;
 }
@@ -1985,6 +1981,11 @@ pre code {
 }
 
 .form-control:-ms-input-placeholder {
+  color: #868e96;
+  opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
   color: #868e96;
   opacity: 1;
 }
@@ -12584,10 +12585,6 @@ body .charis-panel .extra-padding {
   padding-top: 14px;
 }
 
-body .charis-panel .gutter-left-plus {
-  padding-left: 1.8em;
-}
-
 body .charis-panel .mobile-separator {
   margin-top: 2em;
 }
@@ -12612,6 +12609,10 @@ body .text-align-right {
 
   body .charis-panel .padding-right-zero {
     padding-right: 0;
+  }
+
+  body .charis-panel .gutter-left-plus {
+    padding-left: 1.8em;
   }
 }
 
