@@ -101,24 +101,11 @@ Route::group(['middleware' => 'web'], function () {
     //     ]
     // );
 
+
     // Login social
     Route::group(['prefix' => 'login'], function() {
-
-        Route::group(['prefix' => 'facebook'], function() {
-            Route::get('/', ['as' => 'facebook.login', 'uses' => '\Charis\SocialLogin\SocialLoginFacebook@getPermission']);
-            Route::get('callback', ['as' => 'facebook.callback', 'uses' => '\Charis\SocialLogin\SocialLoginFacebook@callback']);
-        });
-
-        Route::group(['prefix' => 'google'], function() {
-            Route::get('/', ['as' => 'google.login', 'uses' => '\Charis\SocialLogin\SocialLoginGoogle@getPermission']);
-            Route::get('callback', ['as' => 'google.callback', 'uses' => '\Charis\SocialLogin\SocialLoginGoogle@callback']);
-        });
-
-        Route::group(['prefix' => 'linkedin'], function() {
-            Route::get('/', ['as' => 'linkedin.login', 'uses' => '\Charis\SocialLogin\SocialLoginLinkedin@getPermission']);
-            Route::get('callback', ['as' => 'linkedin.callback', 'uses' => '\Charis\SocialLogin\SocialLoginLinkedin@callback']);
-        });
-
+        Route::get('{provider}', '\Charis\SocialLogin\SocialLogin@getPermission')->name('social.login');
+        Route::get('{provider}/callback', '\Charis\SocialLogin\SocialLogin@callback')->name('social.callback');
     });
 
 });

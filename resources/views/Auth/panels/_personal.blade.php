@@ -9,7 +9,7 @@
 
     <div class="col-xl-4 extra-padding padding-right-zero">
 
-      <a href="{{ route('facebook.login') }}" class="btn
+      <a href="{{ route('social.login', 'facebook') }}" class="btn
                         btn-default
                         btn-block
                         btn-charis
@@ -19,7 +19,7 @@
         Login com Facebook
       </a>
 
-      <a href="{{ route('linkedin.login') }}" class="btn
+      <a href="{{ route('social.login', 'linkedin') }}" class="btn
                          btn-default
                          btn-block
                          btn-charis
@@ -29,7 +29,7 @@
         Login com Linkedin
       </a>
 
-      <a href="{{ route('google.login') }}" class="btn
+      <a href="{{ route('social.login', 'google') }}" class="btn
                          btn-default
                          btn-block
                          btn-charis
@@ -75,7 +75,7 @@
               <strong>{{ $errors->first('password') }}</strong>
             </span>
           @endif
-              
+
         </div>
 
         <small><a href="#" class="right">Esqueci minha senha</a></small>
@@ -85,7 +85,7 @@
         </div>
 
         {{ csrf_field() }}
-        
+
 
       </form>
     </div>
