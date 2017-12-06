@@ -24,19 +24,6 @@ body .charis-panel h2 {
   padding: 1em 0;
 }
 
-body .charis-panel .form-group {
-  margin-top: 12px;
-  margin-bottom: 0;
-}
-
-body .charis-panel .form-group:first-child {
-  margin-top: 0;
-}
-
-body .charis-panel .extra-padding {
-  padding-top: 14px;
-}
-
 body .charis-panel .mobile-separator {
   margin-top: 2em;
 }
@@ -12525,6 +12512,10 @@ h3 {
   transform: rotateY(0);
 }
 
+body .form-group {
+  margin-bottom: 12px;
+}
+
 body .form-group input.form-control-charis {
   border-radius: 5px;
   border-width: 2px;
@@ -12572,19 +12563,6 @@ body .charis-panel h2 {
   padding: 1em 0;
 }
 
-body .charis-panel .form-group {
-  margin-top: 12px;
-  margin-bottom: 0;
-}
-
-body .charis-panel .form-group:first-child {
-  margin-top: 0;
-}
-
-body .charis-panel .extra-padding {
-  padding-top: 14px;
-}
-
 body .charis-panel .mobile-separator {
   margin-top: 2em;
 }
@@ -12597,22 +12575,26 @@ body .text-align-right {
   text-align: right;
 }
 
+@media (min-width: 1199px) {
+  body .charis-panel .mobile-separator {
+    margin-top: 0;
+  }
+}
+
 @media (min-width: 767px) {
   body .charis-panel {
     margin: 5em 0;
     padding: 1.5em;
   }
+}
 
-  body .charis-panel .mobile-separator {
-    margin-top: 0;
-  }
-
-  body .charis-panel .padding-right-zero {
+@media (min-width: 1199px) {
+  .charis-panel .gambi-padding-right-0 {
     padding-right: 0;
   }
 
-  body .charis-panel .gutter-left-plus {
-    padding-left: 1.8em;
+  .charis-panel .gambi-extra-padding-left {
+    padding-left: 1.6em;
   }
 }
 

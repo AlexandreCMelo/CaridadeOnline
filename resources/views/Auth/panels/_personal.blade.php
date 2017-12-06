@@ -5,9 +5,9 @@
 
   <p>Após criar uma conta, você precisa confirmar ela no email que recebeu.</p>
 
-  <div class="row extra-padding">
+  <div class="row">
 
-    <div class="col-xl-4 extra-padding padding-right-zero">
+    <div class="col-xl-4 gambi-padding-right-0">
 
       <a href="{{ route('social.login', 'facebook') }}" class="btn
                         btn-default
@@ -41,7 +41,7 @@
 
     </div>
 
-    <div class="col-xl-8 text-align-right mobile-separator gutter-left-plus extra-padding">
+    <div class="col-xl-8 text-align-right mobile-separator gambi-extra-padding-left">
       <form class="" action="{{ route('login') }}" method="post">
 
 

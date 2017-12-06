@@ -4,7 +4,7 @@
 
   <p>Caso tenha uma empresa e queira fazer parte do Caridade Online, é necessário ter em mãos CNPJ e ser responsável por ela. Preencha abaixo o formulário para iniciar.</p>
 
-  <form class="extra-padding text-align-right" action="index.html" method="post">
+  <form class="text-align-right" action="index.html" method="post">
 
     <div class="form-group">
       <input type="text" class="form-control form-control-charis" id="" placeholder="Email principal">
