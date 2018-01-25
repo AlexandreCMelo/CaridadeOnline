@@ -101,33 +101,11 @@ Route::group(['middleware' => 'web'], function () {
     //     ]
     // );
 
+
     // Login social
     Route::group(['prefix' => 'login'], function() {
-
-        Route::group(['prefix' => 'facebook'], function() {
-
-            Route::get('/', ['as' => 'facebook.login', 'uses' => 'Auth\Social\SocialAuthFacebook@getPermission']);
-
-            Route::get('callback', ['as' => 'facebook.callback', 'uses' => 'Auth\Social\SocialAuthFacebook@callback']);
-
-        });
-
-        Route::group(['prefix' => 'google'], function() {
-
-            Route::get('/', ['as' => 'google.login', 'uses' => 'Auth\Social\SocialAuthGoogle@getPermission']);
-
-            Route::get('callback', ['as' => 'google.callback', 'uses' => 'Auth\Social\SocialAuthGoogle@callback']);
-
-        });
-
-        Route::group(['prefix' => 'linkedin'], function() {
-
-            Route::get('/', ['as' => 'linkedin.login', 'uses' => 'Auth\Social\SocialAuthLinkedin@getPermission']);
-
-            Route::get('callback', ['as' => 'linkedin.callback', 'uses' => 'Auth\Social\SocialAuthLinkedin@callback']);
-
-        });
-
+        Route::get('{provider}', '\Charis\SocialLogin\SocialLogin@getPermission')->name('social.login');
+        Route::get('{provider}/callback', '\Charis\SocialLogin\SocialLogin@callback')->name('social.callback');
     });
 
 });

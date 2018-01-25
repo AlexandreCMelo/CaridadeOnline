@@ -5,11 +5,11 @@
 
   <p>Após criar uma conta, você precisa confirmar ela no email que recebeu.</p>
 
-  <div class="row extra-padding">
+  <div class="row">
 
-    <div class="col-xl-4 extra-padding padding-right-zero">
+    <div class="col-xl-4 gambi-padding-right-0">
 
-      <a href="{{ route('facebook.login') }}" class="btn
+      <a href="{{ route('social.login', 'facebook') }}" class="btn
                         btn-default
                         btn-block
                         btn-charis
@@ -19,7 +19,7 @@
         Login com Facebook
       </a>
 
-      <a href="{{ route('linkedin.login') }}" class="btn
+      <a href="{{ route('social.login', 'linkedin') }}" class="btn
                          btn-default
                          btn-block
                          btn-charis
@@ -29,7 +29,7 @@
         Login com Linkedin
       </a>
 
-      <a href="{{ route('google.login') }}" class="btn
+      <a href="{{ route('social.login', 'google') }}" class="btn
                          btn-default
                          btn-block
                          btn-charis
@@ -41,7 +41,7 @@
 
     </div>
 
-    <div class="col-xl-8 text-align-right mobile-separator gutter-left-plus extra-padding">
+    <div class="col-xl-8 text-align-right mobile-separator gambi-extra-padding-left">
       <form class="" action="{{ route('login') }}" method="post">
 
 
@@ -75,7 +75,7 @@
               <strong>{{ $errors->first('password') }}</strong>
             </span>
           @endif
-              
+
         </div>
 
         <small><a href="#" class="right">Esqueci minha senha</a></small>
@@ -85,7 +85,7 @@
         </div>
 
         {{ csrf_field() }}
-        
+
 
       </form>
     </div>

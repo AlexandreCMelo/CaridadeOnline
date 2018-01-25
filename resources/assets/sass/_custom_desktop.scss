@@ -1,17 +1,26 @@
 body {
+
+  @media (min-width: 1199px) {
+    .charis-panel {
+      .mobile-separator {
+        margin-top: 0;
+      }
+    }
+  }
+
+
   @media (min-width: 767px) {
 
     .charis-panel {
       margin: 5em 0;
       padding: 1.5em;
 
-      .mobile-separator {
-        margin-top: 0;
-      }
-
-      .padding-right-zero {
-        padding-right: 0;
-      }
+      // .mobile-separator {
+      //   margin-top: 0;
+      // }
     }
   }
+
+
+
 }

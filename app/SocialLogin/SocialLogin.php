@@ -5,9 +5,8 @@ namespace Charis\SocialLogin;
 use Illuminate\Contracts\Auth\Guard as Authenticator;
 use Charis\Models\User;
 
-abstract class ASocialLogin
+class SocialLogin
 {
-
     public $auth;
 
 
@@ -16,16 +15,16 @@ abstract class ASocialLogin
         $this->auth = $auth;
     }
 
-    
-    public function getPermission()
+
+    public function getPermission($provider)
     {
-        return \Socialite::with($this::PROVIDER)->redirect();
+        return \Socialite::with($provider)->redirect();
     }
 
 
-    public function callback()
+    public function callback($provider)
     {
-        $userData = \Socialite::with($this::PROVIDER)->user();
+        $userData = \Socialite::with($provider)->user();
         $user = $this->saveOrRecover($userData);
         $this->auth->login($user, true);
         return redirect(route('home'));
