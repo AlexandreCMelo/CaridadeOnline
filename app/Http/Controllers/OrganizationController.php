@@ -7,6 +7,7 @@ use Charis\Repositories\Category\CategoryRepository;
 use Charis\Repositories\Activity\ActivityRepository;
 use Charis\Repositories\Target\TargetRepository;
 use Charis\Repositories\Organization\OrganizationRepository;
+use Charis\Http\Requests\OrganizationRequest;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
@@ -19,7 +20,7 @@ class OrganizationController extends Controller
     {
         $this->organizationRepository = $organizationRepository;
 
-        $this->middleware('auth')->except(['index','show']);
+        $this->middleware('auth')->except(['index','show', 'store']);
     }
 
 
@@ -60,20 +61,20 @@ class OrganizationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(OrganizationRequest $organizationRequest)
     {
         $this->organizationRepository->add(
-          request('name'),
-          request('description'),
-          request('shortDescription'),
-          request('email'),
-          request('phone'),
-          request('website'),
-          1,
-          [],
-          request('categories'),
-          request('targets'),
-          request('activities')
+            $organizationRequest->input('name'),
+            $organizationRequest->input('description'),
+            $organizationRequest->input('shortDescription'),
+            $organizationRequest->input('email'),
+            $organizationRequest->input('phone'),
+            $organizationRequest->input('website'),
+            1,
+            [],
+            $organizationRequest->input('categories'),
+            $organizationRequest->input('targets'),
+            $organizationRequest->input('activities')
         );
 
         return redirect(route('organization.list'));
